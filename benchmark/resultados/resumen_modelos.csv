@@ -1,0 +1,4 @@
+proveedor,modelo,operaciones_totales,operaciones_exitosas,tasa_exito_pct,json_valido_primer_intento_pct,estructura_valida_primer_intento_pct,tokens_entrada_promedio_cuento,tokens_salida_promedio_cuento,tokens_totales_promedio_cuento,latencia_media_ms,latencia_mediana_ms,latencia_p95_ms,reintentos_totales,solicitudes_http_totales,costo_teorico_promedio_cuento_usd,costo_teorico_100_cuentos_usd,costo_teorico_1000_cuentos_usd,costo_efectivo_experimento_usd,es_simulado
+Google,gemini-3.8-flash,50,12,24.00,24.00,24.00,,,,12769,3736,62332,0,20,,,,,false
+Groq,qwen/qwen3.8-27b,50,7,14.00,14.00,14.00,,,,1050,269,3190,0,17,,,,,false
+Groq,openai/gpt-oss-20b,50,46,92.00,92.00,92.00,,,,765,741,950,0,47,,,,,false

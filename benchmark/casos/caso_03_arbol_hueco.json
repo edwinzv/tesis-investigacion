@@ -1,0 +1,15 @@
+{
+  "id": "caso_03_arbol_hueco",
+  "titulo": "El secreto del gran roble",
+  "genero": "fantasía / aventura",
+  "nivelEducativo": "Primaria (8-10 años)",
+  "textoFuente": "Título: El secreto del gran roble\n\nEn el bosque de las brumas se alzaba un roble milenario cuyo tronco tenía una misteriosa abertura en forma de cueva. Mateo, un niño soñador de diez años que amaba dibujar criaturas fantásticas, caminaba cerca de los arbustos cuando escuchó un quejido suave que provenía del interior del árbol. Las leyendas del pueblo decían que en aquel roble habitaban espíritus traviesos, pero Mateo venció el miedo impulsado por su noble corazón.\n\nEncendió su linterna de explorador y se asomó con cautela al hueco de madera. Para su sorpresa, no encontró ningún monstruo, sino a Plumas, un joven búho plateado que tenía un ala enredada entre zarzas espinosas y no podía volar a su nido. Con mucha paciencia, Mateo desató las espinas sin lastimarlo, acomodó al ave sobre un lecho de musgo fresco y le ofreció unas gotas de agua fresca. Agradecido, el búho batió sus alas y emitió un silbido musical que resonó por todo el bosque. El gran roble pareció iluminarse con destellos dorados y Mateo regresó a casa sonriendo, guardando en su libreta el recuerdo de su valiente rescate.",
+  "protagonistaBase": "Mateo, un niño soñador de diez años que lleva un cuaderno de dibujo y linterna",
+  "decisionesFijas": [
+    "Encender la linterna de explorador y asomarse al hueco del tronco",
+    "Desatar con paciencia las zarzas espinosas del ala del búho plateado",
+    "Acomodar al ave en un lecho de musgo fresco y ofrecerle agua de la cantimplora"
+  ],
+  "origenTexto": "caso textual controlado que simula el texto extraído de una lectura PDF",
+  "esTextoEmpiricoPdf": false
+}

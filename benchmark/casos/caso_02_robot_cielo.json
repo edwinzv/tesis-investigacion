@@ -1,0 +1,15 @@
+{
+  "id": "caso_02_robot_cielo",
+  "titulo": "El pequeño vigilante del cielo",
+  "genero": "ciencia ficción / tecnología",
+  "nivelEducativo": "Primaria (8-10 años)",
+  "textoFuente": "Título: El pequeño vigilante del cielo\n\nEn la cima de la colina verde funcionaba la vieja estación meteorológica del pueblo. Allí vivía Bit, un pequeño robot explorador con ruedas de goma, ojos luminosos y una antena giratoria que medía la velocidad del viento. Una mañana de primavera, el cielo se cubrió de densas nubes oscuras y la alarma de tormenta empezó a sonar sin parar. Los habitantes del valle necesitaban saber cuándo comenzaría la lluvia para resguardar las cosechas, pero la pantalla principal de la estación marcaba error en el sensor exterior.\n\nBit revisó sus circuitos y decidió actuar con valentía. Subió con cuidado por la rampa de servicio hasta el tejado mojado, donde el viento soplaba con fuerza. Al revisar el anemómetro, descubrió que una maraña de hojas húmedas y ramas finas impedía el giro de las aspas. Usando sus pinzas articuladas, retiró los restos vegetales y ajustó el mecanismo. De inmediato, las aspas giraron con agilidad y los datos atmosféricos se transmitieron a tiempo a los agricultores. La estación emitió un pitido alegre y Bit celebró con un destello en sus ojos, sabiendo que su trabajo protegió los campos del pueblo.",
+  "protagonistaBase": "Bit, un robot curioso con ruedas de goma, ojos luminosos y antena giratoria",
+  "decisionesFijas": [
+    "Subir con cuidado por la rampa de servicio hasta el tejado de la estación",
+    "Limpiar las hojas húmedas y ramas finas que bloqueaban las aspas del anemómetro",
+    "Ajustar el mecanismo del sensor para transmitir los datos meteorológicos a los agricultores"
+  ],
+  "origenTexto": "caso textual controlado que simula el texto extraído de una lectura PDF",
+  "esTextoEmpiricoPdf": false
+}

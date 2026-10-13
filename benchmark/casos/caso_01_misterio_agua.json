@@ -1,0 +1,15 @@
+{
+  "id": "caso_01_misterio_agua",
+  "titulo": "El misterio del río cristalino",
+  "genero": "misterio / naturaleza",
+  "nivelEducativo": "Primaria (8-10 años)",
+  "textoFuente": "Título: El misterio del río cristalino\n\nEn el valle de San Lorenzo, el agua del río cristalino de pronto dejó de cantar y su corriente se volvió lenta. Sofía, una niña curiosa de nueve años que vivía cerca del molino viejo, notó que los peces dorados nadaban desorientados y que las orillas estaban cubiertas de ramas secas. Con sus botas de hule y su inseparable lupa, Sofía decidió averiguar el origen del problema para ayudar a los animales del bosque.\n\nAl internarse entre los sauces, descubrió unas diminutas huellas húmedas que subían hacia la cascada oculta. Allí encontró a una pequeña nutria llamada Tina, que había juntado troncos para armar un dique porque temía que la corriente arrastrara a sus crías recién nacidas. Sofía comprendió su preocupación y le habló con cariño. Juntas diseñaron un canal secundario con piedras lisas, permitiendo que el agua volviera a correr con fuerza hacia el molino sin inundar la madriguera. Al atardecer, los peces saltaron felices bajo el sol y el río recuperó su melodía natural, dejando a toda la aldea tranquila y agradecida.",
+  "protagonistaBase": "Sofía, una niña observadora de nueve años con botas de hule y lupa",
+  "decisionesFijas": [
+    "Seguir el rastro de huellas hacia la cascada oculta",
+    "Hablar amablemente con la nutria traviesa que había construido una represa de ramas",
+    "Construir juntos un canal alternativo para que el agua del río fluya sin desarmar el refugio de la nutria"
+  ],
+  "origenTexto": "caso textual controlado que simula el texto extraído de una lectura PDF",
+  "esTextoEmpiricoPdf": false
+}

@@ -1,0 +1,15 @@
+{
+  "id": "caso_05_dragon_chispa",
+  "titulo": "El fuego tímido de Ignis",
+  "genero": "fantasía / empatía",
+  "nivelEducativo": "Primaria (8-10 años)",
+  "textoFuente": "Título: El fuego tímido de Ignis\n\nEn las colinas nevadas del valle de Piedra Alta, los aldeanos temían acercarse a las cavernas superiores debido a los rugidos que retumbaban durante las noches frías. Todos creían que allí habitaba una fiera peligrosa, pero la verdad era muy distinta: Ignis, un pequeño dragón de escamas cobrizas, vivía solitario y triste porque no lograba controlar sus chispas y temía asustar a los humanos. Además, se acercaba el invierno y la leña del pueblo estaba húmeda por las heladas.\n\nLucas, un joven aprendiz de herrero conocido por su generosidad, decidió subir a la montaña llevando una canasta de manzanas asadas como ofrenda de paz. Al entrar a la cueva, encontró a Ignis temblando en un rincón. Lucas le habló con voz calmada, compartió su comida y descubrió que el dragón solo necesitaba amigos y confianza. Juntos bajaron hasta la plaza de la aldea, donde Ignis, animado por los aplausos de los niños, encendió con precisión la gran fogata comunitaria. El calor envolvió las casas, los habitantes agradecieron su ayuda y el pequeño dragón fue nombrado con orgullo el guardián del fuego del valle.",
+  "protagonistaBase": "Ignis, un dragón tímido de escamas cobrizas que busca aceptación y amistad",
+  "decisionesFijas": [
+    "Subir a la cueva llevando una canasta de manzanas asadas como ofrenda de paz",
+    "Hablar con voz calmada al pequeño dragón y compartir la comida para ganar su confianza",
+    "Acompañar a Ignis a la plaza del pueblo para encender la gran fogata comunitaria"
+  ],
+  "origenTexto": "caso textual controlado que simula el texto extraído de una lectura PDF",
+  "esTextoEmpiricoPdf": false
+}

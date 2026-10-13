@@ -1,0 +1,16 @@
+proveedor,modelo,operacion,operaciones_totales,operaciones_exitosas,tasa_exito_pct,estructura_valida_pct,tokens_totales_promedio,latencia_media_ms,latencia_mediana_ms,costo_teorico_promedio_usd,reintentos_totales,solicitudes_http_totales,es_simulado
+Google,gemini-3.8-flash,analisis,1,1,100.00,100.00,776,98393,98393,0.001566,0,1,false
+Google,gemini-3.8-flash,escena_1,1,0,0.00,0.00,,251,251,,0,1,false
+Google,gemini-3.8-flash,escena_2,1,0,0.00,0.00,,,,,0,0,false
+Google,gemini-3.8-flash,escena_3,1,0,0.00,0.00,,,,,0,0,false
+Google,gemini-3.8-flash,escena_4,1,0,0.00,0.00,,,,,0,0,false
+Groq,qwen/qwen3.8-27b,analisis,1,1,100.00,100.00,1379,2437,2437,0.003244,0,1,false
+Groq,qwen/qwen3.8-27b,escena_1,1,1,100.00,100.00,1233,2048,2048,0.003188,0,1,false
+Groq,qwen/qwen3.8-27b,escena_2,1,0,0.00,0.00,,447,447,,0,1,false
+Groq,qwen/qwen3.8-27b,escena_3,1,0,0.00,0.00,,,,,0,0,false
+Groq,qwen/qwen3.8-27b,escena_4,1,0,0.00,0.00,,,,,0,0,false
+Groq,openai/gpt-oss-20b,analisis,1,1,100.00,100.00,1177,826,826,0.000141,0,1,false
+Groq,openai/gpt-oss-20b,escena_1,1,1,100.00,100.00,852,1019,1019,0.000113,0,1,false
+Groq,openai/gpt-oss-20b,escena_2,1,1,100.00,100.00,940,864,864,0.000125,0,1,false
+Groq,openai/gpt-oss-20b,escena_3,1,1,100.00,100.00,1090,886,886,0.000130,0,1,false
+Groq,openai/gpt-oss-20b,escena_4,1,1,100.00,100.00,1146,953,953,0.000133,0,1,false

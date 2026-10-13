@@ -1,0 +1,15 @@
+{
+  "id": "caso_04_cometa_viento",
+  "titulo": "La danza del cometa sobre las olas",
+  "genero": "vida cotidiana / superación",
+  "nivelEducativo": "Primaria (8-10 años)",
+  "textoFuente": "Título: La danza del cometa sobre las olas\n\nEn la caleta de pescadores de Puerto Sol, la brisa marina soplaba cada tarde con el aroma de la sal y la aventura. Valentina, una niña alegre de ocho años, había pasado toda la semana construyendo una gran cometa con cañas de bambú ligero, papel de arroz rojo y largas cintas de colores. Su sueño era elevarla tan alto que los pescadores pudieran verla desde sus lanchas como una señal de buena suerte.\n\nSin embargo, al llegar a la orilla del mar, el viento costero comenzó a soplar en ráfagas muy desordenadas, haciendo que la cometa girara en círculos y amenazara con estrellarse contra la arena. Valentina no se desanimó. Corrió con agilidad hacia la cima de la duna más alta, donde la corriente de aire era más constante y limpia. Con firmeza en sus manos, desenrolló el hilo de algodón, compensó el peso de la cola y esperó el momento preciso para soltarla. El viento la atrapó majestuosamente, elevándola sobre las olas como un pájaro escarlata. Los pescadores saludaron entusiasmados desde el mar y los niños de la playa aplaudieron emocionados al ver la cometa bailar en el cielo.",
+  "protagonistaBase": "Valentina, una niña perseverante de ocho años que ama el mar y los cometas",
+  "decisionesFijas": [
+    "Correr hacia la cima de la duna más alta donde el viento es más constante",
+    "Desenrollar el hilo de algodón y compensar el peso de la cola de cintas",
+    "Soltar la cometa en el momento preciso para que se eleve sobre las olas del mar"
+  ],
+  "origenTexto": "caso textual controlado que simula el texto extraído de una lectura PDF",
+  "esTextoEmpiricoPdf": false
+}

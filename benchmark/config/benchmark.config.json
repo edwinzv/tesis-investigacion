@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "descripcion": "Configuración del benchmark textual para Cuentos Mágicos",
+  "planes": {
+    "piloto": {
+      "casos": 1,
+      "repeticiones": 1,
+      "modelos": 3,
+      "operacionesPorCuento": 5,
+      "operacionesTotales": 15,
+      "carpetaResultados": "benchmark/resultados_piloto"
+    },
+    "definitivo": {
+      "casos": 5,
+      "repeticiones": 2,
+      "modelos": 3,
+      "operacionesPorCuento": 5,
+      "operacionesTotales": 150,
+      "carpetaResultados": "benchmark/resultados"
+    }
+  },
+  "politicaRetry": {
+    "maxReintentosCorrectivosContenido": 1,
+    "reintentarErroresHttp4xx": false,
+    "maxEsperaRetryAfterMs": 10000
+  },
+  "matrizEvaluacion": {
+    "pesos": {
+      "estructura": 0.25,
+      "narrativa": 0.25,
+      "adecuacion": 0.20,
+      "tiempo": 0.20,
+      "costo": 0.10
+    },
+    "reglasPuntuacionEstructura": {
+      "5": 100.0,
+      "4": 95.0,
+      "3": 90.0,
+      "2": 80.0,
+      "1": 0.0
+    }
+  }
+}

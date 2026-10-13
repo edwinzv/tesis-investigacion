@@ -1,0 +1,4 @@
+proveedor,modelo,caso,repeticion,operaciones_totales,operaciones_exitosas,tokens_entrada_cuento,tokens_salida_cuento,tokens_razonamiento_cuento,tokens_totales_cuento,tiempo_total_ms,costo_teorico_cuento_usd,costo_efectivo_cuento_usd,errores,reintentos,solicitudes_http_totales,cuento_completo_exitoso,es_simulado
+Google,gemini-3.8-flash,caso_01_misterio_agua,1,5,5,2329,1190,0,3519,445826,0.006209,,0,0,5,true,false
+Groq,qwen/qwen3.8-27b,caso_01_misterio_agua,1,5,5,3796,4399,2853,8195,13343,0.020633,,0,0,5,true,false
+Groq,openai/gpt-oss-20b,caso_01_misterio_agua,1,5,5,4089,1177,45,5266,4969,0.000660,,0,0,5,true,false

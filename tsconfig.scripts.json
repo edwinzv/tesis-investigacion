@@ -1,4 +1,4 @@
-{
+﻿{
   "compilerOptions": {
     "target": "ES2022",
     "module": "NodeNext",
@@ -11,6 +11,6 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true
   },
-  "include": ["scripts/**/*.ts"],
+  "include": ["scripts/**/*.ts", "benchmark/**/*.ts"],
   "exclude": ["node_modules", "supabase", "build", ".dart_tool"]
 }

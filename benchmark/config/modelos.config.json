@@ -1,0 +1,99 @@
+﻿{
+  "modelos": [
+    {
+      "id": "gemini-3.8-flash",
+      "proveedor": "Google",
+      "nombre": "Gemini 3.8 Flash",
+      "modelo": "gemini-3.8-flash",
+      "api": "Gemini Developer API",
+      "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "variableEntorno": "GEMINI_API_KEY",
+      "tarifas": {
+        "inputUsdPorMillon": 0.75,
+        "outputUsdPorMillon": 3.75,
+        "vigenteHasta": "2026-12-31",
+        "fechaConsulta": "2026-10-09",
+        "fuente": "Google AI Gemini 3.8 Flash / Pricing"
+      },
+      "freeTier": {
+        "disponible": true,
+        "descripcion": "Free Tier en Google AI Studio sujeto a limites de RPM/RPD",
+        "fechaConsulta": "2026-10-09",
+        "fuente": "Google AI Gemini 3.8 Flash / Pricing"
+      },
+      "configuracion": {
+        "thinkingConfig": {
+          "thinkingLevel": "low"
+        },
+        "responseMimeType": "application/json"
+      }
+    },
+    {
+      "id": "qwen3.8-27b",
+      "proveedor": "Groq",
+      "nombre": "Qwen 3.8 27B",
+      "modelo": "qwen/qwen3.8-27b",
+      "api": "GroqCloud API compatible con Chat Completions",
+      "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+      "modelsEndpoint": "https://api.groq.com/openai/v1/models",
+      "variableEntorno": "GROQ_API_KEY",
+      "tarifas": {
+        "inputUsdPorMillon": 0.80,
+        "outputUsdPorMillon": 4.00,
+        "fechaConsulta": "2026-10-09",
+        "fuente": "https://console.groq.com/docs/model/qwen/qwen3.8-27b"
+      },
+      "freeTier": {
+        "disponible": true,
+        "limitesAproximados": {
+          "rpm": 30,
+          "rpd": 1000,
+          "tpm": 8000,
+          "tpd": 200000
+        },
+        "fechaConsulta": "2026-10-09",
+        "fuente": "https://console.groq.com/docs/model/qwen/qwen3.8-27b"
+      },
+      "configuracion": {
+        "reasoning_effort": "low",
+        "reasoning_format": "hidden",
+        "structured_output_mode": "json_schema"
+      }
+    },
+    {
+      "id": "gpt-oss-20b",
+      "proveedor": "Groq",
+      "nombre": "GPT-OSS 20B",
+      "modelo": "openai/gpt-oss-20b",
+      "api": "GroqCloud API compatible con Chat Completions",
+      "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+      "modelsEndpoint": "https://api.groq.com/openai/v1/models",
+      "variableEntorno": "GROQ_API_KEY",
+      "tarifas": {
+        "inputUsdPorMillon": 0.075,
+        "outputUsdPorMillon": 0.30,
+        "cachedInputUsdPorMillon": 0.037,
+        "fechaConsulta": "2026-10-09",
+        "fuente": "GroqDocs GPT OSS 20B / Groq Official Pricing"
+      },
+      "freeTier": {
+        "disponible": true,
+        "limitesAproximados": {
+          "rpm": 30,
+          "rpd": 1000,
+          "tpm": 8000,
+          "tpd": 200000
+        },
+        "fechaConsulta": "2026-10-09",
+        "fuente": "GroqDocs Rate Limits"
+      },
+      "configuracion": {
+        "reasoning_effort": "low",
+        "reasoning_format": "hidden",
+        "structured_output_mode": "json_schema",
+        "contextWindow": 131072,
+        "maxOutputTokens": 65536
+      }
+    }
+  ]
+}
