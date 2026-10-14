@@ -3,11 +3,11 @@ import assert from 'node:assert/strict';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { randomUUID } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { AdaptadorModelo } from './adaptadores/base.js';
 import { ApiCallError, type RawModelResponse } from './types.js';
-import { CASOS_TEST20, MODELOS_TEST20, LimiteTest20, validarArgumentos, planTest20, ejecutarTest20, crearRegistroExclusivo, crearTransporteTest20 } from './test20.js';
-import { ejecutarOperacionIndividual } from './runner.js';
+import { CASOS_TEST20, MODELOS_TEST20, LimiteTest20, validarArgumentos, planTest20, ejecutarTest20, crearRegistroExclusivo, crearTransporteTest20, sanitizarErrorTest20 } from './test20.js';
+import { ejecutarOperacionIndividual, ErrorPersistenciaFatal } from './runner.js';
 import { SCHEMAS, validarStoryAnalysis } from './contratos.js';
 import { construirPromptAnalisis } from './prompts.js';
 
@@ -203,4 +203,133 @@ test('exclusive folder rejects reuse/traversal and interruption preserves increm
   assert.equal(events.at(-1).type,'interrupted'); assert.equal(events.at(-1).counters.total,1);
   assert.equal(events.some(e=>e.type==='complete'),false);
   assert.equal(fs.existsSync(path.join(log.dir,'ejecuciones_raw.csv')),false);
+});
+
+test('interruption after durable attempt reservation leaves no fabricated operation or success', async () => {
+  const adapters = mocks(); const events: any[] = [];
+  await assert.rejects(ejecutarTest20(adapters,casos,e=>{
+    events.push(e);
+    if ((e as any).type==='attempt_start') throw new Error('mock abrupt interruption');
+  },noSleep),ErrorPersistenciaFatal);
+  assert.equal(adapters[0].calls,0);
+  assert.equal(events[0].type,'attempt_start'); assert.equal(events[0].counters.total,1);
+  assert.equal(events.some(e=>e.type==='operation'),false);
+  assert.equal(events.at(-1).type,'interrupted');
+  assert.equal(events.at(-1).stopReason,'persistence_fatal');
+});
+
+test('one-shot attempt_response persistence failure aborts globally, preserving prior progress without completion/CSV', async () => {
+  const adapters = mocks(); const events: any[] = [];
+  const log = crearRegistroExclusivo(path.join(temp,'test20-prep-ciclo2-response-'+randomUUID()),{label:'MOCK_ONLY'},'fixture');
+  let responses = 0, csvReached = false;
+  try {
+    await assert.rejects((async ()=>{
+      await ejecutarTest20(adapters,casos,event=>{
+        if ((event as any).type==='attempt_response' && ++responses===2) throw new Error('mock single disk failure');
+        log.append(event); events.push(event);
+      },noSleep);
+      csvReached=true;
+    })(),ErrorPersistenciaFatal);
+  } finally { log.close(); }
+  assert.deepEqual(adapters.map(a=>a.calls),[2,0,0]);
+  assert.equal(csvReached,false);
+  assert.equal(events.filter(e=>e.type==='attempt_start').length,2);
+  assert.equal(events.filter(e=>e.type==='operation').length,1);
+  assert.equal(events.filter(e=>e.type==='attempt_response').length,1);
+  assert.equal(events.at(-1).stopReason,'persistence_fatal'); assert.equal(events.at(-1).counters.total,2);
+  assert.equal(events.some(e=>['complete','candidate_end','csv_derived'].includes(e.type)),false);
+  const saved=fs.readFileSync(path.join(log.dir,'events.jsonl'),'utf8').trim().split('\n').map(s=>JSON.parse(s));
+  assert.equal(saved.at(-1).stopReason,'persistence_fatal');
+  assert.equal(fs.existsSync(path.join(log.dir,'ejecuciones_raw.csv')),false);
+});
+
+for (const index of [0,1,2]) test('http_dispatch one-shot persistence failure survives adapter wrapping and aborts globally: '+MODELOS_TEST20[index], async () => {
+  const [{AdaptadorGoogle},{AdaptadorGroq},{AdaptadorGroqGptOss}] = await Promise.all([
+    import('./adaptadores/google.js'),import('./adaptadores/groq.js'),import('./adaptadores/groq_gpt_oss.js'),
+  ]);
+  const actual = [AdaptadorGoogle,AdaptadorGroq,AdaptadorGroqGptOss][index];
+  const adapter = new actual();
+  (adapter as any).obtenerApiKey = ()=>'LOCAL_MOCK_NOT_A_KEY';
+  let adapterCalls=0, transportCalls=0, dispatches=0;
+  const originalCall=adapter.ejecutarLlamada.bind(adapter);
+  adapter.ejecutarLlamada=async (...params)=>{adapterCalls++;return originalCall(...params);};
+  const adapters: AdaptadorModelo[]=mocks(); adapters[index]=adapter;
+  const events:any[]=[];
+  const log=crearRegistroExclusivo(path.join(temp,'test20-prep-ciclo2-dispatch-'+randomUUID()),{label:'MOCK_ONLY'},'fixture');
+  const originalFetch=globalThis.fetch;
+  const transport=crearTransporteTest20(async ()=>{
+    transportCalls++;
+    return new Response(JSON.stringify({candidates:[{content:{parts:[{text:JSON.stringify(analysis)}]}}],choices:[{message:{content:JSON.stringify(analysis)}}]}),{status:200});
+  },model=>{
+    if (++dispatches===2) throw new Error('mock single disk failure');
+    const e={type:'http_dispatch',model}; log.append(e); events.push(e);
+  });
+  transport.envolver(adapter); globalThis.fetch=transport.fetch;
+  let csvReached=false;
+  try {
+    await assert.rejects((async ()=>{
+      await ejecutarTest20(adapters,casos,e=>{log.append(e);events.push(e);},noSleep);
+      csvReached=true;
+    })(),ErrorPersistenciaFatal);
+    // A recovered sink cannot re-enable the failed transport, even outside the stopped runner.
+    await assert.rejects(adapter.ejecutarLlamada(construirPromptAnalisis(casos[0].textoFuente),SCHEMAS.analisis),ErrorPersistenciaFatal);
+  } finally { globalThis.fetch=originalFetch; log.close(); }
+  assert.equal(adapterCalls,2); assert.equal(transportCalls,1); assert.equal(csvReached,false);
+  for(let n=index+1;n<3;n++) assert.equal((adapters[n] as Mock).calls,0);
+  assert.equal(events.at(-1).stopReason,'persistence_fatal'); assert.equal(events.at(-1).counters.total,index*20+2);
+  assert.equal(events.some(e=>e.type==='complete'||e.type==='csv_derived'),false);
+  assert.equal(events.filter(e=>e.type==='operation').length,index*20+1);
+  assert.equal(events.filter(e=>e.type==='attempt_error_response').length,0); // No fake API-error conversion.
+  assert.equal(fs.existsSync(path.join(log.dir,'ejecuciones_raw.csv')),false);
+});
+
+const fakeBody=JSON.stringify({error:{code:'SCHEMA_REJECTED',message:'Schema diagnosis; echo FAKE_KEY_VALUE_ABC',
+  api_key:'FAKE_KEY_VALUE_ABC',password:'FAKE_PASSWORD_VALUE_ABC',nested:{authorization:'Bearer FAKE_BEARER_VALUE_ABC',access_token:'FAKE_ACCESS_VALUE_ABC'}}});
+for(const status of [429,400]) test('HTTP '+status+' persists sanitized rawBody/hash/status linked to attempt; stops only candidate',async ()=>{
+  const adapters=mocks();
+  adapters[0].ejecutarLlamada=async ()=>{
+    adapters[0].calls++;
+    throw new ApiCallError({status,categoria:status===429?'rate_limit':'invalid_request',message:'Schema diagnosis; Bearer FAKE_BEARER_VALUE_ABC; echo FAKE_KEY_VALUE_ABC',rawBody:fakeBody,latencyMs:1,isNonRetryable:true});
+  };
+  const events:any[]=[];
+  const rows=await ejecutarTest20(adapters,casos,e=>events.push(e),noSleep);
+  const errors=events.filter(e=>e.type==='attempt_error_response'); assert.equal(errors.length,1);
+  const e=errors[0]; assert.equal(e.id,events[0].id); assert.equal(e.case,CASOS_TEST20[0]); assert.equal(e.operation,'analisis');
+  assert.equal(e.response.status,status); assert.equal(e.response.category,status===429?'rate_limit':'invalid_request');
+  assert.equal(e.response.rawBodyAvailable,true); assert.equal(e.response.rawBodySha256,createHash('sha256').update(fakeBody).digest('hex'));
+  assert.equal(e.response.rawBodyBytes,Buffer.byteLength(fakeBody));
+  const body=JSON.parse(e.response.rawBody); assert.equal(body.error.code,'SCHEMA_REJECTED'); assert.match(body.error.message,/Schema diagnosis/);
+  assert.equal(body.error.api_key,'[REDACTED]'); assert.equal(body.error.password,'[REDACTED]');
+  assert.equal(e.response.sanitizationPolicy,'provider-error-v1'); assert.ok(e.response.redactions.length>=4);
+  const all=JSON.stringify({events,rows}); for(const value of ['FAKE_KEY_VALUE_ABC','FAKE_PASSWORD_VALUE_ABC','FAKE_BEARER_VALUE_ABC','FAKE_ACCESS_VALUE_ABC']) assert.equal(all.includes(value),false);
+  assert.deepEqual(adapters.map(a=>a.calls),[1,20,20]); assert.equal(rows[0].http_status,status);
+  assert.match(rows[0].error,/Schema diagnosis/); assert.equal(events.at(-1).type,'complete');
+});
+
+test('plain-text error redacts assignments and Bearer; missing and empty body remain distinguishable',()=>{
+  const error=new ApiCallError({status:400,categoria:'invalid_request',message:'provider diagnosis',rawBody:'schema rejected password="FAKE PASS VALUE" key=FAKE_QUERY_VALUE & Authorization: Bearer FAKE_BEARER_VALUE',latencyMs:1,isNonRetryable:true});
+  const clean=sanitizarErrorTest20(error);
+  assert.match(clean.rawBody!,/schema rejected/);
+  for(const value of ['FAKE PASS VALUE','FAKE_QUERY_VALUE','FAKE_BEARER_VALUE']) assert.equal(clean.rawBody!.includes(value),false);
+  assert.equal(clean.bodyFormat,'text'); assert.ok(clean.redactions.length>0);
+  error.rawBody=undefined; const missing=sanitizarErrorTest20(error); assert.equal(missing.rawBodyAvailable,false); assert.equal(missing.rawBody,null); assert.equal(missing.rawBodySha256,null);
+  error.rawBody=''; const empty=sanitizarErrorTest20(error); assert.equal(empty.rawBodyAvailable,true); assert.equal(empty.rawBody,''); assert.equal(empty.rawBodyBytes,0);
+});
+
+test('failure writing HTTP error response is fatal, not converted into mock API error',async ()=>{
+  const adapters=mocks(429); const events:any[]=[];
+  await assert.rejects(ejecutarTest20(adapters,casos,e=>{
+    if ((e as any).type==='attempt_error_response') throw new Error('one-shot disk error');
+    events.push(e);
+  },noSleep),ErrorPersistenciaFatal);
+  assert.deepEqual(adapters.map(a=>a.calls),[1,0,0]); assert.equal(events.at(-1).stopReason,'persistence_fatal');
+  assert.equal(events.some(e=>e.type==='operation'||e.type==='complete'),false);
+});
+
+test('historical callback failure remains unknown unless TEST20 fatal option enabled',async ()=>{
+  const adapter=new Mock(MODELOS_TEST20[0]);
+  const p={idEjecucion:'legacy',adaptador:adapter,caso:casos[0],repeticion:1,nombreOperacion:'analisis',prompt:construirPromptAnalisis(casos[0].textoFuente),schema:SCHEMAS.analisis,tipoContrato:'analisis' as const,validador:validarStoryAnalysis,esDryRun:false,
+    registrarRespuesta:()=>{throw new Error('mock callback failure');}};
+  const legacy=await ejecutarOperacionIndividual(p); assert.equal(legacy.error_categoria,'unknown'); assert.equal(legacy.error,'mock callback failure'); assert.equal(legacy.numero_solicitudes_http,1);
+  await assert.rejects(ejecutarOperacionIndividual({...p,propagarFallosPersistencia:true}),ErrorPersistenciaFatal);
 });

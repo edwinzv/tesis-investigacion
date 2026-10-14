@@ -140,6 +140,9 @@ Desde la raíz del repositorio, usando exclusivamente el ejecutable local existe
 & .\node_modules\.bin\tsx.cmd --test benchmark/src/test20.test.ts
 ```
 
+Estas garantías SAFE corresponden a `--test20` (con o sin `--dry-run`), no al
+`--dry-run` histórico invocado solo, que conserva su flujo previo.
+
 **Comando real propuesto, NO ejecutado ni autorizado por TEST20-PREP:**
 `& .\node_modules\.bin\tsx.cmd benchmark/run_benchmark.ts --test20 --execute-test20 --budget-validated-external`.
 Requiere autorización futura y validación exterior de presupuesto/cuota. La última
@@ -165,3 +168,32 @@ existente y campos económicos/gratuidad vacíos (unknown). No genera C2/C3, C5,
 agregaciones, matriz, muestras ciegas ni cambia protocolo o resultados históricos.
 Argumentos desconocidos, duplicados y combinaciones incompatibles se rechazan antes
 de cargar entorno; los modos válidos pilot/full conservan su flujo existente.
+
+Los contadores del cap son reservas conservadoras antes del adaptador: una excepción
+local previa a fetch también ocupa reserva. `http_dispatch` distingue las solicitudes
+entregadas al transporte; una interrupción entre registro y envío no acredita recepción
+remota. El CSV conserva el contador de intentos del runner histórico. No se declara
+facturación ni ejecución remota a partir de esas reservas.
+
+### Ciclo 2 — persistencia fatal y errores HTTP
+
+En TEST20, fallar una escritura de evidencia aborta globalmente: no se invocan
+operaciones/candidatos posteriores ni se alcanza `complete` o la derivación CSV.
+Esto incluye `attempt_response` y `http_dispatch` antes del envío; el transporte
+conserva el fallo fatal aunque un adaptador lo envuelva como error de API.
+El evento final de interrupción/fatal es best-effort: si el almacenamiento sigue
+fallando no se garantiza su escritura; permanecen los eventos ya sincronizados.
+El runner histórico conserva su manejo anterior fuera de la opción TEST20.
+
+`attempt_error_response` vincula id/modelo/caso/operación con status, categoría,
+mensaje y cuerpo de error disponible del proveedor. `provider-error-v1` redacta
+campos JSON sensibles (key/api_key/password/secret/authorization/tokens), Bearer,
+asignaciones textuales y patrones de credenciales conocidos, incluidas repeticiones
+de esos valores en mensajes. Conserva diagnósticos no sensibles, metadatos de
+redacción y SHA-256/longitud UTF-8 del cuerpo original recibido; no persiste el
+original sin sanear ni consulta entorno, claves o request headers. El mensaje de
+la operación/CSV también se sanea. Un cuerpo ausente queda distinto de uno vacío.
+La redacción es por patrones, no garantía de reconocer credenciales arbitrarias
+sin etiquetas; el hash no permite reconstruir/verificar el cuerpo sin disponer de
+él y no sustituye una copia cruda. No añade llamadas, retries ni cambios de planes.
+Dos hallazgos corregidos por el editor; segunda revisión independiente pendiente.

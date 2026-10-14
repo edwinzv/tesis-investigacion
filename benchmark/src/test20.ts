@@ -3,8 +3,8 @@ import * as path from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import type { AdaptadorModelo } from './adaptadores/base.js';
-import type { CasoEstudio, ResultadoOperacion, StoryAnalysis } from './types.js';
-import { crearResultadoDependenciaFallida, ejecutarOperacionIndividual, type OperacionParams } from './runner.js';
+import type { ApiCallError, CasoEstudio, ResultadoOperacion, StoryAnalysis } from './types.js';
+import { crearResultadoDependenciaFallida, ejecutarOperacionIndividual, ErrorPersistenciaFatal, type OperacionParams } from './runner.js';
 import { SCHEMAS, validarStoryAnalysis, validarEscenaIntermedia, validarEscenaFinal } from './contratos.js';
 import { construirPromptAnalisis, construirPromptEscena1, construirPromptEscenaIntermedia, construirPromptEscenaFinal } from './prompts.js';
 import { exportarEjecucionesCsv } from './reportes.js';
@@ -13,6 +13,66 @@ export const CASOS_TEST20 = ['caso_01_misterio_agua', 'caso_02_robot_cielo', 'ca
 export const MODELOS_TEST20 = ['gemini-3.8-flash', 'qwen/qwen3.8-27b', 'openai/gpt-oss-20b'];
 const OPERACIONES = ['analisis', 'escena_1', 'escena_2', 'escena_3', 'escena_4'];
 const LABEL = 'ENSAYOOPERATIVOREDUCIDO';
+
+// Only provider-returned error text is inspected; never request headers, URLs or process.env.
+export function sanitizarErrorTest20(error: ApiCallError) {
+  const redactions: {kind: string; path: string}[] = [];
+  const secrets = new Set<string>();
+  const sensitiveKey = (key: string) => /^(?:key|apikey|password|passwd|pwd|secret|clientsecret|authorization|proxyauthorization|token|accesstoken|refreshtoken|idtoken|credential|credentials)$/.test(key.toLowerCase().replace(/[^a-z0-9]/g, ''));
+  const remember = (value: unknown): void => {
+    if (typeof value === 'string' && value) secrets.add(value);
+    else if (Array.isArray(value)) value.forEach(remember);
+    else if (value && typeof value === 'object') Object.values(value).forEach(remember);
+  };
+  const scrub = (text: string, location: string) => {
+    let clean = text.replace(/\bBearer\s+[A-Za-z0-9._~+\/%=-]+/gi, value => {
+      secrets.add(value.replace(/^Bearer\s+/i, ''));
+      redactions.push({kind: 'bearer', path: location}); return 'Bearer [REDACTED]';
+    });
+    clean = clean.replace(/((?:["']?)(?:api[_-]?key|key|password|passwd|pwd|secret|client[_-]?secret|authorization|access[_-]?token|refresh[_-]?token|id[_-]?token|token)(?:["']?)\s*[:=]\s*)("[^"]*"|'[^']*'|[^\s&,;<>"']+)/gi, (_match, prefix: string, value: string) => {
+      remember(value.replace(/^["']|["']$/g, ''));
+      redactions.push({kind: 'named_assignment', path: location}); return prefix + '[REDACTED]';
+    });
+    clean = clean.replace(/\b(?:sk-[A-Za-z0-9_-]{8,}|gsk_[A-Za-z0-9_-]{8,}|AIza[A-Za-z0-9_-]{20,})\b/g, value => {
+      remember(value); redactions.push({kind: 'credential_pattern', path: location}); return '[REDACTED]';
+    });
+    return clean;
+  };
+  const bodyAvailable = typeof error.rawBody === 'string';
+  let parsed: any;
+  let isJson = false;
+  if (bodyAvailable) { try { parsed = JSON.parse(error.rawBody!); isJson = true; } catch {} }
+  const redactFields = (value: any, location: string): any => {
+    if (Array.isArray(value)) return value.map((v, i) => redactFields(v, location + '[' + i + ']'));
+    if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key, v]) => {
+      const fieldPath = location + '.' + key;
+      if (sensitiveKey(key) && v !== null) {
+        remember(v); redactions.push({kind: 'sensitive_field', path: fieldPath}); return [key, '[REDACTED]'];
+      }
+      return [key, redactFields(v, fieldPath)];
+    }));
+    return typeof value === 'string' ? scrub(value, location) : value;
+  };
+  const body = isJson ? JSON.stringify(redactFields(parsed, 'rawBody')) : bodyAvailable ? scrub(error.rawBody!, 'rawBody') : null;
+  const message = scrub(error.message, 'message');
+  // Also remove echoed credential values from diagnostic strings outside sensitive fields.
+  const removeEchoes = (text: string | null, location: string) => {
+    if (text === null) return null;
+    for (const secret of [...secrets].sort((a, b) => b.length - a.length)) {
+      const escaped = secret.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const pattern = new RegExp(secret.length < 4 ? '\\b' + escaped + '\\b' : escaped, 'g');
+      text = text.replace(pattern, () => { redactions.push({kind: 'credential_echo', path: location}); return '[REDACTED]'; });
+    }
+    return text;
+  };
+  return {
+    status: error.status ?? null, category: error.categoria, message: removeEchoes(message, 'message')!,
+    rawBody: removeEchoes(body, 'rawBody'), rawBodyAvailable: bodyAvailable,
+    rawBodySha256: bodyAvailable ? createHash('sha256').update(error.rawBody!, 'utf8').digest('hex') : null,
+    rawBodyBytes: bodyAvailable ? Buffer.byteLength(error.rawBody!, 'utf8') : null,
+    sanitizationPolicy: 'provider-error-v1', bodyFormat: isJson ? 'json' : bodyAvailable ? 'text' : 'unavailable', redactions,
+  };
+}
 
 export function validarArgumentos(args: string[]): void {
   const conocidos = ['--test20', '--execute-test20', '--budget-validated-external', '--dry-run', '--pilot', '--full', '--preflight', '--check-providers'];
@@ -98,20 +158,37 @@ export function crearRegistroExclusivo(parent: string, manifest: object, uid = n
   };
 }
 
-export function crearTransporteTest20(originalFetch: typeof fetch) {
+export function crearTransporteTest20(originalFetch: typeof fetch, onDispatch: (model: string) => void = () => {}) {
   let permits = 0;
+  let activeModel = '';
+  let persistenceFailure: ErrorPersistenciaFatal | null = null;
   return {
     fetch: (async (input, init) => {
+      if (persistenceFailure) throw persistenceFailure;
       if (permits !== 1) throw new Error('TEST20_UNEXPECTED_HTTP');
       permits = 0;
+      try { onDispatch(activeModel); } catch {
+        persistenceFailure = new ErrorPersistenciaFatal();
+        throw persistenceFailure;
+      }
       return originalFetch(input, {...init, redirect: 'error'});
     }) as typeof fetch,
     envolver(adaptador: AdaptadorModelo) {
       const call = adaptador.ejecutarLlamada.bind(adaptador);
       adaptador.ejecutarLlamada = async (...params) => {
+        if (persistenceFailure) throw persistenceFailure;
         if (permits !== 0) throw new Error('TEST20_CONCURRENT_ADAPTER');
         permits = 1;
-        try { return await call(...params); } finally { permits = 0; }
+        activeModel = adaptador.modelo;
+        try {
+          const response = await call(...params);
+          if (persistenceFailure) throw persistenceFailure;
+          return response;
+        } catch (error) {
+          // Adapters wrap fetch failures as ApiCallError; restore the latched fatal persistence error.
+          if (persistenceFailure) throw persistenceFailure;
+          throw error;
+        } finally { permits = 0; activeModel = ''; }
       };
     },
   };
@@ -122,6 +199,10 @@ export async function ejecutarTest20(adaptadores: AdaptadorModelo[], casos: Caso
   sleep: (ms: number) => Promise<void> = ms => new Promise(resolve => setTimeout(resolve, ms)),
   limite = new LimiteTest20()) {
   if (adaptadores.map(a => a.modelo).join('|') !== MODELOS_TEST20.join('|') || casos.map(c => c.id).join('|') !== CASOS_TEST20.join('|')) throw new Error('Selección TEST20 inválida');
+  const sink = append;
+  append = event => {
+    try { sink(event); } catch { throw new ErrorPersistenciaFatal(); }
+  };
   const resultados: ResultadoOperacion[] = [];
   let id = 0;
   const emitir = (r: ResultadoOperacion, reason: string | null) => {
@@ -166,8 +247,16 @@ export async function ejecutarTest20(adaptadores: AdaptadorModelo[], casos: Caso
           // Durable reservation before entering the actual adapter; incomplete attempts remain visible on interruption.
           append({type: 'attempt_start', model: adaptador.modelo, case: caso.id, operation: common.nombreOperacion, id: common.idEjecucion, counters: limite.estado()});
           called = true;
-          const r = await ejecutarOperacionIndividual({...common, ...operation, permitirRetry: false,
-            registrarRespuesta: response => append({type: 'attempt_response', id: common.idEjecucion, response, counters: limite.estado()})});
+          let safeError: ReturnType<typeof sanitizarErrorTest20> | null = null;
+          const r = await ejecutarOperacionIndividual({...common, ...operation, permitirRetry: false, propagarFallosPersistencia: true,
+            registrarRespuesta: response => append({type: 'attempt_response', id: common.idEjecucion, response, counters: limite.estado()}),
+            registrarErrorApi: error => {
+              safeError = sanitizarErrorTest20(error);
+              append({type: 'attempt_error_response', id: common.idEjecucion, model: adaptador.modelo,
+                case: caso.id, operation: common.nombreOperacion, response: safeError, counters: limite.estado()});
+            }});
+          // Never leak the original provider error message through operation JSONL or derived CSV.
+          if (safeError) r.error = (safeError as ReturnType<typeof sanitizarErrorTest20>).message;
           if ([400, 401, 402, 403, 404, 429].includes(r.http_status ?? 0) || ['rate_limit', 'authentication', 'billing', 'model_not_found', 'invalid_request'].includes(r.error_categoria)) stop = 'HTTP_' + r.http_status + ':' + r.error_categoria;
           emitir(r, stop);
           if (stop) append({type: 'candidate_stop', model: adaptador.modelo, stopReason: stop, counters: limite.estado()});
@@ -182,7 +271,7 @@ export async function ejecutarTest20(adaptadores: AdaptadorModelo[], casos: Caso
     append({type: 'complete', counters: limite.estado(), operations: resultados.length, costs: 'unknown'});
     return resultados;
   } catch (error) {
-    append({type: 'interrupted', stopReason: 'local_exception', counters: limite.estado()});
+    try { sink({type: 'interrupted', stopReason: error instanceof ErrorPersistenciaFatal ? 'persistence_fatal' : 'local_exception', counters: limite.estado()}); } catch {}
     throw error;
   }
 }
@@ -199,8 +288,12 @@ export async function ejecutarTest20Cli(args: string[]): Promise<void> {
   const registro = crearRegistroExclusivo(path.join(root, 'benchmark/resultados_ensayo'), {...manifest, mode: 'REAL', budget: 'operator attests external budget/quota validation'});
   const limite = new LimiteTest20();
   const originalFetch = globalThis.fetch;
+  const dispatched = new Map<string, number>();
   // Exactly one direct fetch per adapter invocation. No redirect chain, catalog or hidden retries.
-  const transporte = crearTransporteTest20(originalFetch);
+  const transporte = crearTransporteTest20(originalFetch, model => {
+    dispatched.set(model, (dispatched.get(model) ?? 0) + 1);
+    registro.append({type: 'http_dispatch', model, dispatchedHttp: Object.fromEntries(dispatched), counters: limite.estado()});
+  });
   globalThis.fetch = transporte.fetch;
   const onSignal = (signal: string) => {
     try { registro.append({type: 'interrupted', stopReason: signal, counters: limite.estado()}); } finally { registro.close(); process.exit(130); }
@@ -226,7 +319,7 @@ export async function ejecutarTest20Cli(args: string[]): Promise<void> {
     registro.append({type: 'csv_derived', file: 'ejecuciones_raw.csv'});
     console.log(registro.dir);
   } catch (error) {
-    registro.append({type: 'fatal', stopReason: 'local_exception', counters: limite.estado()});
+    try { registro.append({type: 'fatal', stopReason: error instanceof ErrorPersistenciaFatal ? 'persistence_fatal' : 'local_exception', counters: limite.estado()}); } catch {}
     throw error;
   } finally {
     globalThis.fetch = originalFetch;

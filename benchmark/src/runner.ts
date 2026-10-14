@@ -399,6 +399,16 @@ export interface OperacionParams {
   esDryRun: boolean;
   permitirRetry?: boolean;
   registrarRespuesta?: (response: unknown) => void;
+  registrarErrorApi?: (error: ApiCallError) => void;
+  propagarFallosPersistencia?: boolean;
+}
+
+export class ErrorPersistenciaFatal extends Error {
+  constructor() {
+    // Do not expose filesystem errors, provider bodies or credentials in fatal diagnostics.
+    super('TEST20_PERSISTENCE_FATAL');
+    this.name = 'ErrorPersistenciaFatal';
+  }
 }
 
 export async function ejecutarOperacionIndividual(p: OperacionParams): Promise<ResultadoOperacion> {
@@ -506,7 +516,10 @@ export async function ejecutarOperacionIndividual(p: OperacionParams): Promise<R
     numeroSolicitudesHttp++;
     try {
       rawResp = await p.adaptador.ejecutarLlamada(promptActual, p.schema, p.tipoContrato);
-      p.registrarRespuesta?.(rawResp);
+      try { p.registrarRespuesta?.(rawResp); } catch (error) {
+        if (p.propagarFallosPersistencia) throw new ErrorPersistenciaFatal();
+        throw error;
+      }
       httpStatus = rawResp.status;
       tiempoMsAcumulado += rawResp.latencyMs;
 
@@ -540,7 +553,10 @@ export async function ejecutarOperacionIndividual(p: OperacionParams): Promise<R
         }
       }
     } catch (errApi: any) {
+      if (p.propagarFallosPersistencia && errApi instanceof ErrorPersistenciaFatal) throw errApi;
       if (errApi instanceof ApiCallError) {
+        // This callback runs outside the inference try: persistence errors cannot become API errors.
+        p.registrarErrorApi?.(errApi);
         httpStatus = errApi.status !== undefined ? errApi.status : 0;
         tiempoMsAcumulado += errApi.latencyMs;
         errorCategoria = errApi.categoria;
