@@ -1,0 +1,83 @@
+{
+  "caso": "caso_02_robot_cielo",
+  "repeticion": 3,
+  "modelo": "gemini-3.5-flash-lite",
+  "titulo": "Bit y el Gran Riesgo de la Tormenta",
+  "protagonista": "Bit",
+  "descripcionProtagonista": "Un pequeño robot explorador con ruedas de goma, ojos luminosos, antena giratoria y pinzas articuladas, caracterizado por su valentía y compromiso.",
+  "escenario": "La cima de la colina verde en la vieja estación meteorológica de un pueblo y su valle circundante.",
+  "conflicto": "La alarma de tormenta suena sin parar y el sensor exterior de la estación marca error, impidiendo informar a los agricultores sobre el inicio de la lluvia.",
+  "resumenAnalisis": "En una vieja estación meteorológica, el pequeño robot Bit debe enfrentar una tormenta inminente cuando la pantalla principal marca un error. Con valentía, sube al tejado para limpiar el sensor exterior bloqueado por ramas y hojas. Gracias a su rápida intervención, los datos atmosféricos llegan a tiempo para salvar las cosechas del valle.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "El viento sopla con fuerza sobre la vieja estación meteorológica del valle. La alarma anti tormenta no para de sonar con un pitido molesto y urgente. Bit, el pequeño robot explorador de brillantes ojos luminosos, gira su antena intentando captar la señal, pero el sensor principal está completamente bloqueado por unas hojas metálicas oxidadas. Los agricultores dependen de este aviso para proteger sus cosechas antes de que empiece el aguacero. Bit ajusta sus pinzas articuladas y mira hacia arriba con valentía, listo para iniciar su misión y reparar el sistema antes de que sea demasiado tarde.",
+      "opcionesPresentadas": [
+        "Subir con cuidado por la rampa de servicio hasta el tejado de la estación",
+        "Buscar una escalera manual en el cobertizo trasero",
+        "Pedir ayuda a los pájaros mecánicos del bosque cercano"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 2594,
+        "tokensEntrada": 320,
+        "tokensSalida": 186,
+        "costoUsd": 0.000561
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Bit avanza con paso firme sobre la rampa de servicio metálica. El viento sopla con intensidad, haciendo que sus pequeñas ruedas zumben al esforzarse contra la corriente. Gotas de lluvia fría empiezan a caer, salpicando su carcasa brillante. Al llegar a la cima del tejado, la gran veleta y el anemómetro giran descontroladamente. Las hojas metálicas oxidadas que bloqueaban el sistema están justo delante, vibrando con furia debido a la tormenta que se avecina. Bit extiende sus pinzas con precisión quirúrgica, evaluando la mejor forma de actuar antes de que el mecanismo sufra daños irreparables.",
+      "opcionesPresentadas": [
+        "Limpiar las hojas húmedas y ramas finas que bloqueaban las aspas del anemómetro",
+        "Usar el soplador de aire caliente integrado para secar y desatascar el eje principal",
+        "Golpear suavemente la estructura con la pinza para liberar el mecanismo atascado"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 2372,
+        "tokensEntrada": 368,
+        "tokensSalida": 213,
+        "costoUsd": 0.0006429
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Bit estira con cuidado sus pinzas articuladas y comienza a retirar, una a una, las pesadas hojas húmedas y las ramas que trababan el movimiento del anemómetro. Conforme los restos oxidados caen al suelo del tejado, las aspas metálicas empiezan a girar con una velocidad vertiginosa impulsadas por el fuerte viento. Los ojos luminosos de Bit parpadean en señal de victoria al comprobar que el sistema vuelve a tener movilidad. Sin embargo, el pitido de la alarma en el interior de la estación sigue sonando con urgencia, indicando que la transmisión de datos todavía no ha llegado a los campos de los agricultores.",
+      "opcionesPresentadas": [
+        "Ajustar el mecanismo del sensor para transmitir los datos meteorológicos a los agricultores",
+        "Usar su foco principal para hacer señales de luz hacia el valle",
+        "Descender rápidamente por la rampa para comprobar el panel de control interior"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 2574,
+        "tokensEntrada": 528,
+        "tokensSalida": 201,
+        "costoUsd": 0.0006609000000000001
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Con sus pinzas delicadas y precisas, Bit gira la pequeña tuerca dorada del codificador central y pulsa el botón de retransmisión de emergencia. Un haz de luz azul, brillante y firme, se dispara desde la antena directamente hacia el valle, atravesando las nubes oscuras. En los campos de abajo, las pantallas de los agricultores parpadean al recibir el aviso justo a tiempo, permitiéndoles proteger sus cosechas antes de que la lluvia caiga con fuerza. Los ojos de Bit brillan con una cálida luz dorada de satisfacción. Ha comprendido que, por muy pequeño que uno sea, con ingenio, valentía y deseos de ayudar, siempre se pueden lograr grandes cosas y cuidar a los demás.",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 2759,
+        "tokensEntrada": 621,
+        "tokensSalida": 177,
+        "costoUsd": 0.0006288
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 10299,
+    "tokensEntradaTotales": 1837,
+    "tokensSalidaTotales": 777,
+    "costoTotalUsd": 0.0024936
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "caso": "caso_03_arbol_hueco",
+  "repeticion": 2,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "El rescate en el roble mágico",
+  "protagonista": "Mateo",
+  "descripcionProtagonista": "Mateo es un niño de diez años soñador, valiente y compasivo, que ama dibujar criaturas fantásticas.",
+  "escenario": "El bosque de las brumas, con un roble milenario que tiene una abertura en forma de cueva.",
+  "conflicto": "Mateo debe superar su miedo a los espíritus y a lo desconocido para entrar en el roble, donde encuentra a un búho atrapado en zarzas espinosas.",
+  "resumenAnalisis": "El soñador Mateo escucha un quejido proveniente de un misterioso roble milenario. Al entrar, descubre a Plumas, un búho atrapado en zarzas. Con paciencia y cuidado, Mateo libera al ave, quien lo agrada con una silbido musical mientras el árbol se ilumina.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "El sol se escondeía tras las ramas del bosque de las brumas, untando de púrpura el aire húmedo. Mateo se detuvo ante un roble colosal, cuya corteza rugosa parecía antigua como el tiempo. En su base, una abertura oscura y misteriosa lo invitaba con un susurro tenue. Su corazón latía con fuerza; los cuentos que había escuchado sobre espíritus inquietos que guardaban celosamente sus secretos se le agolparon en la mente. Iba a entrar para dibujar lo que hubiera dentro, pero un escaló",
+      "opcionesPresentadas": [
+        "Encender la linterna de explorador y asomarse al hueco del tronco",
+        "Retirarse lentamente para que su corazón deje de latir con tanta fuerza",
+        "Tocar suavemente la corteza del árbol para preguntarle si puede pasar"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1087,
+        "tokensEntrada": 478,
+        "tokensSalida": 197,
+        "costoUsd": 0.0011704
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "El haz de luz dañado apenas servía para iluminar la penumbra, pero fue suficiente para revelar el brillo sobrenatural de una hoja amarilla cuyo texto tenía forma de mapa. El aire del interior olía a tierra húmeda y a magia antigua. De pronto, unas alas plateadas emergieron de la oscuridad, revelando un enorme búho acechando. Frente al nido, unas zarzas espinosas y enredadas bloqueaban el paso hacia un cristal resplandeciente. Mateo sintió que su corazón se aceleraba; sabía que no",
+      "opcionesPresentadas": [
+        ">>Encender la linterna de explorador y asomarse al hueco del tronco",
+        "Desatar con paciencia las zarzas espinosas del ala del búho plateado",
+        "Atesorar el mapa amarillo y retroceder por el hueco"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1019,
+        "tokensEntrada": 520,
+        "tokensSalida": 197,
+        "costoUsd": 0.001204
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Mateo sostuvo su respiración y, con dedos temblorosos pero firmes, comenzó a desatar las zarzas enredadas. El búho emitió un chillido agudo, pero no se movió. Poco a poco, las espinas se liberaron, revelando que una rama torcida había lastimado el ala izquierda del ave. El búho bajó la mirada, reconociendo quizás la cuidado de su pequeño salvador. El cristal resplandeciente, ahora libre de barreras, brillaba con una luz cálida y dorada que iluminaba el interior del roble. Mateo,噎",
+      "opcionesPresentadas": [
+        "Acomodar al ave en un lecho de musgo fresco y ofrecerle agua de la cantimplora",
+        "Escritar los símbolos del mapa directamente en la corteza del roble usando su lápiz mágico",
+        "Recolectar unas bayas brillantes que brillaban junto al cristal para intercambiar por información"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1168,
+        "tokensEntrada": 670,
+        "tokensSalida": 220,
+        "costoUsd": 0.0014160000000000002
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Mateo colocó con sumo cuidado al búho sobre el lecho de musgo y le ofreció agua. El ave bebió ansiosamente, luego alzó su ala sanada y emitió un canto melodioso que hizo vibrar el interior del roble. De repente, el cristal resplandeciente giró lentamente, revelando no un tesoro material, sino una constelación de estrellas encapsuladas que proyectaban una luz benigna sobre Mateo. El búho revoloteó suavemente y tocó la cabeza del niño con su pico, transmitiéndole una calidez inolcá",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 1086,
+        "tokensEntrada": 752,
+        "tokensSalida": 146,
+        "costoUsd": 0.0011856
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4360,
+    "tokensEntradaTotales": 2420,
+    "tokensSalidaTotales": 760,
+    "costoTotalUsd": 0.004976
+  }
+}

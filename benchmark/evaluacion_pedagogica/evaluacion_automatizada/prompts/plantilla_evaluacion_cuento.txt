@@ -1,0 +1,7 @@
+A continuación se presenta el cuento con código de evaluación ciego {{ID_CUENTO_CIEGO}} para su evaluación según la rúbrica de 4.°, 5.° y 6.° de primaria:
+
+================================================================================
+{{CONTENIDO_CUENTO}}
+================================================================================
+
+Por favor, evalúa este relato en los cinco criterios analíticos (coherencia narrativa 25%, vocabulario adecuado 20%, continuidad entre escenas 20%, pertinencia de decisiones 15%, y potencial educativo para comprensión lectora 20%) y responde EXCLUSIVAMENTE con el JSON estructurado solicitado en las instrucciones del sistema.

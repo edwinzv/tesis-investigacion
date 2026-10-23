@@ -1,0 +1,83 @@
+{
+  "caso": "caso_04_cometa_viento",
+  "repeticion": 2,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "Valentina y la Cometa Mágica",
+  "protagonista": "Valentina",
+  "descripcionProtagonista": "Una niña alegre de ocho años con determinación y agilidad.",
+  "escenario": "La caleta de pescadores de Puerto Sol, específicamente en la orilla del mar y la cima de las dunas.",
+  "conflicto": "El viento costero soplaba en ráfagas desordenadas, haciendo que la cometa girara en círculos y amenazando con estrellarse contra la arena.",
+  "resumenAnalisis": "Valentina, una niña entusiasta, construye una gran comete con la esperanza de que sea una señal de buena suerte para los pescadores. Al intentar volarla, enfrenta el desafio de un viento desordenado que casi la estrellé. Tras correr a la cima de una duna donde el aire era constante, consigue elevar la cometa exitosamente. Su esfuerzo es celebrado por los pescadores y los niños presentes en la playa.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "El sol de Puerto Sol caía dorado sobre la arena cuando Valentina sintió un tirón extraño. Su cometa, con forma de Ballena Azul, luchaba contra las ráfagas erráticas del viento costero. En vez de elevarse, comenzaba a girar furiosamente, describiendo círculos peligrosos cerca del suelo. Si no la controlaba pronto, la cuerda se enredaría o la estrella marítima chocaría contra una roca. Valentina ajustó su bufanda, sintiendo la urgencia en sus mejillas. La arena crujía bajo sus botí",
+      "opcionesPresentadas": [
+        "Correr hacia la cima de la duna más alta donde el viento es más constante",
+        "Trepar por la pasarela de madera del muelle para ganar altura y estabilidad",
+        "Lanzar los pesas especiales que llevaba en el bolsillo para estabilizar la cola de la cometa"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1153,
+        "tokensEntrada": 461,
+        "tokensSalida": 205,
+        "costoUsd": 0.0011888
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Valentina corrió con todas sus fuerzas hacia la duna más alta, sintiendo cómo el viento cambiaba a cada paso. Al llegar a la cima, respiró aliviada: aquí las ráfagas eran suaves y constantes. Pero el cometa seguía girando descontrolado, casi tocando la arena dorada. Notó que la cola de cintas de colores estaba demasiado pesada y desequilibraba el rumbo del ala de Ballena Azul. Las manos le temblaban por la tensión, pero miró el cielo despejado y supo que aun tenía tiempo de arreg",
+      "opcionesPresentadas": [
+        ".Correr de regreso a la base para pedir ayuda a su abuelo Cándido.",
+        "Desenrollar el hilo de algodón y compensar el peso de la cola de cintas",
+        "Lanzar piedras pequeñas hacia cometa para intentar frenarlo."
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1117,
+        "tokensEntrada": 520,
+        "tokensSalida": 197,
+        "costoUsd": 0.001204
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Valentina se agachó rápidamente, desenrollando el grueso hilo de algodón que había quedado torcido. Con movimientos rápidos, recortó ciertas cintas largas de la cola y las envolvió firmemente alrededor de la estructura central del cometa. El equilibrio cambió al instante. La Ballena Azul dejó de girar como un trompo furioso y comenzó a estabilizarse en el aire. Una sonrisa宽的 iluminó su rostro mientras sentía tirante la cuerda. El viento constante de la duna empujaba suavemente, y",
+      "opcionesPresentadas": [
+        "Soltar la cometa en el momento preciso para que se eleve sobre las olas del mar",
+        "Ajustar el ángulo del ala con los dedos para capturar más corriente de aire",
+        "Correr de nuevo hacia la arena para ganar velocidad y tensión en la cuerda"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1156,
+        "tokensEntrada": 668,
+        "tokensSalida": 191,
+        "costoUsd": 0.0012984
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Con un impulso final, Valentina soltó la cometa. La Ballena Azul se elevó con una gracia inigualable, superando las olas bravas de Puerto Sol hasta perderse entre las nubes doradas del atardecer. El público, que había contenido la respiración, estalló en aplausos. El cometa ahora brillaba como una verdadera ballena mágica, custodiando el horizonte. Valentina miró hacia arriba, sintiendo una paz profunda. Aprendió que, a veces, el mayor control no viene de forcejear contra el caos",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 908,
+        "tokensEntrada": 730,
+        "tokensSalida": 139,
+        "costoUsd": 0.00114
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4334,
+    "tokensEntradaTotales": 2379,
+    "tokensSalidaTotales": 732,
+    "costoTotalUsd": 0.0048312
+  }
+}

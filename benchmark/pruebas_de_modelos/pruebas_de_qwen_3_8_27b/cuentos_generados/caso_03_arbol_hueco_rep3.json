@@ -1,0 +1,83 @@
+{
+  "caso": "caso_03_arbol_hueco",
+  "repeticion": 3,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "El rescate bajo el roble encantado",
+  "protagonista": "Mateo",
+  "descripcionProtagonista": "Niño soñador de diez años que ama dibujar criaturas fantásticas, con un corazón noble capaz de vencer el miedo.",
+  "escenario": "El bosque de las brumas, específicamente junto a un roble milenario.",
+  "conflicto": "Mateo debe vencer su miedo a los espíritus del árbol y ayudar a un búho atrapado con un ala enredada en zarzas espinosas.",
+  "resumenAnalisis": "Mateo, un niño soñador, escucha un quejido proveniente de un roble con fama de habitarse por espíritus. Al entrar con cautela, descubre que es un búho atrapado en zarzas. Lo libera cuidadosamente y el ave, agradecida, transforma la escena despidiéndose con magia.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Mateo se detuvo junto al roble milenario, sintiendo el peso de la niebla fría en sus hombros. El viejo árbol susurraba con una voz ronca, como si lamentara algo. De pronto, su mirada se clavó en el suelo cubierto de musgo: ¡era un búho de ojos ámbar! El ave estaba atrapada, con una ala enlazada por zarzas espinosas que zumbaban peligrosamente. El búho chilló suavemente, temeroso. Mateo sabía que para salvarlo, debía acercarse a la raíz del problema, pero su corazón latía fuerte.¿",
+      "opcionesPresentadas": [
+        "Encender la linterna de explorador y asomarse al hueco del tronco",
+        "Hablarle con suavidad al búho para calmarlo mientras busca una herramienta",
+        "Retroceder unos pasos para observar mejor el nudo de espinas en la oscuridad"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 2079,
+        "tokensEntrada": 1523,
+        "tokensSalida": 417,
+        "costoUsd": 0.0028864
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Mateo encendió la linterna, cuya luz dorada cortó la penumbra del hueco situado en la base del roble. Allí, encajado entre las raíces retorcidas, brillaba un pequeño cristal de luna, la única magia capaz de neutralizar el zumbido de espinas. El búho abrió un ojo áureo, mirando al niño con desconfianza, pero sin huir. La luz reveló que las zarzas se aferraban con fuerza, como dedos pequeños. Mateo sintió el miedo gelar sus manos, pero también vio la esperanza en los ojos del ave. ",
+      "opcionesPresentadas": [
+        "Recoger con cuidado el cristal de luna y acercarlo a las zarzas",
+        "Desatar con paciencia las zarzas espinosas del ala del búho plateado",
+        "Susurrar una melodía tranquila para relajar al búho antes de actuar"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1109,
+        "tokensEntrada": 527,
+        "tokensSalida": 202,
+        "costoUsd": 0.0012296
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Mateo agachó la cabeza, respirando hondo para calmar sus manos temblorosas. Con la linterna en una mano y el cristal de luna a la vista, extendió los dedos huecos hacia el ala del búho. Cada zarza que retiraba susurraba un siseo de desaprobación, pero el niño no cedía. Deshizo los nudos con una paciencia infinita, su mirada fija en el cristal que le guiaba sin dolor. Después de un esfuerzo silencioso, la última espinas cayó al musgo. El búho emitió un chillido agudo de alivio y,诧",
+      "opcionesPresentadas": [
+        "Acomodar al ave en un lecho de musgo fresco y ofrecerle agua de la cantimplora",
+        "Pedirle al búho que le cuente por qué las zarzas zumbaban tan fuerte",
+        "Tocar suavemente el cristal de luna para absorber el resto de la energía negativa"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1111,
+        "tokensEntrada": 684,
+        "tokensSalida": 217,
+        "costoUsd": 0.0014152000000000001
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Mateo creó un suave nido con musgo húmedo y ofreció el agua con delicadeza. El búho bebió con confianza y, al alzar el vuelo, dejó caer una pluma plateada que brilló como una estrella. Las zarzas cesaron su zumbido y se convirtieron en flores violetas. El viejo roble susurró: 'La paciencia y la compasión son la magia más poderosa que existe'. Mateo guardó la pluma en su bolsillo, sintiendo una calidez inmensa. La niebla se disipó, revelando un amanecer dorado que bañaba el bosque",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 1265,
+        "tokensEntrada": 768,
+        "tokensSalida": 156,
+        "costoUsd": 0.0012384000000000002
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 5564,
+    "tokensEntradaTotales": 3502,
+    "tokensSalidaTotales": 992,
+    "costoTotalUsd": 0.006769600000000001
+  }
+}

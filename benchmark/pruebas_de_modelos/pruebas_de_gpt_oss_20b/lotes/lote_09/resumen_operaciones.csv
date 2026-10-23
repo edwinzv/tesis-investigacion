@@ -1,0 +1,6 @@
+proveedor,modelo,operacion,operaciones_totales,operaciones_exitosas,tasa_exito_pct,estructura_valida_pct,tokens_totales_promedio,latencia_media_ms,latencia_mediana_ms,costo_teorico_promedio_usd,reintentos_totales,solicitudes_http_totales,es_simulado
+Groq,openai/gpt-oss-20b,analisis,2,2,100.00,100.00,1196,864,864,0.000145,0,2,false
+Groq,openai/gpt-oss-20b,escena_1,2,2,100.00,100.00,870,846,845.5,0.000119,0,2,false
+Groq,openai/gpt-oss-20b,escena_2,2,2,100.00,100.00,943,814,814,0.000125,0,2,false
+Groq,openai/gpt-oss-20b,escena_3,2,2,100.00,100.00,1144,1323,1323,0.000147,0,2,false
+Groq,openai/gpt-oss-20b,escena_4,2,2,100.00,100.00,1146,815,815,0.000132,0,2,false

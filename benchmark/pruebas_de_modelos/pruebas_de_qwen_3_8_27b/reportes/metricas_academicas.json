@@ -1,0 +1,46 @@
+{
+  "modelo": "qwen/qwen3.8-27b",
+  "nombreCorto": "qwen_3_8_27b",
+  "proveedor": "Groq",
+  "fechaConsolidacionUtc": "2026-10-15T13:11:14.201Z",
+  "operaciones": {
+    "planificadas": 100,
+    "ejecutadas": 100,
+    "exitosas": 100,
+    "fallidas": 0,
+    "omitidasPorDependencia": 0,
+    "tasaExitoGlobalPct": 100,
+    "tasaExitoPrimerIntentoPct": 98
+  },
+  "solicitudesHttp": {
+    "totalesReales": 102,
+    "reintentosTotales": 2
+  },
+  "latenciaMs": {
+    "observacionesExitosas": 100,
+    "promedio": 1380.24,
+    "mediana": 1156,
+    "percentil95": 2252
+  },
+  "consumoTokens": {
+    "entradaTotal": 64974,
+    "salidaTotal": 25251,
+    "razonamientoTotal": 3702,
+    "tokensTotales": 90225,
+    "promedioTokensEntradaPorOp": 649.74,
+    "promedioTokensSalidaPorOp": 252.51
+  },
+  "costosUsd": {
+    "costoTeoricoTotal": 0.152983,
+    "costoPromedioPorOperacion": 0.00153,
+    "costoPromedioPorCuentoCompleto": 0.007649,
+    "moneda": "USD"
+  },
+  "contratosYValidacion": {
+    "cumplimientoJsonSchemaPct": 100,
+    "cumplimientoEstructuraValidaPct": 100,
+    "cumplimientoRutaControladaPct": 60
+  },
+  "cuentosCompletados": 20,
+  "cuentosPrevistos": 20
+}

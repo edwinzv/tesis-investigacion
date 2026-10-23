@@ -22,15 +22,25 @@ import {
   ResultadoOperacion,
   StoryAnalysis,
 } from './types.js';
+import {
+  cargarOperacionesPrevias,
+  generarIdEjecucion,
+  obtenerDefinicionLote,
+  obtenerGitCommit,
+  obtenerHashesArchivosClave,
+} from './lotes.js';
 
 export interface RunnerOptions {
   adaptadores: AdaptadorModelo[];
   casos: CasoEstudio[];
   repeticiones: number;
+  repeticionExacta?: number;
   carpetaSalida: string;
   esPiloto: boolean;
   esDryRun: boolean;
   delayEntreLlamadasMs?: number;
+  loteNumero?: number;
+  reanudar?: boolean;
 }
 
 export interface RunnerResult {
@@ -53,8 +63,12 @@ function obtenerPacingMs(adaptador: AdaptadorModelo, delayDefaultMs: number): nu
     // Pacing conservador de 65s entre operaciones reales consecutivas de Qwen al observar limite real de 1000 OTPM
     return 65000;
   }
-  if (adaptador.proveedor === 'Groq') {
+  if (adaptador.modelo === 'openai/gpt-oss-20b' || adaptador.proveedor === 'Groq') {
     return 15000;
+  }
+  if (adaptador.proveedor === 'Google' || adaptador.modelo === 'gemini-3.5-flash-lite') {
+    // Pacing conservador de 5s para respetar límite de 15 RPM en Free Tier de Gemini
+    return 5000;
   }
   return delayDefaultMs;
 }
@@ -118,13 +132,24 @@ export async function ejecutarBenchmark(opts: RunnerOptions): Promise<RunnerResu
     delayEntreLlamadasMs = 1500,
   } = opts;
 
-  const totalOperacionesPrevistas = adaptadores.length * casos.length * repeticiones * 5;
+  // Resolver las repeticiones experimentales exactas
+  let repeticionesLista: number[];
+  if (opts.repeticionExacta !== undefined) {
+    repeticionesLista = [opts.repeticionExacta];
+  } else if (opts.loteNumero !== undefined) {
+    const def = obtenerDefinicionLote(opts.loteNumero);
+    repeticionesLista = [def.repeticion];
+  } else {
+    repeticionesLista = Array.from({ length: repeticiones }, (_, i) => i + 1);
+  }
+
+  const totalOperacionesPrevistas = adaptadores.length * casos.length * repeticionesLista.length * 5;
 
   console.log('====================================================');
   console.log('PLAN DE EJECUCION (' + totalOperacionesPrevistas + ' operaciones)');
   console.log('Modelos:         ' + adaptadores.map((a) => a.modelo).join(', '));
   console.log('Casos:           ' + casos.map((c) => c.id).join(', '));
-  console.log('Repeticiones:    ' + repeticiones);
+  console.log('Repetición(es):  ' + repeticionesLista.join(', '));
   console.log('Operaciones/cuento: 5 (1 analisis + 4 escenas)');
   console.log('TOTAL PREVISTAS: ' + totalOperacionesPrevistas + ' operaciones');
   console.log('Carpeta salida:  ' + carpetaSalida);
@@ -137,213 +162,416 @@ export async function ejecutarBenchmark(opts: RunnerOptions): Promise<RunnerResu
     console.log('- Verificando integridad de contratos, prompts y flujo con respuestas sinteticas deterministas...\n');
   }
 
+  const fechaInicioUtc = new Date().toISOString();
+
   if (!fs.existsSync(carpetaSalida)) {
     fs.mkdirSync(carpetaSalida, { recursive: true });
   }
 
+  const rutaEvents = path.join(carpetaSalida, 'events.jsonl');
+  const appendEvent = (ev: object) => {
+    try {
+      fs.appendFileSync(rutaEvents, JSON.stringify({ utc: new Date().toISOString(), ...ev }) + '\n', 'utf-8');
+    } catch {}
+  };
+
+  const reanudarActivo = opts.reanudar === true || (opts.loteNumero !== undefined && opts.reanudar !== false);
+  const { operacionesMap: previasMap, eventosHistorial } = reanudarActivo && fs.existsSync(carpetaSalida)
+    ? cargarOperacionesPrevias(carpetaSalida, !opts.esDryRun)
+    : { operacionesMap: new Map<string, ResultadoOperacion>(), eventosHistorial: [] };
+
+  // Salvaguarda documental: preservar estado histórico previo del lote antes de cualquier reanudación
+  if (reanudarActivo && fs.existsSync(carpetaSalida) && opts.loteNumero) {
+    const pad = String(opts.loteNumero).padStart(2, '0');
+    const rutaEventsOrig = path.join(carpetaSalida, `events_originales_lote${pad}.jsonl`);
+    const rutaCsvOrig = path.join(carpetaSalida, `ejecuciones_raw_originales_lote${pad}.csv`);
+    const rutaEventsActual = path.join(carpetaSalida, 'events.jsonl');
+    const rutaCsvActual = path.join(carpetaSalida, 'ejecuciones_raw.csv');
+
+    if (fs.existsSync(rutaEventsActual) && !fs.existsSync(rutaEventsOrig)) {
+      try { fs.copyFileSync(rutaEventsActual, rutaEventsOrig); } catch {}
+    }
+    if (fs.existsSync(rutaCsvActual) && !fs.existsSync(rutaCsvOrig)) {
+      try { fs.copyFileSync(rutaCsvActual, rutaCsvOrig); } catch {}
+    }
+  }
+
+  const conteoIntentosPrevios = new Map<string, number>();
+  for (const ev of eventosHistorial) {
+    if (ev.type === 'operation_result' && ev.result) {
+      const r = ev.result as ResultadoOperacion;
+      const key = `${r.modelo}___${r.caso}___${r.repeticion}___${r.operacion}`;
+      conteoIntentosPrevios.set(key, (conteoIntentosPrevios.get(key) || 0) + 1);
+    }
+  }
+
+  const cuotaAgotadaModelos = new Set<string>();
   const resultados: ResultadoOperacion[] = [];
   let contadorEjecucion = 0;
 
+  const resolverInfoEjecucion = (
+    modelo: string,
+    casoId: string,
+    rep: number,
+    nombreOp: string
+  ): { idEjecucion: string; esRecuperacion: boolean; intentoNumero: number } => {
+    const key = `${modelo}___${casoId}___${rep}___${nombreOp}`;
+    const intentosPrevios = conteoIntentosPrevios.get(key) || 0;
+    const intentoNumero = intentosPrevios + 1;
+    const esRecuperacion = intentosPrevios > 0;
+    if (opts.loteNumero) {
+      return {
+        idEjecucion: generarIdEjecucion(opts.loteNumero, modelo, casoId, rep, nombreOp, intentoNumero),
+        esRecuperacion,
+        intentoNumero,
+      };
+    }
+    contadorEjecucion++;
+    return {
+      idEjecucion: 'ejec_' + contadorEjecucion,
+      esRecuperacion,
+      intentoNumero,
+    };
+  };
+
+  const resolverIdEjecucion = (modelo: string, casoId: string, rep: number, nombreOp: string): string => {
+    return resolverInfoEjecucion(modelo, casoId, rep, nombreOp).idEjecucion;
+  };
+
   for (const adaptador of adaptadores) {
     for (const caso of casos) {
-      for (let rep = 1; rep <= repeticiones; rep++) {
+      for (const rep of repeticionesLista) {
         console.log('--> [' + adaptador.proveedor + ' - ' + adaptador.modelo + '] Caso: ' + caso.id + ' | Repeticion: ' + rep);
 
         let analisisContexto: StoryAnalysis | null = null;
         let historiaAcumulada = '';
 
         // OPERACION 1: ANALISIS
-        contadorEjecucion++;
-        const resAnalisis = await ejecutarOperacionIndividual({
-          idEjecucion: 'ejec_' + contadorEjecucion,
-          adaptador,
-          caso,
-          repeticion: rep,
-          nombreOperacion: 'analisis',
-          prompt: construirPromptAnalisis(caso.textoFuente),
-          schema: SCHEMAS.analisis,
-          tipoContrato: 'analisis',
-          validador: (data) => validarStoryAnalysis(data),
-          esDryRun,
-        });
+        const keyAnalisis = `${adaptador.modelo}___${caso.id}___${rep}___analisis`;
+        const previaAnalisis = previasMap.get(keyAnalisis);
+        const infoAnalisis = resolverInfoEjecucion(adaptador.modelo, caso.id, rep, 'analisis');
+        let resAnalisis: ResultadoOperacion;
+
+        if (reanudarActivo && previaAnalisis && previaAnalisis.estructura_valida && previaAnalisis.contenido_generado && (!previaAnalisis.es_simulado || esDryRun)) {
+          console.log('    [REANUDACIÓN] analisis (' + adaptador.modelo + ' - ' + caso.id + ') completada previamente con éxito.');
+          resAnalisis = previaAnalisis;
+        } else if (cuotaAgotadaModelos.has(adaptador.modelo)) {
+          resAnalisis = crearResultadoDependenciaFallida({
+            idEjecucion: infoAnalisis.idEjecucion,
+            adaptador,
+            caso,
+            repeticion: rep,
+            nombreOperacion: 'analisis',
+            errorMsg: 'Omitida por agotamiento previo de cuota en este candidato (rate_limit / 429)',
+            esSimulado: esDryRun,
+          });
+          resAnalisis.error_categoria = 'rate_limit';
+        } else {
+          resAnalisis = await ejecutarOperacionIndividual({
+            idEjecucion: infoAnalisis.idEjecucion,
+            esRecuperacion: infoAnalisis.esRecuperacion,
+            adaptador,
+            caso,
+            repeticion: rep,
+            nombreOperacion: 'analisis',
+            prompt: construirPromptAnalisis(caso.textoFuente),
+            schema: SCHEMAS.analisis,
+            tipoContrato: 'analisis',
+            validador: (data) => validarStoryAnalysis(data),
+            esDryRun,
+          });
+          appendEvent({ type: 'operation_result', result: resAnalisis });
+          if (resAnalisis.error_categoria === 'rate_limit' || resAnalisis.http_status === 429) {
+            cuotaAgotadaModelos.add(adaptador.modelo);
+            console.warn('    [SUSPENSIÓN DE CUOTA] Agotamiento de cuota detectado en ' + adaptador.modelo + '. Se omiten operaciones restantes.');
+          }
+        }
         resultados.push(resAnalisis);
 
         // Regla de dependencia narrativa: si analisis falla, omitir escenas 1-4
         if (!resAnalisis.estructura_valida || !resAnalisis.contenido_generado) {
           const msgDep = 'No ejecutada porque la operacion de analisis previa no produjo un resultado valido.';
           for (const opRestante of ['escena_1', 'escena_2', 'escena_3', 'escena_4']) {
-            contadorEjecucion++;
-            resultados.push(crearResultadoDependenciaFallida({
-              idEjecucion: 'ejec_' + contadorEjecucion,
+            const resDep = crearResultadoDependenciaFallida({
+              idEjecucion: resolverIdEjecucion(adaptador.modelo, caso.id, rep, opRestante),
               adaptador,
               caso,
               repeticion: rep,
               nombreOperacion: opRestante,
               errorMsg: msgDep,
               esSimulado: esDryRun,
-            }));
+            });
+            resultados.push(resDep);
+            appendEvent({ type: 'operation_result', result: resDep });
           }
           continue;
         }
 
         analisisContexto = resAnalisis.contenido_generado as StoryAnalysis;
 
-        if (!esDryRun) {
+        if (!esDryRun && resAnalisis.numero_solicitudes_http > 0) {
           const espera = obtenerPacingMs(adaptador, delayEntreLlamadasMs);
           await sleep(espera);
         }
 
         // OPERACION 2: ESCENA 1
-        contadorEjecucion++;
-        const resEscena1 = await ejecutarOperacionIndividual({
-          idEjecucion: 'ejec_' + contadorEjecucion,
-          adaptador,
-          caso,
-          repeticion: rep,
-          nombreOperacion: 'escena_1',
-          prompt: construirPromptEscena1(analisisContexto, caso.decisionesFijas[0]),
-          schema: SCHEMAS.escena,
-          tipoContrato: 'escena_intermedia',
-          decisionControladaSiguiente: caso.decisionesFijas[0],
-          validador: (data) => validarEscenaIntermedia(data, caso.decisionesFijas[0]),
-          esDryRun,
-        });
+        const keyEscena1 = `${adaptador.modelo}___${caso.id}___${rep}___escena_1`;
+        const previaEscena1 = previasMap.get(keyEscena1);
+        const infoEscena1 = resolverInfoEjecucion(adaptador.modelo, caso.id, rep, 'escena_1');
+        let resEscena1: ResultadoOperacion;
+
+        if (reanudarActivo && previaEscena1 && previaEscena1.estructura_valida && previaEscena1.contenido_generado && (!previaEscena1.es_simulado || esDryRun)) {
+          console.log('    [REANUDACIÓN] escena_1 (' + adaptador.modelo + ' - ' + caso.id + ') completada previamente con éxito.');
+          resEscena1 = previaEscena1;
+        } else if (cuotaAgotadaModelos.has(adaptador.modelo)) {
+          resEscena1 = crearResultadoDependenciaFallida({
+            idEjecucion: infoEscena1.idEjecucion,
+            adaptador,
+            caso,
+            repeticion: rep,
+            nombreOperacion: 'escena_1',
+            errorMsg: 'Omitida por agotamiento previo de cuota en este candidato (rate_limit / 429)',
+            esSimulado: esDryRun,
+          });
+          resEscena1.error_categoria = 'rate_limit';
+        } else {
+          resEscena1 = await ejecutarOperacionIndividual({
+            idEjecucion: infoEscena1.idEjecucion,
+            esRecuperacion: infoEscena1.esRecuperacion,
+            adaptador,
+            caso,
+            repeticion: rep,
+            nombreOperacion: 'escena_1',
+            prompt: construirPromptEscena1(analisisContexto, caso.decisionesFijas[0]),
+            schema: SCHEMAS.escena,
+            tipoContrato: 'escena_intermedia',
+            decisionControladaSiguiente: caso.decisionesFijas[0],
+            validador: (data) => validarEscenaIntermedia(data, caso.decisionesFijas[0]),
+            esDryRun,
+          });
+          appendEvent({ type: 'operation_result', result: resEscena1 });
+          if (resEscena1.error_categoria === 'rate_limit' || resEscena1.http_status === 429) {
+            cuotaAgotadaModelos.add(adaptador.modelo);
+            console.warn('    [SUSPENSIÓN DE CUOTA] Agotamiento de cuota detectado en ' + adaptador.modelo + '. Se omiten operaciones restantes.');
+          }
+        }
         resultados.push(resEscena1);
 
         // Regla de dependencia narrativa: si escena 1 falla, omitir escenas 2-4
         if (!resEscena1.estructura_valida || !resEscena1.contenido_generado) {
           const msgDep = 'No ejecutada porque la operacion de escena_1 previa no produjo un resultado valido.';
           for (const opRestante of ['escena_2', 'escena_3', 'escena_4']) {
-            contadorEjecucion++;
-            resultados.push(crearResultadoDependenciaFallida({
-              idEjecucion: 'ejec_' + contadorEjecucion,
+            const resDep = crearResultadoDependenciaFallida({
+              idEjecucion: resolverIdEjecucion(adaptador.modelo, caso.id, rep, opRestante),
               adaptador,
               caso,
               repeticion: rep,
               nombreOperacion: opRestante,
               errorMsg: msgDep,
               esSimulado: esDryRun,
-            }));
+            });
+            resultados.push(resDep);
+            appendEvent({ type: 'operation_result', result: resDep });
           }
           continue;
         }
 
         historiaAcumulada += 'Inicio: ' + resEscena1.contenido_generado.contenido + '\n';
 
-        if (!esDryRun) {
+        if (!esDryRun && resEscena1.numero_solicitudes_http > 0) {
           const espera = obtenerPacingMs(adaptador, delayEntreLlamadasMs);
           await sleep(espera);
         }
 
         // OPERACION 3: ESCENA 2
-        contadorEjecucion++;
-        const resEscena2 = await ejecutarOperacionIndividual({
-          idEjecucion: 'ejec_' + contadorEjecucion,
-          adaptador,
-          caso,
-          repeticion: rep,
-          nombreOperacion: 'escena_2',
-          prompt: construirPromptEscenaIntermedia(
-            historiaAcumulada,
-            caso.decisionesFijas[0],
-            2,
-            caso.decisionesFijas[1]
-          ),
-          schema: SCHEMAS.escena,
-          tipoContrato: 'escena_intermedia',
-          decisionControladaSiguiente: caso.decisionesFijas[1],
-          validador: (data) => validarEscenaIntermedia(data, caso.decisionesFijas[1]),
-          esDryRun,
-        });
+        const keyEscena2 = `${adaptador.modelo}___${caso.id}___${rep}___escena_2`;
+        const previaEscena2 = previasMap.get(keyEscena2);
+        const infoEscena2 = resolverInfoEjecucion(adaptador.modelo, caso.id, rep, 'escena_2');
+        let resEscena2: ResultadoOperacion;
+
+        if (reanudarActivo && previaEscena2 && previaEscena2.estructura_valida && previaEscena2.contenido_generado && (!previaEscena2.es_simulado || esDryRun)) {
+          console.log('    [REANUDACIÓN] escena_2 (' + adaptador.modelo + ' - ' + caso.id + ') completada previamente con éxito.');
+          resEscena2 = previaEscena2;
+        } else if (cuotaAgotadaModelos.has(adaptador.modelo)) {
+          resEscena2 = crearResultadoDependenciaFallida({
+            idEjecucion: infoEscena2.idEjecucion,
+            adaptador,
+            caso,
+            repeticion: rep,
+            nombreOperacion: 'escena_2',
+            errorMsg: 'Omitida por agotamiento previo de cuota en este candidato (rate_limit / 429)',
+            esSimulado: esDryRun,
+          });
+          resEscena2.error_categoria = 'rate_limit';
+        } else {
+          resEscena2 = await ejecutarOperacionIndividual({
+            idEjecucion: infoEscena2.idEjecucion,
+            esRecuperacion: infoEscena2.esRecuperacion,
+            adaptador,
+            caso,
+            repeticion: rep,
+            nombreOperacion: 'escena_2',
+            prompt: construirPromptEscenaIntermedia(
+              historiaAcumulada,
+              caso.decisionesFijas[0],
+              2,
+              caso.decisionesFijas[1]
+            ),
+            schema: SCHEMAS.escena,
+            tipoContrato: 'escena_intermedia',
+            decisionControladaSiguiente: caso.decisionesFijas[1],
+            validador: (data) => validarEscenaIntermedia(data, caso.decisionesFijas[1]),
+            esDryRun,
+          });
+          appendEvent({ type: 'operation_result', result: resEscena2 });
+          if (resEscena2.error_categoria === 'rate_limit' || resEscena2.http_status === 429) {
+            cuotaAgotadaModelos.add(adaptador.modelo);
+            console.warn('    [SUSPENSIÓN DE CUOTA] Agotamiento de cuota detectado en ' + adaptador.modelo + '. Se omiten operaciones restantes.');
+          }
+        }
         resultados.push(resEscena2);
 
         // Regla de dependencia narrativa: si escena 2 falla, omitir escenas 3-4
         if (!resEscena2.estructura_valida || !resEscena2.contenido_generado) {
           const msgDep = 'No ejecutada porque la operacion de escena_2 previa no produjo un resultado valido.';
           for (const opRestante of ['escena_3', 'escena_4']) {
-            contadorEjecucion++;
-            resultados.push(crearResultadoDependenciaFallida({
-              idEjecucion: 'ejec_' + contadorEjecucion,
+            const resDep = crearResultadoDependenciaFallida({
+              idEjecucion: resolverIdEjecucion(adaptador.modelo, caso.id, rep, opRestante),
               adaptador,
               caso,
               repeticion: rep,
               nombreOperacion: opRestante,
               errorMsg: msgDep,
               esSimulado: esDryRun,
-            }));
+            });
+            resultados.push(resDep);
+            appendEvent({ type: 'operation_result', result: resDep });
           }
           continue;
         }
 
         historiaAcumulada += 'Decision 1 (' + caso.decisionesFijas[0] + '): ' + resEscena2.contenido_generado.contenido + '\n';
 
-        if (!esDryRun) {
+        if (!esDryRun && resEscena2.numero_solicitudes_http > 0) {
           const espera = obtenerPacingMs(adaptador, delayEntreLlamadasMs);
           await sleep(espera);
         }
 
         // OPERACION 4: ESCENA 3
-        contadorEjecucion++;
-        const resEscena3 = await ejecutarOperacionIndividual({
-          idEjecucion: 'ejec_' + contadorEjecucion,
-          adaptador,
-          caso,
-          repeticion: rep,
-          nombreOperacion: 'escena_3',
-          prompt: construirPromptEscenaIntermedia(
-            historiaAcumulada,
-            caso.decisionesFijas[1],
-            3,
-            caso.decisionesFijas[2]
-          ),
-          schema: SCHEMAS.escena,
-          tipoContrato: 'escena_intermedia',
-          decisionControladaSiguiente: caso.decisionesFijas[2],
-          validador: (data) => validarEscenaIntermedia(data, caso.decisionesFijas[2]),
-          esDryRun,
-        });
+        const keyEscena3 = `${adaptador.modelo}___${caso.id}___${rep}___escena_3`;
+        const previaEscena3 = previasMap.get(keyEscena3);
+        const infoEscena3 = resolverInfoEjecucion(adaptador.modelo, caso.id, rep, 'escena_3');
+        let resEscena3: ResultadoOperacion;
+
+        if (reanudarActivo && previaEscena3 && previaEscena3.estructura_valida && previaEscena3.contenido_generado && (!previaEscena3.es_simulado || esDryRun)) {
+          console.log('    [REANUDACIÓN] escena_3 (' + adaptador.modelo + ' - ' + caso.id + ') completada previamente con éxito.');
+          resEscena3 = previaEscena3;
+        } else if (cuotaAgotadaModelos.has(adaptador.modelo)) {
+          resEscena3 = crearResultadoDependenciaFallida({
+            idEjecucion: infoEscena3.idEjecucion,
+            adaptador,
+            caso,
+            repeticion: rep,
+            nombreOperacion: 'escena_3',
+            errorMsg: 'Omitida por agotamiento previo de cuota en este candidato (rate_limit / 429)',
+            esSimulado: esDryRun,
+          });
+          resEscena3.error_categoria = 'rate_limit';
+        } else {
+          resEscena3 = await ejecutarOperacionIndividual({
+            idEjecucion: infoEscena3.idEjecucion,
+            esRecuperacion: infoEscena3.esRecuperacion,
+            adaptador,
+            caso,
+            repeticion: rep,
+            nombreOperacion: 'escena_3',
+            prompt: construirPromptEscenaIntermedia(
+              historiaAcumulada,
+              caso.decisionesFijas[1],
+              3,
+              caso.decisionesFijas[2]
+            ),
+            schema: SCHEMAS.escena,
+            tipoContrato: 'escena_intermedia',
+            decisionControladaSiguiente: caso.decisionesFijas[2],
+            validador: (data) => validarEscenaIntermedia(data, caso.decisionesFijas[2]),
+            esDryRun,
+          });
+          appendEvent({ type: 'operation_result', result: resEscena3 });
+          if (resEscena3.error_categoria === 'rate_limit' || resEscena3.http_status === 429) {
+            cuotaAgotadaModelos.add(adaptador.modelo);
+            console.warn('    [SUSPENSIÓN DE CUOTA] Agotamiento de cuota detectado en ' + adaptador.modelo + '. Se omiten operaciones restantes.');
+          }
+        }
         resultados.push(resEscena3);
 
         // Regla de dependencia narrativa: si escena 3 falla, omitir escena 4
         if (!resEscena3.estructura_valida || !resEscena3.contenido_generado) {
           const msgDep = 'No ejecutada porque la operacion de escena_3 previa no produjo un resultado valido.';
-          contadorEjecucion++;
-          resultados.push(crearResultadoDependenciaFallida({
-            idEjecucion: 'ejec_' + contadorEjecucion,
+          const resDep = crearResultadoDependenciaFallida({
+            idEjecucion: resolverIdEjecucion(adaptador.modelo, caso.id, rep, 'escena_4'),
             adaptador,
             caso,
             repeticion: rep,
             nombreOperacion: 'escena_4',
             errorMsg: msgDep,
             esSimulado: esDryRun,
-          }));
+          });
+          resultados.push(resDep);
+          appendEvent({ type: 'operation_result', result: resDep });
           continue;
         }
 
         historiaAcumulada += 'Decision 2 (' + caso.decisionesFijas[1] + '): ' + resEscena3.contenido_generado.contenido + '\n';
 
-        if (!esDryRun) {
+        if (!esDryRun && resEscena3.numero_solicitudes_http > 0) {
           const espera = obtenerPacingMs(adaptador, delayEntreLlamadasMs);
           await sleep(espera);
         }
 
         // OPERACION 5: ESCENA 4 (FINAL)
-        contadorEjecucion++;
-        const resEscena4 = await ejecutarOperacionIndividual({
-          idEjecucion: 'ejec_' + contadorEjecucion,
-          adaptador,
-          caso,
-          repeticion: rep,
-          nombreOperacion: 'escena_4',
-          prompt: construirPromptEscenaFinal(historiaAcumulada, caso.decisionesFijas[2]),
-          schema: SCHEMAS.escenaFinal,
-          tipoContrato: 'escena_final',
-          validador: (data) => validarEscenaFinal(data),
-          esDryRun,
-        });
+        const keyEscena4 = `${adaptador.modelo}___${caso.id}___${rep}___escena_4`;
+        const previaEscena4 = previasMap.get(keyEscena4);
+        const infoEscena4 = resolverInfoEjecucion(adaptador.modelo, caso.id, rep, 'escena_4');
+        let resEscena4: ResultadoOperacion;
+
+        if (reanudarActivo && previaEscena4 && previaEscena4.estructura_valida && previaEscena4.contenido_generado && (!previaEscena4.es_simulado || esDryRun)) {
+          console.log('    [REANUDACIÓN] escena_4 (' + adaptador.modelo + ' - ' + caso.id + ') completada previamente con éxito.');
+          resEscena4 = previaEscena4;
+        } else if (cuotaAgotadaModelos.has(adaptador.modelo)) {
+          resEscena4 = crearResultadoDependenciaFallida({
+            idEjecucion: infoEscena4.idEjecucion,
+            adaptador,
+            caso,
+            repeticion: rep,
+            nombreOperacion: 'escena_4',
+            errorMsg: 'Omitida por agotamiento previo de cuota en este candidato (rate_limit / 429)',
+            esSimulado: esDryRun,
+          });
+          resEscena4.error_categoria = 'rate_limit';
+        } else {
+          resEscena4 = await ejecutarOperacionIndividual({
+            idEjecucion: infoEscena4.idEjecucion,
+            esRecuperacion: infoEscena4.esRecuperacion,
+            adaptador,
+            caso,
+            repeticion: rep,
+            nombreOperacion: 'escena_4',
+            prompt: construirPromptEscenaFinal(historiaAcumulada, caso.decisionesFijas[2]),
+            schema: SCHEMAS.escenaFinal,
+            tipoContrato: 'escena_final',
+            validador: (data) => validarEscenaFinal(data),
+            esDryRun,
+          });
+          appendEvent({ type: 'operation_result', result: resEscena4 });
+          if (resEscena4.error_categoria === 'rate_limit' || resEscena4.http_status === 429) {
+            cuotaAgotadaModelos.add(adaptador.modelo);
+            console.warn('    [SUSPENSIÓN DE CUOTA] Agotamiento de cuota detectado en ' + adaptador.modelo + '. Se omiten operaciones restantes.');
+          }
+        }
         resultados.push(resEscena4);
 
-        if (!esDryRun) {
+        if (!esDryRun && resEscena4.numero_solicitudes_http > 0) {
           const espera = obtenerPacingMs(adaptador, delayEntreLlamadasMs);
           await sleep(espera);
         }
@@ -367,6 +595,52 @@ export async function ejecutarBenchmark(opts: RunnerOptions): Promise<RunnerResu
     : resultados.some((r) => r.costo_efectivo_experimento_usd === null && !r.es_simulado && r.error_categoria !== 'dependency_failed')
     ? null
     : resultados.reduce((acc, r) => acc + (r.costo_efectivo_experimento_usd || 0), 0);
+
+  // Generar manifest.json
+  const fechaFinUtc = new Date().toISOString();
+  let estadoFinal: 'COMPLETADO' | 'FALLO_CUOTA' | 'INCOMPLETO' | 'INTERRUMPIDO' = 'COMPLETADO';
+  if (errores > 0) {
+    const huboFalloCuota = resultados.some(
+      (r) => r.error_categoria === 'rate_limit' || r.http_status === 429
+    );
+    estadoFinal = huboFalloCuota ? 'FALLO_CUOTA' : 'INCOMPLETO';
+  } else if (resultados.length < totalOperacionesPrevistas) {
+    estadoFinal = 'INTERRUMPIDO';
+  }
+
+  const manifest = {
+    loteId: opts.loteNumero ? `lote_${String(opts.loteNumero).padStart(2, '0')}` : (opts.esPiloto ? 'piloto' : 'completo'),
+    lote: opts.loteNumero ?? null,
+    repeticion: opts.loteNumero
+      ? obtenerDefinicionLote(opts.loteNumero).repeticion
+      : (opts.repeticionExacta ?? (repeticionesLista.length === 1 ? repeticionesLista[0] : null)),
+    repeticiones: repeticionesLista.length,
+    fechaInicioUtc,
+    fechaFinUtc,
+    estado: estadoFinal,
+    modo: esDryRun ? 'DRY_RUN' : 'REAL',
+    esSimulado: esDryRun,
+    casos: casos.map((c) => c.id),
+    modelos: adaptadores.map((a) => a.modelo),
+    operacionesPlanificadas: totalOperacionesPrevistas,
+    operacionesEjecutadas: resultados.length,
+    operacionesExitosas: exitosas,
+    operacionesFallidas: errores,
+    solicitudesHttpReales: llamadasReales,
+    costoTeoricoTotalUsd,
+    costoEfectivoTotalUsd,
+    configuracionEfectiva: {
+      google: { modelo: 'gemini-3.5-flash-lite', pacingMs: 5000 },
+      groq_qwen: { modelo: 'qwen/qwen3.8-27b', pacingMs: 65000 },
+      groq_gpt_oss: { modelo: 'openai/gpt-oss-20b', pacingMs: 15000 },
+    },
+    gitCommit: obtenerGitCommit(process.cwd()),
+    hashesCodigo: obtenerHashesArchivosClave(process.cwd()),
+  };
+
+  try {
+    fs.writeFileSync(path.join(carpetaSalida, 'manifest.json'), JSON.stringify(manifest, null, 2), 'utf-8');
+  } catch {}
 
   return {
     totalPrevistas: totalOperacionesPrevistas,
@@ -401,6 +675,7 @@ export interface OperacionParams {
   registrarRespuesta?: (response: unknown) => void;
   registrarErrorApi?: (error: ApiCallError) => void;
   propagarFallosPersistencia?: boolean;
+  esRecuperacion?: boolean;
 }
 
 export class ErrorPersistenciaFatal extends Error {
@@ -470,7 +745,7 @@ export async function ejecutarOperacionIndividual(p: OperacionParams): Promise<R
       json_valido: true,
       estructura_valida: valRes.valido,
       ruta_controlada_valida: rutaValidaSimulada,
-      cumple_primer_intento: true,
+      cumple_primer_intento: !p.esRecuperacion,
       numero_reintentos: 0,
       numero_solicitudes_http: 0,
       error_categoria: 'none',
@@ -561,6 +836,23 @@ export async function ejecutarOperacionIndividual(p: OperacionParams): Promise<R
         tiempoMsAcumulado += errApi.latencyMs;
         errorCategoria = errApi.categoria;
         errorMensaje = errApi.message;
+
+        // Soporte de espera por Retry-After si la API devuelve 429 o 503 con encabezado válido <= 70s
+        if (
+          p.permitirRetry !== false &&
+          intento === 0 &&
+          (errApi.status === 429 || errApi.categoria === 'rate_limit' || errApi.status === 503) &&
+          errApi.retryAfterMs &&
+          errApi.retryAfterMs > 0 &&
+          errApi.retryAfterMs <= 70000
+        ) {
+          console.log(`    [ESPERA RETRY-AFTER] HTTP ${errApi.status}. Esperando ${Math.round(errApi.retryAfterMs / 1000)}s antes de reintentar según encabezado...`);
+          await sleep(errApi.retryAfterMs);
+          intento++;
+          reintentos = 1;
+          continue;
+        }
+
         if (errApi.isNonRetryable) {
           break;
         }
@@ -591,7 +883,7 @@ export async function ejecutarOperacionIndividual(p: OperacionParams): Promise<R
     }
   }
 
-  const cumplePrimerIntento = estructuraValida && reintentos === 0;
+  const cumplePrimerIntento = !p.esRecuperacion && estructuraValida && reintentos === 0;
 
   const tokensEntrada = tokensDisponiblesGlobal ? tokensEntradaAcumulados : null;
   const tokensSalida = tokensDisponiblesGlobal ? tokensSalidaAcumulados : null;
@@ -651,7 +943,7 @@ export async function ejecutarOperacionIndividual(p: OperacionParams): Promise<R
     costo_teorico_usd: costoTeorico,
     costo_efectivo_experimento_usd: costoEfectivo,
     free_tier_activo: p.adaptador.freeTierActivo,
-    reasoning_config: 'low',
+    reasoning_config: rawResp?.reasoningConfig || 'low',
     structured_output_mode: rawResp?.structuredOutputMode || 'json_schema',
     es_simulado: false,
     contenido_generado: parsedJson,

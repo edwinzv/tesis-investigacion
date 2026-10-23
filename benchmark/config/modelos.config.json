@@ -1,25 +1,30 @@
-﻿{
+{
   "modelos": [
     {
-      "id": "gemini-3.8-flash",
+      "id": "gemini-3.5-flash-lite",
       "proveedor": "Google",
-      "nombre": "Gemini 3.8 Flash",
-      "modelo": "gemini-3.8-flash",
+      "nombre": "Gemini 3.5 Flash Lite",
+      "modelo": "gemini-3.5-flash-lite",
       "api": "Gemini Developer API",
-      "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent",
       "variableEntorno": "GEMINI_API_KEY",
       "tarifas": {
-        "inputUsdPorMillon": 0.75,
-        "outputUsdPorMillon": 3.75,
+        "inputUsdPorMillon": 0.30,
+        "outputUsdPorMillon": 2.50,
         "vigenteHasta": "2026-12-31",
-        "fechaConsulta": "2026-10-09",
-        "fuente": "Google AI Gemini 3.8 Flash / Pricing"
+        "fechaConsulta": "2026-10-14",
+        "fuente": "Google AI Gemini 3.5 Flash Lite / Pricing"
       },
       "freeTier": {
         "disponible": true,
-        "descripcion": "Free Tier en Google AI Studio sujeto a limites de RPM/RPD",
-        "fechaConsulta": "2026-10-09",
-        "fuente": "Google AI Gemini 3.8 Flash / Pricing"
+        "limitesAproximados": {
+          "rpm": 15,
+          "rpd": 500,
+          "tpm": 250000
+        },
+        "descripcion": "Free Tier en Google AI Studio sujeto a limites de RPM/RPD/TPM",
+        "fechaConsulta": "2026-10-14",
+        "fuente": "Google AI Gemini 3.5 Flash Lite / Pricing"
       },
       "configuracion": {
         "thinkingConfig": {
@@ -93,6 +98,39 @@
         "structured_output_mode": "json_schema",
         "contextWindow": 131072,
         "maxOutputTokens": 65536
+      }
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "proveedor": "Google",
+      "nombre": "Gemini 3.8 Flash",
+      "modelo": "gemini-3.8-flash",
+      "api": "Gemini Developer API",
+      "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+      "variableEntorno": "GEMINI_API_KEY",
+      "tarifas": {
+        "inputUsdPorMillon": 0.75,
+        "outputUsdPorMillon": 3.75,
+        "vigenteHasta": "2026-12-31",
+        "fechaConsulta": "2026-10-15",
+        "fuente": "Google AI Gemini 3.8 Flash / Pricing"
+      },
+      "freeTier": {
+        "disponible": true,
+        "limitesAproximados": {
+          "rpm": 15,
+          "rpd": 500,
+          "tpm": 1000000
+        },
+        "descripcion": "Free Tier en Google AI Studio sujeto a límites de RPM/RPD/TPM",
+        "fechaConsulta": "2026-10-15",
+        "fuente": "Google AI Gemini 3.8 Flash / Pricing"
+      },
+      "configuracion": {
+        "thinkingConfig": {
+          "thinkingLevel": "low"
+        },
+        "responseMimeType": "application/json"
       }
     }
   ]

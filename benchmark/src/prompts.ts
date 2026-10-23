@@ -38,7 +38,7 @@ export function construirPromptEscena1(
   let instruccionOpciones = "Genera exactamente 3 opciones distintas y atractivas.";
   if (decisionControladaSiguiente && decisionControladaSiguiente.trim().length > 0) {
     instruccionOpciones =
-      "REGLA EXPERIMENTAL OBLIGATORIA: Entre tus EXACTAMENTE 3 opciones debes incluir obligatoriamente y de forma textual exacta la siguiente opcion: \\\"" +
+      "REGLA EXPERIMENTAL OBLIGATORIA: Entre tus EXACTAMENTE 3 opciones debes incluir obligatoriamente y de forma textual exacta la siguiente opcion (sin agregar punto final ni alterar las palabras): \\\"" +
       decisionControladaSiguiente.trim() +
       "\\\". Las otras 2 opciones puedes crearlas libremente, asegurando que las 3 opciones sean totalmente distintas entre si.";
   }
@@ -73,7 +73,7 @@ export function construirPromptEscenaIntermedia(
   let instruccionOpciones = "Genera exactamente 3 opciones distintas que lleven la aventura hacia nuevas direcciones.";
   if (decisionControladaSiguiente && decisionControladaSiguiente.trim().length > 0) {
     instruccionOpciones =
-      "REGLA EXPERIMENTAL OBLIGATORIA: Entre tus EXACTAMENTE 3 opciones debes incluir obligatoriamente y de forma textual exacta la siguiente opcion: \\\"" +
+      "REGLA EXPERIMENTAL OBLIGATORIA: Entre tus EXACTAMENTE 3 opciones debes incluir obligatoriamente y de forma textual exacta la siguiente opcion (sin agregar punto final ni alterar las palabras): \\\"" +
       decisionControladaSiguiente.trim() +
       "\\\". Las otras 2 opciones puedes crearlas libremente, asegurando que las 3 opciones sean totalmente distintas entre si.";
   }
@@ -133,7 +133,7 @@ export function construirPromptRetry(
   let instruccionRuta = "";
   if (decisionControladaSiguiente && decisionControladaSiguiente.trim().length > 0) {
     instruccionRuta =
-      "\n\nREGLA EXPERIMENTAL OBLIGATORIA DE RUTA CONTROLADA: Entre tus EXACTAMENTE 3 opciones generadas DEBES incluir obligatoriamente y de forma textual exacta la opcion: \"" +
+      "\n\nREGLA EXPERIMENTAL OBLIGATORIA DE RUTA CONTROLADA: Entre tus EXACTAMENTE 3 opciones generadas DEBES incluir obligatoriamente y de forma textual exacta la opcion (sin punto final ni modificaciones): \"" +
       decisionControladaSiguiente.trim() +
       "\".";
   }

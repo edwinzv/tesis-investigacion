@@ -1,0 +1,83 @@
+{
+  "caso": "caso_03_arbol_hueco",
+  "repeticion": 1,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "Amistad bajo las Brumas",
+  "protagonista": "Mateo",
+  "descripcionProtagonista": "Un niño de diez años, soñador, con un corazón noble y valiente, que ama dibujar criaturas fantásticas.",
+  "escenario": "El bosque de las brumas, específicamente junto a un roble milenario con una abertura en el tronco.",
+  "conflicto": "Escucha un quejido proveniente del interior de un roble, lo cual genera miedo debido a las leyendas locales sobre espíritus, pero descubre que en realidad se trata de un búho enojado y herido que necesita ayuda.",
+  "resumenAnalisis": "Mientras caminaba por el bosque, Mateo oyó un quejido proveniente de un antiguo roble. Venciendo su miedo a las leyendas de espíritus, ingresó al árbol y encontró a un búho enojado y herido. Mateo liberó al ave con paciencia y cuidado, quien lo agradeció con un sonido musical y destellos de luz.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "El aire estaba espeso, casi se podía cortar con un cuchillo. Aquel roble milenario, cuyas raíces parecían agarrarse a la tierra como garras ancientes, tenía un hueco oscuro en el centro de su tronco. Mateo sintió un escalofrío cuando una quejida suave, como un suspiro enojado, escapó de las sombras. Sus dedos temblaron sobre la cinta de su mochila. Entre las leyendas del bosque de las brumas, no había nada más aterrador que espíritus atrapados en madera ancestral. Sin embargo, al",
+      "opcionesPresentadas": [
+        "Encender la linterna de explorador y asomarse al hueco del tronco",
+        "Dar un tranquilo paso atrás para observar desde lejos sin ser visto",
+        "Susurrar n palabras de condolencia para ver si el ruido cesaba"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1310,
+        "tokensEntrada": 490,
+        "tokensSalida": 196,
+        "costoUsd": 0.001176
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "La luz amarillenta de la linterna cortó la oscuridad, revelando un nido desordenado de musgo y ramitas. En su centro, con las plumas erizadas, estaba un búho plateado joven. Su ala izquierda parecía atrapada por enredados zarcillos espinosos que habían crecido desde el interior del tronco hasta alzarlo. El búho emitió un chillido agudo cuando vio la luz. Su ojo amarillo te miraba con una mezcla de miedo y esperanza. Mateo contuvo el aliento, sabiendo que cualquier movimiento brus",
+      "opcionesPresentadas": [
+        "Desatar con paciencia las zarzas espinosas del ala del búho plateado",
+        "Retroceder rápidamente para no asustar más al animal",
+        "Gritar a sus amigos que se acerquen para ayudarle"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1241,
+        "tokensEntrada": 522,
+        "tokensSalida": 191,
+        "costoUsd": 0.0011816
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Mateo extendió sus manos con una delicadeza extrema, ignorando el hormigueo en sus dedos mientras tiraba suavemente de cada rama espinosa. Una por una, las zarzas cedieron hasta liberar completamente el ala del búho. El ave soltó un silbido largo y tembloroso, pero no agitó las alas. Sus ojos dorados, antes llenos de pánico, se suavizaron para convertirse en un destello de gratitud. El pequeño búho batió la alas una sola vez, probando su movilidad, y luego emitió un chillido bajo",
+      "opcionesPresentadas": [
+        "Soplar con cuidado para apartar las últimas briznas de musgo del plumaje",
+        "Acomodar al ave en un lecho de musgo fresco y ofrecerle agua de la cantimplora",
+        "Dejar un poco de comida para pájaros cerca del nido antes de retirarte"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1160,
+        "tokensEntrada": 674,
+        "tokensSalida": 210,
+        "costoUsd": 0.0013792000000000001
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Mateo colocó al búho con extrema suavidad sobre un lecho de musgo tierno y le ofreció unas gotas de agua fría de su cantimplora. El ave bebió ávidamente, recuperando poco a poco sus fuerzas. Luego, se estiró, batió sus alas plateadas con potencia y, tras un último chillido melódico de gratitud, despegó hacia las ramas más altas del roble. Al desaparecer entre las copas, una suave brisa perfumada recorrió el bosque, disipando las brumas que siempre acompañaban a la magia del lugar",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 973,
+        "tokensEntrada": 751,
+        "tokensSalida": 147,
+        "costoUsd": 0.0011888
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4684,
+    "tokensEntradaTotales": 2437,
+    "tokensSalidaTotales": 744,
+    "costoTotalUsd": 0.0049256000000000005
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "caso": "caso_02_robot_cielo",
+  "repeticion": 2,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "Bit y la tormenta de primavera",
+  "protagonista": "Bit",
+  "descripcionProtagonista": "Un pequeno robot explorador con ruedas de goma, ojos luminosos y una antena giratoria, valoroso y dedicado a su trabajo.",
+  "escenario": "La cima de una colina verde en donde se encuentra la antigua estacion meteorologica del pueblo, especificamente en el tejado y la rampa de servicio durante una tormenta de primavera.",
+  "conflicto": "La alarma de tormenta sona, pero la pantalla de la estacion marca un error en el sensor exterior debido a una marana de hojas y ramas que impide el giro del anemometro, dejando a los agricultores sin prediccion para salvar sus cosechas.",
+  "resumenAnalisis": "Bit, un pequeno robot de la estacion meteorologica, se enfrenta a una falla en el sensor durante una tormenta de primavera. Tras subir al tejado, descubre que hojas y ramas bloquean el anemometro y las retira con sus pinzas. Gracias a su accion, los datos llegan a tiempo para que los agricultores puedan proteger sus cosechas.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "El viento aullaba entre las hierbas altas de la colina mientras la tormenta de primavera se acercaba con furia. Bit, el pequeño robot explorador, sintió la vibración de sus ruedas de goma contra el suelo húmedo. Su antena giratoria chirría con el aire, pero su verdadero problema era la antigua estación meteorológica: la gran alarma roja parpadeaba sin cesar. La pantalla mostraba un error crítico en el sensor exterior. Los agricultores dependían de esa predicción para proteger sus",
+      "opcionesPresentadas": [
+        "Subir con cuidado por la rampa de servicio hasta el tejado de la estación",
+        "Reiniciar el sistema interno desde el panel de control antes de intervenir",
+        "Llamar por radio a los vecinos para pedir ayuda con una escalera manual"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1157,
+        "tokensEntrada": 507,
+        "tokensSalida": 179,
+        "costoUsd": 0.0011216
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Bit subió por la rampa rugosa con sus ruedas chirriando. El viento azotaba con fuerza, empujándolo de lado a lado, pero él consiguió estabilizarse junto al borde del tejado. Allí, entre charcos de agua de lluvia, vio el anemómetro. Una maraña de hojas mojadas y ramas finas del árbol vecino estaba atrapada en las aspas, impidiendo que giraran correctamente. Por eso el sensor daba ese error. Bit extendió sus brazos magnéticos, pero el viento casi lo hace caer. Debía actuar rápido, ",
+      "opcionesPresentadas": [
+        "Limpiar las hojas húmedas y ramas finas que bloqueaban las aspas del anemómetro",
+        "Intentar reforzar la estructura rota con cinta adhesiva mágica",
+        "Buscar un refugio bajo el techo antes de que caiga más lluvia"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1045,
+        "tokensEntrada": 506,
+        "tokensSalida": 195,
+        "costoUsd": 0.0011848000000000002
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Bit se concentró profundamente. Sus brazos magnéticos capturaron las primeras hojas resbaladizas y las depositaron suavemente en un contenedor de desechos. Con movimientos precisos, fue liberando cada rama enredada. El viento sopló con fuerza, casi arrancando un último fragmento, pero Bit resistió. Finalmente, las aspas giraron con un suave *clac-clac*. La luz roja en el panel inferior cambió a verde brillante. ¡El anemómetro volvía a funcionar! Bit sintió un pequeño pitido de al",
+      "opcionesPresentadas": [
+        "Ajustar el mecanismo del sensor para transmitir los datos meteorológicos a los agricultores",
+        "Bajar a la base de la torre para revisar si hubo otros daños estructurales",
+        "Comprobar con sus ojos de cámara si la tormenta se está acercando o alejando"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1185,
+        "tokensEntrada": 652,
+        "tokensSalida": 193,
+        "costoUsd": 0.0012936
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Bit deslizó sus pequeños dedos digitali­os por el panel de control, ajustando la calibración final. La tormenta rugía abajo, pero la conexión estabe­lecida. Una señal clara y nítida partió hacia las granjas vecinas: «Viento fuerte, proteger cultivos». En segundos, los faros de las cosechadoras se encendieron en la perifería, y los agricultores, tranquilos, pudieron asegurar sus frutos a tiempo. Bit bajó lentamente la colina mientras la lluvia se suavizaba. Al ver las luces estak­",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 1109,
+        "tokensEntrada": 719,
+        "tokensSalida": 139,
+        "costoUsd": 0.0011312
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4496,
+    "tokensEntradaTotales": 2384,
+    "tokensSalidaTotales": 706,
+    "costoTotalUsd": 0.0047312
+  }
+}

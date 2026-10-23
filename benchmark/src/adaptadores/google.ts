@@ -4,13 +4,30 @@ import { ApiCallError, RawModelResponse } from '../types.js';
 import { sanitizarSchemaParaGoogle } from '../contratos.js';
 
 export class AdaptadorGoogle extends AdaptadorModelo {
-  readonly id = 'gemini-3.8-flash';
+  readonly id: string;
   readonly proveedor = 'Google';
-  readonly modelo = 'gemini-3.8-flash';
-  readonly tarifaInputUsdPorMillon = 0.75;
-  readonly tarifaOutputUsdPorMillon = 3.75;
-  readonly tarifaFuenteRuntime = 'Google AI Gemini 3.8 Flash Pricing (vigente 2026-10-09 a 2026-12-31)';
-  readonly freeTierActivo = false;
+  readonly modelo: string;
+  readonly tarifaInputUsdPorMillon: number;
+  readonly tarifaOutputUsdPorMillon: number;
+  readonly tarifaFuenteRuntime: string;
+  readonly freeTierActivo = true;
+
+  constructor(modeloId: 'gemini-3.5-flash-lite' | 'gemini-3.8-flash' | string = 'gemini-3.5-flash-lite') {
+    super();
+    if (modeloId === 'gemini-3.8-flash') {
+      this.id = 'gemini-3.8-flash';
+      this.modelo = 'gemini-3.8-flash';
+      this.tarifaInputUsdPorMillon = 0.75;
+      this.tarifaOutputUsdPorMillon = 3.75;
+      this.tarifaFuenteRuntime = 'Google AI Gemini 3.8 Flash Pricing';
+    } else {
+      this.id = 'gemini-3.5-flash-lite';
+      this.modelo = 'gemini-3.5-flash-lite';
+      this.tarifaInputUsdPorMillon = 0.30;
+      this.tarifaOutputUsdPorMillon = 2.50;
+      this.tarifaFuenteRuntime = 'Google AI Gemini 3.5 Flash Lite Pricing';
+    }
+  }
 
   private obtenerApiKey(): string {
     const key = process.env.GEMINI_API_KEY;
@@ -73,6 +90,8 @@ export class AdaptadorGoogle extends AdaptadorModelo {
 
       if (!resp.ok) {
         const errorText = await resp.text();
+        const retryAfterVal = resp.headers.get('retry-after');
+        const retryAfterMs = this.parsearRetryAfterHeader(retryAfterVal);
         let errorJson: any = null;
         try {
           errorJson = JSON.parse(errorText);
@@ -90,6 +109,7 @@ export class AdaptadorGoogle extends AdaptadorModelo {
           latencyMs: latenciaMs,
           isNonRetryable: categoria === 'authentication' || categoria === 'billing',
           categoria,
+          retryAfterMs,
         });
       }
 

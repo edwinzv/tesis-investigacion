@@ -1,0 +1,50 @@
+{
+  "loteId": "piloto",
+  "lote": null,
+  "repeticion": 1,
+  "repeticiones": 1,
+  "fechaInicioUtc": "2026-10-15T03:42:11.239Z",
+  "fechaFinUtc": "2026-10-15T03:42:11.240Z",
+  "estado": "COMPLETADO",
+  "modo": "DRY_RUN",
+  "esSimulado": true,
+  "casos": [
+    "caso_01_misterio_agua"
+  ],
+  "modelos": [
+    "gemini-3.5-flash-lite"
+  ],
+  "operacionesPlanificadas": 5,
+  "operacionesEjecutadas": 5,
+  "operacionesExitosas": 5,
+  "operacionesFallidas": 0,
+  "solicitudesHttpReales": 0,
+  "costoTeoricoTotalUsd": null,
+  "costoEfectivoTotalUsd": null,
+  "configuracionEfectiva": {
+    "google": {
+      "modelo": "gemini-3.5-flash-lite",
+      "pacingMs": 5000
+    },
+    "groq_qwen": {
+      "modelo": "qwen/qwen3.8-27b",
+      "pacingMs": 65000
+    },
+    "groq_gpt_oss": {
+      "modelo": "openai/gpt-oss-20b",
+      "pacingMs": 15000
+    }
+  },
+  "gitCommit": "af1fb0439c97ba9e2ad853976a3dd0303a88539d",
+  "hashesCodigo": {
+    "benchmark/config/modelos.config.json": "6e0cb00029c02c33ab8f1307cf3773dfb10d6d44b4faeb54fa1d70212d84dce1",
+    "benchmark/config/benchmark.config.json": "f6625fbf951b59528a82c30a514e0e6e1cacd77482a98865994b3b384ce40009",
+    "benchmark/src/contratos.ts": "05aa7c8fd325d5218055ad8849dc34aa7e6d750eda56489c3b6c6fbba11cc387",
+    "benchmark/src/prompts.ts": "b2691c7e323bfae41fc477b299551ae1a51fab584a574cdf11e615737e4021e0",
+    "benchmark/src/runner.ts": "a4de3f7f185249c2a5f609fb9fb96dd82a8cb5f4da27bb941821efdea4e6a594",
+    "benchmark/src/lotes.ts": "d5467aad8e6c6af5d847b83e9564078df937ef91873a3b87cf6e8255825db207",
+    "benchmark/src/adaptadores/google.ts": "86325506ec3c858a4c8771980a5e6cbe5678b4afd47b646906e16ecb9372e170",
+    "benchmark/src/adaptadores/groq.ts": "7f8292bda703761b5f51e22fd69056c26a39d0f92b4d0995889b103ed083a346",
+    "benchmark/src/adaptadores/groq_gpt_oss.ts": "dd6abca7bc3adf256c5b98b35ad293094b9c78898f164e2c78e8b333692bf483"
+  }
+}

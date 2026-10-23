@@ -1,0 +1,3 @@
+proveedor,modelo,caso,repeticion,operaciones_totales,operaciones_exitosas,tokens_entrada_cuento,tokens_salida_cuento,tokens_razonamiento_cuento,tokens_totales_cuento,tiempo_total_ms,costo_teorico_cuento_usd,costo_efectivo_cuento_usd,errores,reintentos,solicitudes_http_totales,cuento_completo_exitoso,es_simulado
+Google,gemini-3.5-flash-lite,caso_03_arbol_hueco,5,5,5,2291,1137,0,3428,13869,0.003530,,0,0,5,true,false
+Google,gemini-3.5-flash-lite,caso_04_cometa_viento,5,5,5,2210,1082,0,3292,12094,0.003368,,0,0,5,true,false

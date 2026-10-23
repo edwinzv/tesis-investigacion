@@ -1,0 +1,46 @@
+{
+  "modelo": "openai/gpt-oss-20b",
+  "nombreCorto": "gpt_oss_20b",
+  "proveedor": "Groq",
+  "fechaConsolidacionUtc": "2026-10-15T13:13:27.168Z",
+  "operaciones": {
+    "planificadas": 100,
+    "ejecutadas": 100,
+    "exitosas": 100,
+    "fallidas": 0,
+    "omitidasPorDependencia": 0,
+    "tasaExitoGlobalPct": 100,
+    "tasaExitoPrimerIntentoPct": 93
+  },
+  "solicitudesHttp": {
+    "totalesReales": 100,
+    "reintentosTotales": 0
+  },
+  "latenciaMs": {
+    "observacionesExitosas": 100,
+    "promedio": 933.86,
+    "mediana": 913.5,
+    "percentil95": 1229
+  },
+  "consumoTokens": {
+    "entradaTotal": 82486,
+    "salidaTotal": 23643,
+    "razonamientoTotal": 1491,
+    "tokensTotales": 106129,
+    "promedioTokensEntradaPorOp": 824.86,
+    "promedioTokensSalidaPorOp": 236.43
+  },
+  "costosUsd": {
+    "costoTeoricoTotal": 0.013279,
+    "costoPromedioPorOperacion": 0.000133,
+    "costoPromedioPorCuentoCompleto": 0.000664,
+    "moneda": "USD"
+  },
+  "contratosYValidacion": {
+    "cumplimientoJsonSchemaPct": 100,
+    "cumplimientoEstructuraValidaPct": 100,
+    "cumplimientoRutaControladaPct": 60
+  },
+  "cuentosCompletados": 20,
+  "cuentosPrevistos": 20
+}

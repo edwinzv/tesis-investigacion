@@ -1,0 +1,83 @@
+{
+  "caso": "caso_02_robot_cielo",
+  "repeticion": 2,
+  "modelo": "openai/gpt-oss-20b",
+  "titulo": "El héroe de la tormenta",
+  "protagonista": "Bit",
+  "descripcionProtagonista": "Pequeño robot explorador con ruedas de goma, ojos luminosos y antena giratoria, valiente y decidido",
+  "escenario": "Estación meteorológica en la cima de una colina verde del pueblo",
+  "conflicto": "La alarma de tormenta suena pero el sensor exterior da error, impidiendo que la información llegue a los agricultores",
+  "resumenAnalisis": "Bit, un robot de la estación meteorológica, detecta un error que impide predecir la tormenta. Descubre que hojas y ramas bloquean el anemómetro y las retira con sus pinzas. Los datos vuelven a fluir, alertando a los agricultores a tiempo. La estación celebra y Bit se siente orgulloso.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "El sol de la mañana doraba la colina verde donde se alzaba la estación meteorológica. Bit, el pequeño robot de ruedas y antena giratoria, revisaba con su sensor de lluvia cuando de repente la alarma de tormenta comenzó a sonar. Pero algo extraño sucedía: el sensor exterior mostraba un error y la información no llegaba a los agricultores que dependían de ella. Bit se sintió decidido a solucionar el problema y salvar al pueblo. Con su energía baja y su curiosidad en alza, se prepara para emprender una aventura que lo llevará a descubrir la causa del fallo y a asegurar la seguridad de todos.",
+      "opcionesPresentadas": [
+        "Subir con cuidado por la rampa de servicio hasta el tejado de la estación",
+        "Examinar el panel de control interior buscando códigos de error",
+        "Ir al valle cercano para hablar con los agricultores y preguntar sobre la tormenta"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 941,
+        "tokensEntrada": 626,
+        "tokensSalida": 212,
+        "costoUsd": 0.00011055
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Bit subió con cuidado por la rampa de servicio, girando sus ruedas sobre el suelo de metal y sus sensores parpadeando de emoción. En el tejado, el aire era fresco y el horizonte se extendía hasta el cielo gris que empezaba a nublarse. Al mirar el anemómetro, vio que sus aspas estaban cubiertas de hojas húmedas y ramas finas que impedían que girara. Bit sabía que si no limpiaba las aspas, la alarma de tormenta seguiría fallando y el pueblo quedaría sin protección. Con un destello de energía, se preparó para resolver el misterio.\n",
+      "opcionesPresentadas": [
+        "Limpiar las hojas húmedas y ramas finas que bloqueaban las aspas del anemómetro",
+        "Revisar el cableado interno del sensor de lluvia",
+        "Descubrir quién dejó las hojas en el anemómetro"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 984,
+        "tokensEntrada": 699,
+        "tokensSalida": 218,
+        "costoUsd": 0.000117825
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Bit se movió con cuidado, usando sus pinzas diminutas para deshacer la maraña de hojas y ramas que rodeaban las aspas del anemómetro. Cada pieza húmeda se liberaba como si fuera un pequeño tesoro, y cuando las aspas finalmente se desahogaron, el viento comenzó a girar de nuevo, enviando señales claras al centro de datos. El sonido de la alarma dejó de sonar, pero Bit sintió que todavía había un paso crucial para que los agricultores recibieran la información. Con la energía renovada, contempló las opciones disponibles.",
+      "opcionesPresentadas": [
+        "Ajustar el mecanismo del sensor para transmitir los datos meteorológicos a los agricultores",
+        "Revisar el cableado interno del sistema de alarma",
+        "Buscar en el laboratorio una actualización de software"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 906,
+        "tokensEntrada": 851,
+        "tokensSalida": 209,
+        "costoUsd": 0.000126525
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Con una última chispa de energía, Bit ajustó delicadamente el cable de transmisión del sensor. El pequeño robot giró su antena como si susara a los vientos del futuro, y las señales de lluvia y viento comenzaron a fluir sin obstáculos a los agricultores del valle. En la mañana siguiente, cuando los granjeros recibieron la alerta a tiempo, sembraron sus cultivos bajo la protección de la lluvia calculada, y la cosecha floreció más rica que nunca. Bit, exhausto pero feliz, se posó sobre la colina y miró el horizonte. Su misión había demostrado que, con curiosidad y trabajo en equipo, incluso los pequeños pueden salvar a todos. Y así, bajo un cielo claro y un sol agradecido, el pueblo siguió creciendo, recordando siempre que la amistad y la tecnología van de la mano.",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 1031,
+        "tokensEntrada": 908,
+        "tokensSalida": 207,
+        "costoUsd": 0.00013019999999999997
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 3862,
+    "tokensEntradaTotales": 3084,
+    "tokensSalidaTotales": 846,
+    "costoTotalUsd": 0.0004851
+  }
+}

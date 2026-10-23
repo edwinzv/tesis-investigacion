@@ -23,6 +23,20 @@ export abstract class AdaptadorModelo {
     maxTokens?: number
   ): Promise<RawModelResponse>;
 
+  parsearRetryAfterHeader(headerVal: string | null | undefined): number | undefined {
+    if (!headerVal) return undefined;
+    const segundos = parseFloat(headerVal);
+    if (!isNaN(segundos) && segundos >= 0) {
+      return Math.round(segundos * 1000);
+    }
+    const fechaMs = Date.parse(headerVal);
+    if (!isNaN(fechaMs)) {
+      const diff = fechaMs - Date.now();
+      return diff > 0 ? diff : 0;
+    }
+    return undefined;
+  }
+
   categorizarError(error: any): CategoriaError {
     const status = error?.status ?? error?.statusCode ?? error?.response?.status;
     const msg = (error?.message ?? '').toLowerCase();

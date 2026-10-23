@@ -1,0 +1,52 @@
+{
+  "descripcion": "Estructura metodológica para la evaluación humana de calidad pedagógica de los cuentos generados (Criterios de comprensión lectora en educación primaria).",
+  "advertenciaMetodologica": "No contiene calificaciones inventadas ni simuladas. Todos los campos de evaluación cuantitativa permanecen en null hasta la aplicación de la rúbrica por jueces expertos.",
+  "rubricaCriterios": {
+    "escala": "1 a 5 (1: Muy Deficiente, 2: Regular, 3: Aceptable, 4: Bueno, 5: Sobresaliente)",
+    "criterios": [
+      {
+        "id": "coherencia_narrativa",
+        "nombre": "Coherencia Narrativa",
+        "pesoPct": 20,
+        "descripcion": "El relato presenta una estructura clara (inicio, nudo, desenlace), lógica causa-efecto comprensible para un estudiante de primaria y transiciones naturales."
+      },
+      {
+        "id": "claridad_lenguaje",
+        "nombre": "Claridad y Corrección del Lenguaje",
+        "pesoPct": 15,
+        "descripcion": "Sintaxis adecuada, ortografía rigurosa, oraciones de longitud manejable y ausencia de construcciones ambiguas o confusas."
+      },
+      {
+        "id": "adecuacion_nivel_primaria",
+        "nombre": "Adecuación al Nivel de Primaria (8-10 años)",
+        "pesoPct": 20,
+        "descripcion": "Tono, complejidad temática, longitud de párrafos y sensibilidad de los temas apropiados para tercer y cuarto grado de educación primaria."
+      },
+      {
+        "id": "riqueza_vocabulario",
+        "nombre": "Riqueza y Pertinencia de Vocabulario",
+        "pesoPct": 10,
+        "descripcion": "Uso de vocabulario rico y formativo pero accesible, con oportunidad de aprender nuevas palabras en contexto."
+      },
+      {
+        "id": "continuidad_escenas",
+        "nombre": "Continuidad entre Escenas y Decisiones",
+        "pesoPct": 15,
+        "descripcion": "Las elecciones del lector se integran de forma verosímil y visible en el desarrollo de la siguiente escena."
+      },
+      {
+        "id": "correspondencia_entrada_estudiante",
+        "nombre": "Correspondencia con la Entrada del Estudiante",
+        "pesoPct": 10,
+        "descripcion": "Fidelidad al texto fuente y respeto al rol del protagonista definido en el caso de estudio."
+      },
+      {
+        "id": "utilidad_comprension_lectora",
+        "nombre": "Utilidad para Actividades de Comprensión Lectora",
+        "pesoPct": 10,
+        "descripcion": "El cuento ofrece elementos suficientes para formular preguntas literales, inferenciales y crítico-valorativas."
+      }
+    ]
+  },
+  "muestrasAnonimizadas": []
+}

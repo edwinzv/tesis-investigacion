@@ -1,0 +1,98 @@
+{
+  "gemini-3.5-flash-lite": {
+    "modelo": "Gemini 3.5 Flash Lite",
+    "id": "gemini-3.5-flash-lite",
+    "proveedor": "Google",
+    "operacionesPlanificadas": 100,
+    "operacionesValidasFinales": 100,
+    "cuentosCompletos": 20,
+    "exitosPrimerIntentoSegunFlag": 100,
+    "fallosInicialesReales": 1,
+    "operacionesOmitidasPorDependencia0Http": 1,
+    "solicitudesHttpConsolidadas": 100,
+    "solicitudesHttpHistoricasVerificables": 102,
+    "latenciaMs": {
+      "media": 3210.78,
+      "mediana": 2739,
+      "p95": 5919
+    },
+    "tokens": {
+      "entrada": 45088,
+      "salida": 21640,
+      "razonamiento": 0,
+      "totales": 66728,
+      "mediaPorOp": 667.3,
+      "mediaPorCuento": 3336.4
+    },
+    "costoUsd": {
+      "totalVerificado": 0.067625,
+      "mediaPorCuento": 0.003381
+    },
+    "tasaCumplimientoEstructuralFinal": "100.00%",
+    "tasaCumplimientoPrimerIntentoFlag": "100.00%"
+  },
+  "qwen/qwen3.8-27b": {
+    "modelo": "Qwen 3.8 27B",
+    "id": "qwen/qwen3.8-27b",
+    "proveedor": "Groq",
+    "operacionesPlanificadas": 100,
+    "operacionesValidasFinales": 100,
+    "cuentosCompletos": 20,
+    "exitosPrimerIntentoSegunFlag": 98,
+    "fallosInicialesReales": 1,
+    "operacionesOmitidasPorDependencia0Http": 4,
+    "solicitudesHttpConsolidadas": 102,
+    "solicitudesHttpHistoricasVerificables": 103,
+    "latenciaMs": {
+      "media": 1380.24,
+      "mediana": 1156,
+      "p95": 2793
+    },
+    "tokens": {
+      "entrada": 64974,
+      "salida": 25251,
+      "razonamiento": 3702,
+      "totales": 90225,
+      "mediaPorOp": 902.3,
+      "mediaPorCuento": 4511.3
+    },
+    "costoUsd": {
+      "totalVerificado": 0.152978,
+      "mediaPorCuento": 0.007649
+    },
+    "tasaCumplimientoEstructuralFinal": "100.00%",
+    "tasaCumplimientoPrimerIntentoFlag": "98.00%"
+  },
+  "openai/gpt-oss-20b": {
+    "modelo": "GPT-OSS 20B",
+    "id": "openai/gpt-oss-20b",
+    "proveedor": "Groq",
+    "operacionesPlanificadas": 100,
+    "operacionesValidasFinales": 100,
+    "cuentosCompletos": 20,
+    "exitosPrimerIntentoSegunFlag": 93,
+    "fallosInicialesReales": 3,
+    "operacionesOmitidasPorDependencia0Http": 4,
+    "solicitudesHttpConsolidadas": 100,
+    "solicitudesHttpHistoricasVerificables": 104,
+    "latenciaMs": {
+      "media": 933.86,
+      "mediana": 913.5,
+      "p95": 1238
+    },
+    "tokens": {
+      "entrada": 82486,
+      "salida": 23643,
+      "razonamiento": 1491,
+      "totales": 106129,
+      "mediaPorOp": 1061.3,
+      "mediaPorCuento": 5306.4
+    },
+    "costoUsd": {
+      "totalVerificado": 0.013283,
+      "mediaPorCuento": 0.000664
+    },
+    "tasaCumplimientoEstructuralFinal": "100.00%",
+    "tasaCumplimientoPrimerIntentoFlag": "93.00%"
+  }
+}

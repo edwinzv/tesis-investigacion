@@ -1,0 +1,83 @@
+{
+  "caso": "caso_04_cometa_viento",
+  "repeticion": 1,
+  "modelo": "openai/gpt-oss-20b",
+  "titulo": "El vuelo de Valentina",
+  "protagonista": "Valentina",
+  "descripcionProtagonista": "Niña alegre, ocho años, valiente y creativa",
+  "escenario": "Caleta de pescadores de Puerto Sol, playa y mar",
+  "conflicto": "El viento desordenado amenaza con estrellar la cometa",
+  "resumenAnalisis": "Valentina construye una cometa con la esperanza de que los pescadores la vean. El viento desordenado la amenaza, pero ella sube a la duna y logra lanzar la cometa. Los pescadores y niños la aplauden.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Valentina llegó al puerto de pescadores de Puerto Sol con su cometa de colores brillantes. El sol acariciaba la arena y el mar cantaba una canción de olas. Pero el viento, juguetón, empezó a soplar fuerte, torciendo la cometa como si quisiera atraparla. Con valentía, Valentina pensó en un plan para salvar su preciado juguete. ¿Qué hará ahora?",
+      "opcionesPresentadas": [
+        "Correr hacia la cima de la duna más alta donde el viento es más constante",
+        "Buscar un palo más largo para reforzar el asta de la cometa",
+        "Preguntar al pescador que trabaja con los redes cómo proteger la cometa"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1000,
+        "tokensEntrada": 603,
+        "tokensSalida": 171,
+        "costoUsd": 0.000096525
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Valentina corre sin cesar hasta la cima de la duna más alta. Allí, el viento es más constante, como un tambor que golpea la arena. Cuando llega, el aire parece más frío, pero la brisa se siente como un abrazo. Con sus manos arriesgadas, sujeta la cometa y la lanza al aire. La cometa sube como un ave de colores, pero el viento la tira de aquí y de allá. Valentina siente que su corazón late rápido. Para mantenerla, decide que necesita un plan que la ayude a controlar la cometa con mayor fuerza. ¿Qué hará ahora?",
+      "opcionesPresentadas": [
+        "Desenrollar el hilo de algodón y compensar el peso de la cola de cintas",
+        "Buscar una cuerda más resistente en el puesto de pescadores",
+        "Cantar una canción que calme al viento"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 991,
+        "tokensEntrada": 654,
+        "tokensSalida": 207,
+        "costoUsd": 0.00011114999999999999
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Valentina desenrolla cuidadosamente el hilo de algodón, sintiendo cómo su textura suave se alinea con el viento. Para equilibrar el peso, sostiene la cola de cintas de la cometa como si fueran un pequeño ancla, tirando ligeramente de ella. De pronto, el viento responde: la cometa se levanta de manera más estable, como un pájaro que ajusta su ala. Sin embargo, el aire todavía agita las cintas, y el hilo parece querer deshilacharse. Valentina necesita un plan para estabilizarla antes de que el viento la arrastre lejos de la playa. ¿Qué hará ahora?",
+      "opcionesPresentadas": [
+        "Soltar la cometa en el momento preciso para que se eleve sobre las olas del mar",
+        "Atar un trozo de tela al hilo para crear un contrapeso que calme la caída",
+        "Buscar una rama de árbol que pueda usar como soporte temporal"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 946,
+        "tokensEntrada": 809,
+        "tokensSalida": 221,
+        "costoUsd": 0.00012697499999999998
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Con una sonrisa de triunfo, Valentina soltó la cometa en el instante perfecto. El viento la abrazó con fuerza y la llevó volando sobre las olas, dibujando destellos de color en el horizonte. Los pescadores del puerto aplaudieron, y una suave brisa susurró que la aventura había terminado. Valentina comprendió que el valor no solo está en seguir adelante, sino también en saber cuándo confiar en el momento correcto. Mientras la cometa danzaba, recordó que cada desafío es una oportunidad para aprender a bailar con la vida. Y así, el sol se puso sobre Puerto Sol, celebrando el triunfo de una niña que escuchó a su corazón.\n",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 853,
+        "tokensEntrada": 879,
+        "tokensSalida": 184,
+        "costoUsd": 0.000121125
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 3790,
+    "tokensEntradaTotales": 2945,
+    "tokensSalidaTotales": 783,
+    "costoTotalUsd": 0.00045577499999999995
+  }
+}

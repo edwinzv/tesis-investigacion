@@ -1,0 +1,83 @@
+{
+  "caso": "caso_03_arbol_hueco",
+  "repeticion": 4,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "El Corazón Valiente de Mateo",
+  "protagonista": "Mateo",
+  "descripcionProtagonista": "Un niño soñador de diez años que ama dibujar criaturas fantásticas y posee un corazón noble y valiente.",
+  "escenario": "El bosque de las brumas, específicamente cerca de un roble milenario con una abertura en su tronco.",
+  "conflicto": "Mateo debe vencer su miedo a los espíritus para poder ayudar a un búho herido atrapado en las zarzas.",
+  "resumenAnalisis": "Mateo, un niño soñador, escucha un quejido desde un roble milenario y, tras vencer su miedo, entra a explorar. Descubre a un búho plateado atrapado en las zarzas, lo atiende con paciencia y lo libera. Agradecido por la ayuda, el búho vuela y el bosque se ilumina, dejando a Mateo feliz con el memory de su heroísmo.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Mateo adjusting sus gafas, el roble milenario se erguía majestuoso ante él. Una luz suave, casi líquida, filtraba las brumas densas del bosque, creando un escenario mágico pero inquietante. Desde el interior del tronco, un llanto débil pero urgente resonaba; era un pequeño búho atrapado entre zarzas espinosas. El corazón de Mateo latía con fuerza. Sentía un frío en la espalda, miedo a los espíritus que susurraban entre las ramas, pero también una determinación noble. Sabía que el",
+      "opcionesPresentadas": [
+        "Encender la linterna de explorador y asomarse al hueco del tronco",
+        "Pedir ayuda a los espíritus del bosque para que liberen al búho",
+        "Volver a casa a buscar a sus padres para que ayuten al animal"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1012,
+        "tokensEntrada": 464,
+        "tokensSalida": 197,
+        "costoUsd": 0.0011592
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Mateo encendió su linterna de explorador. Un haz dorado penetró la oscuridad, revelando al pequeño búho plateado. Su cabeza asomaba entre las espinas, con ojos amplios y brillantes que reflejaban la luz temblorosa. El animal no se mordía, sino que emitía un chucho suave, casi como un suspiro de alivio. Las zarzas se habían enredado con fuerza around su ala derecha, inmovilizándolo. Mateo sostuvo su respiración. Las brumas del bosque parecían detenerse a su alrededor, como si el m",
+      "opcionesPresentadas": [
+        "Desatar con paciencia las zarzas espinosas del ala del búho plateado",
+        "Hablarle al búho en voz baja para calmar sus nervios",
+        "Observar el entorno por si aparecen más peligros antes de actuar"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1066,
+        "tokensEntrada": 518,
+        "tokensSalida": 198,
+        "costoUsd": 0.0012064
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Con dedos temblorosos pero firmes, Mateo comenzó a separar las espinas una a una. Cada zarza que retiraba parecía emitir un pequeño suspiro mágico, desvaneciéndose en la bruma. El búho plateado aleteó suavemente, y sus ojos brillaron con una gratitud profunda que parecía hablar sin palabras. Cuando la última espина cayó, el ala del pequeño animal quedó libre. Un silbido suave recorrió el bosque, rompiendo la tensión. La luz dorada de la linterna ahora iluminaba la pluma perfecta,",
+      "opcionesPresentadas": [
+        "Acomodar al ave en un lecho de musgo fresco y ofrecerle agua de la cantimplora",
+        "Mostrar al búho el camino de regreso a su nido siguiendo las luciérnagas",
+        "Pedirle al búho un favor a cambio de haberlo liberado"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1044,
+        "tokensEntrada": 677,
+        "tokensSalida": 203,
+        "costoUsd": 0.0013536
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Mateo acomodó cuidadosamente al pequeño búho sobre su lecho de musgo, ofreciéndole una gota de agua fresca de su cantimplora. El ave bebió con delicadeza y, tras un último bado amistoso, abrió sus alas impecables. Con un graznido suave que resonó como una melodía antigua, el búho plateado se elevó hacia la copa del roble milenario. Al ascender, las brumas oscuras se disiparon por completo, dando paso a un cielo despejado y al amanecer dorado que bañaba el bosque. Mateo sonrió, pú",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 945,
+        "tokensEntrada": 750,
+        "tokensSalida": 154,
+        "costoUsd": 0.001216
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4067,
+    "tokensEntradaTotales": 2409,
+    "tokensSalidaTotales": 752,
+    "costoTotalUsd": 0.0049352
+  }
+}

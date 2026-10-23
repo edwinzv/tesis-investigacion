@@ -1,0 +1,83 @@
+{
+  "caso": "caso_01_misterio_agua",
+  "repeticion": 4,
+  "modelo": "gemini-3.5-flash-lite",
+  "titulo": "Sofía y el Secreto del Río Cristalino",
+  "protagonista": "Sofía",
+  "descripcionProtagonista": "Una niña curiosa de nueve años, equipada con botas de hule y una lupa, muy empática con los animales.",
+  "escenario": "El valle de San Lorenzo, cerca del molino viejo y la cascada oculta.",
+  "conflicto": "El agua del río dejó de cantar y su corriente se volvió lenta debido a un bloqueo, afectando a la fauna local.",
+  "resumenAnalisis": "En el valle de San Lorenzo, el río cristalino deja de fluir con normalidad y Sofía decide investigar. Adentrándose en el bosque, descubre que una nutria llamada Tina bloqueó el agua con un dique para proteger a sus crías. Juntas construyen un canal secundario que salva a los animales y devuelve la alegría al río.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Sofía caminaba con paso firme por el valle de San Lorenzo, ajustándose las botas de hule. Con su fiel lupa en la mano, notó algo extraño: el río que siempre llenaba el aire con su alegre murmullo estaba extrañamente silencioso y lento. Preocupada por los peces y los animalitos del bosque que dependían del agua, decidió que tenía que descubrir qué pasaba. El viejo molino crujía a lo lejos, mientras la densa vegetación ocultaba los senderos.",
+      "opcionesPresentadas": [
+        "Seguir el rastro de huellas hacia la cascada oculta",
+        "Investigar los cimientos abandonados del viejo molino",
+        "Preguntar a los pájaros en la copa de los árboles"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1996,
+        "tokensEntrada": 300,
+        "tokensSalida": 184,
+        "costoUsd": 0.00055
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Sofía siguió las pequeñas y húmedas huellas que se internaban entre los helechos gigantes, guiándola directo hacia la cascada oculta del valle. El sonido del agua caía ahora en un goteo triste y cansado. Al llegar a la orilla, entre rocas cubiertas de musgo y grandes troncos, descubrió una barricada que impedía el paso normal del agua. Movida por la curiosidad y su gran espíritu aventurero, se acercó despacio para examinar de cerca quién o qué había causado aquel embotellamiento en el río.",
+      "opcionesPresentadas": [
+        "Hablar amablemente con la nutria traviesa que había construido una represa de ramas",
+        "Investigar la zona con la lupa para buscar pistas sobre herramientas mágicas",
+        "Tratar de mover los troncos grandes por sí misma con todas sus fuerzas"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 3164,
+        "tokensEntrada": 345,
+        "tokensSalida": 206,
+        "costoUsd": 0.0006184999999999999
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Sofía se acercó con una sonrisa y una voz muy suave para no asustar al animalito. La pequeña nutria asomó la cabeza entre las ramas con ojos curiosos y un poco asustados, sosteniendo un último tronco con sus patitas. Al ver que la niña no representaba ningún peligro, soltó un chillido amistoso y explicó que solo quería construir una casa segura para su nueva familia, sin darse cuenta de que secaba el río. Sofía comprendió su preocupación, pero sabía que los demás animales necesitaban el agua urgentemente. Ahora debían encontrar una solución inteligente para que todos salieran ganando en esta aventura.",
+      "opcionesPresentadas": [
+        "Construir juntos un canal alternativo para que el agua del río fluya sin desarmar el refugio de la nutria",
+        "Ayudar a la nutria a buscar una cueva más grande y seca en la orilla para que desmonte la represa",
+        "Usar la lupa y ramas secas para crear un puente colgante que cruce por encima de la barricada"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 3220,
+        "tokensEntrada": 499,
+        "tokensSalida": 250,
+        "costoUsd": 0.0007747
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Manos a la obra, Sofía y su nueva amiga la nutria trabajaron unidas bajo el sol de la tarde. Con ramas pequeñas, piedras estratégicamente colocadas y mucho entusiasmo, lograron abrir un canal secundario que serpenteaba suavemente junto al nuevo hogar. Al instante, el agua fresca y cristalina comenzó a fluir de nuevo, llenando el cauce principal y devolviendo la alegría a todo el valle de San Lorenzo. Los peces saltaron felices, los árboles bebieron sedientos y el viejo río recuperó su música cantarina. Sofía sonrió al mirar a la nutria con su familia a salvo, comprendiendo que la cooperación y la empatía son las herramientas más poderosas para resolver cualquier problema. Con el corazón lleno de orgullo y una gran aventura para recordar, emprendió el camino de regreso a casa.",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 2204,
+        "tokensEntrada": 591,
+        "tokensSalida": 195,
+        "costoUsd": 0.0006648
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 10584,
+    "tokensEntradaTotales": 1735,
+    "tokensSalidaTotales": 835,
+    "costoTotalUsd": 0.002608
+  }
+}

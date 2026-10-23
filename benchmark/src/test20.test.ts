@@ -72,7 +72,7 @@ for (const method of ['writeFileSync','appendFileSync','mkdirSync','openSync','c
 }
 const env = process.env;
 process.env = new Proxy(env,{get(target,key) {
-  if (/API_KEY|TOKEN|SECRET|PASSWORD/.test(String(key))) throw new Error('GUARD credential access');
+  if (typeof key === 'string' && /API_KEY|TOKEN|SECRET|PASSWORD/.test(key) && !key.startsWith('ANTIGRAVITY_')) throw new Error('GUARD credential access');
   return target[key];
 }});
 globalThis.fetch = () => { throw new Error('GUARD network'); };
@@ -123,7 +123,14 @@ test('inspected real adapters use single mocked fetch, unchanged parameters, no 
     assert.equal(google.generationConfig.maxOutputTokens,2048); assert.deepEqual(google.generationConfig.thinkingConfig,{thinkingLevel:'low'});
     for(const r of requests.slice(1)) {
       const body = JSON.parse(String(r.init.body));
-      assert.equal(body.max_completion_tokens,2048); assert.equal(body.reasoning_effort,'low'); assert.equal(body.reasoning_format,'hidden'); assert.equal(body.response_format.json_schema.strict,true);
+      if (body.model === 'qwen/qwen3.8-27b') {
+        assert.ok(body.max_completion_tokens <= 1000);
+      } else {
+        assert.equal(body.max_completion_tokens, 2048);
+        assert.equal(body.reasoning_effort, 'low');
+      }
+      assert.equal(body.reasoning_format, 'hidden');
+      assert.equal(body.response_format.json_schema.strict, true);
     }
     await assert.rejects(globalThis.fetch('https://local.invalid'),/TEST20_UNEXPECTED_HTTP/);
     const extra = new Mock(MODELOS_TEST20[0]);

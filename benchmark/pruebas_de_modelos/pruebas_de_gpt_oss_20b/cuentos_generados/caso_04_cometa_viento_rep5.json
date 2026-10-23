@@ -1,0 +1,83 @@
+{
+  "caso": "caso_04_cometa_viento",
+  "repeticion": 5,
+  "modelo": "openai/gpt-oss-20b",
+  "titulo": "La gran cometa de Valentina",
+  "protagonista": "Valentina",
+  "descripcionProtagonista": "Niña de ocho años, alegre y determinada, con una gran pasión por la aventura y la creatividad.",
+  "escenario": "La caleta de pescadores de Puerto Sol, en la orilla del mar con duna y brisa marina.",
+  "conflicto": "El viento costero irregular que hacía que la cometa girara y amenazara con estrellarse.",
+  "resumenAnalisis": "Valentina construyó una cometa y, a pesar de un viento desordenado, logró lanzarla al cielo sobre las olas. Su perseverancia la llevó a superar el desafío y a ganar la admiración de pescadores y niños.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Valentina, de ocho años y llena de energía, se encontraba en la caleta de pescadores de Puerto Sol. Sus ojos brillaban al ver su cometa de colores vivos, lista para volar. La brisa marina soplaba con fuerza, y el viento costero, algo impredecible, comenzaba a hacer bailar la cometa en círculos. Valentina sintió que el viento podía llevarla lejos, pero también temía que la cometa se cayera al suelo y se rompiera. Decidió que tenía que encontrar una forma de controlar la aventura antes de que la tormenta se intensificara. Ahora, el aire crecía y el cielo se cubría con nubes de colores azules y grises, como si la caleta estuviera esperando a que tomara una decisión crucial.",
+      "opcionesPresentadas": [
+        "Correr hacia la cima de la duna más alta donde el viento es más constante",
+        "Buscar a un viejo pescador que pueda enseñarle a manejar la cometa bajo la brisa",
+        "Escuchar las historias del viento que sopla entre las rocas del puerto"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 795,
+        "tokensEntrada": 642,
+        "tokensSalida": 275,
+        "costoUsd": 0.00013065
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Valentina corrió con el viento como su mejor amigo, subiendo la duna más alta de la caleta. Allí, el aire era más puro, y el susurro de las olas parecía alentarla a seguir adelante. Con la cometa en su mano, la joven sintió que podía volar sin límites. Cuando llegó al pico, la brisa le hizo vibrar las alas de colores y un destello de luz se reflejó en el agua. Pero el viento, juguetón, comenzó a arrastrar la cometa con fuerza, como si quisiese probar su habilidad. Valentina sintió el riesgo de perder el control y temió que el cielo la atrapara.\n\nPara salvar su aventura, tuvo que pensar rápido y elegir su siguiente movimiento.\n",
+      "opcionesPresentadas": [
+        "Desenrollar el hilo de algodón y compensar el peso de la cola de cintas",
+        "Usar el viejo palo de pescador para crear un contrapeso improvisado",
+        "Pedir ayuda a un pescador que pasa por allí"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1042,
+        "tokensEntrada": 745,
+        "tokensSalida": 243,
+        "costoUsd": 0.000128775
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Valentina tomó el hilo de algodón con manos temblorosas y, con un susurro de concentración, comenzó a desenrollarlo lentamente. Cada centímetro que soltaba se convertía en una corriente de aire que equilibraba el peso de la cola de cintas. El viento, que antes jugaba de forma caprichosa, ahora parecía obedecer su plan, como un guardián que entiende la intención de la niña. La cometa, con su brillante cuerpo, se estabilizó y empezó a flotar suavemente, como si fuera un ave de colores danzando entre nubes. La brisa se calmó y la duna se convirtió en un escenario mágico donde Valentina podía probar su ingenio sin temer la tormenta.\n",
+      "opcionesPresentadas": [
+        "Soltar la cometa en el momento preciso para que se eleve sobre las olas del mar",
+        "Buscar el reflejo de la luna en el agua y guiar la cometa hacia él",
+        "Usar una hoja de pino como ancla improvisada para evitar que la cometa se descontrole"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1251,
+        "tokensEntrada": 929,
+        "tokensSalida": 266,
+        "costoUsd": 0.000149475
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Valentina se aferró al hilo con una sonrisa confiada. En ese instante, la brisa cambió su ritmo, elevando la cometa como un barco ligero sobre las olas. El mar reflejó el brillo de los colores, y el sonido de las gaviotas se mezcló con el susurro del viento. Cuando la cometa alcanzó el cielo, parecía tocar una estrella, y una ola azul se alzaba bajo ella, como si el mar y el aire celebraran la aventura. Al bajar suavemente, Valentina sintió la alegría de haber controlado el viento y de haber aprendido que la valentía y la paciencia pueden convertir un desafío en una danza celestial. Con el corazón lleno de gratitud, prometió cuidar siempre de su espíritu aventurero y de la naturaleza que la rodea.",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 722,
+        "tokensEntrada": 1013,
+        "tokensSalida": 207,
+        "costoUsd": 0.00013807499999999998
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 3810,
+    "tokensEntradaTotales": 3329,
+    "tokensSalidaTotales": 991,
+    "costoTotalUsd": 0.0005469749999999999
+  }
+}

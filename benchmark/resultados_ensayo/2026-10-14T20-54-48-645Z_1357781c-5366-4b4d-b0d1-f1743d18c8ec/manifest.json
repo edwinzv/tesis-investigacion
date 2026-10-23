@@ -1,0 +1,96 @@
+{
+  "label": "ENSAYOOPERATIVOREDUCIDO",
+  "comparisonFinal": false,
+  "createdUtc": "2026-10-14T20:54:48.636Z",
+  "selectedCases": [
+    "caso_01_misterio_agua",
+    "caso_02_robot_cielo",
+    "caso_03_arbol_hueco",
+    "caso_04_cometa_viento"
+  ],
+  "omittedCases": [
+    "benchmark/casos/caso_05_dragon_chispa.json"
+  ],
+  "models": [
+    "gemini-3.8-flash",
+    "qwen/qwen3.8-27b",
+    "openai/gpt-oss-20b"
+  ],
+  "repetitions": 1,
+  "operationsPerCase": [
+    "analisis",
+    "escena_1",
+    "escena_2",
+    "escena_3",
+    "escena_4"
+  ],
+  "plannedOperations": 60,
+  "candidateHttpCap": 20,
+  "totalHttpCap": 60,
+  "retry": false,
+  "effectiveParameters": {
+    "source": "adapter code, not config JSON",
+    "maxOutputTokens": 2048,
+    "google": {
+      "thinkingLevel": "low",
+      "responseMimeType": "application/json",
+      "responseSchema": "existing sanitizer"
+    },
+    "groq": {
+      "reasoning_effort": "low",
+      "reasoning_format": "hidden",
+      "response_format": "json_schema",
+      "strict": true
+    },
+    "pacingMs": [
+      2000,
+      65000,
+      15000
+    ],
+    "temperature": "omitted",
+    "topP": "omitted",
+    "timeoutMs": null,
+    "durationLimitMs": null
+  },
+  "budget": "operator attests external budget/quota validation",
+  "costs": "unknown",
+  "freeTier": "unknown",
+  "exclusions": [
+    "C2",
+    "C3",
+    "C5",
+    "human evaluation",
+    "case aggregation",
+    "final comparison",
+    "preflight",
+    "catalog"
+  ],
+  "version": {
+    "verifiedLocalHead": "af1fb0439c97ba9e2ad853976a3dd0303a88539d",
+    "provenance": "local checkout; hashes identify dirty/untracked code, no original-owner attribution"
+  },
+  "environment": {
+    "node": "v26.7.0",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "hashes": {
+    "benchmark/casos/caso_01_misterio_agua.json": "eb3aeede8fa53c612a4cbf0dbb976a8d27cf593ae9cab4fc33f1f4c5c60d2ad2",
+    "benchmark/casos/caso_02_robot_cielo.json": "f99999cbe813913122106228a32be61e042cd3d7efe3f0746acb7077916f4b22",
+    "benchmark/casos/caso_03_arbol_hueco.json": "3c5821f3eb3496fe1b0285fda8f6fe59c924c9bd3144495aada977b3a928a294",
+    "benchmark/casos/caso_04_cometa_viento.json": "7c2c5e188fdef1972f67d20f5551fba5ffe8e9c8f2ab2a4bdaca40f70cafd424",
+    "benchmark/casos/caso_05_dragon_chispa.json": "f0da23b537cd0de4c16e0df97cc4c45da3d77fcd50d807a218480106c1ae2c13",
+    "benchmark/config/benchmark.config.json": "68b08007367ef9462bae19947dedcbd3e662ae8ef742cf4f6edf9cac2e73d3d0",
+    "benchmark/config/modelos.config.json": "66534dfd0cf1de2ee4fc5b0d59eb20d39aed1d1549221d5b2b94d17a748ee13e",
+    "benchmark/src/prompts.ts": "b2691c7e323bfae41fc477b299551ae1a51fab584a574cdf11e615737e4021e0",
+    "benchmark/src/contratos.ts": "05aa7c8fd325d5218055ad8849dc34aa7e6d750eda56489c3b6c6fbba11cc387",
+    "benchmark/src/runner.ts": "fa413442fc38a3dc9ec91723f8b21b342de4a5bd1ade4b1307df3528d3b9ec58",
+    "benchmark/src/test20.ts": "b9e797fccc2c020bf7eb401a176e2424f5da39780fd0143974bbeff8dc81b36d",
+    "benchmark/run_benchmark.ts": "7ec259a1c4d146de410936355b4b098612b843a38eb66fb83b875b8ce1e754a8",
+    "benchmark/src/adaptadores/base.ts": "57d41c1a8e76f763fd11ef564f66ae4d05eee580c7342f56dddef2a9b3153e5f",
+    "benchmark/src/adaptadores/google.ts": "c1d816ab069e45ae6fb66e9b7ea5bfe15df1e264e497cab76ea29857b9c63675",
+    "benchmark/src/adaptadores/groq.ts": "e9c6898b481808be8d778260cf42c7fdabf8f1fa62c1be2bec259d1baeee9e49",
+    "benchmark/src/adaptadores/groq_gpt_oss.ts": "e384fee41375fd819122102d83623090250c538b2f838f874dd50462bdb8c156"
+  },
+  "mode": "REAL"
+}

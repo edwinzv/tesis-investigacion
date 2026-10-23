@@ -1,0 +1,63 @@
+{
+  "version": "1.0.0",
+  "descripcion": "Configuracion de evaluacion automatizada (LLM-as-a-Judge) para cuentos educativos de 4to, 5to y 6to de primaria",
+  "pesos": {
+    "coherencia_narrativa": 0.25,
+    "vocabulario_adecuado": 0.20,
+    "continuidad_escenas": 0.20,
+    "pertinencia_decisiones": 0.15,
+    "potencial_educativo": 0.20
+  },
+  "escala": {
+    "min": 1.0,
+    "max": 5.0,
+    "permite_decimales": true
+  },
+  "poblacion_objetivo": {
+    "grados": ["4to primaria", "5to primaria", "6to primaria"],
+    "rango_etario": "9 a 12 anos",
+    "enfoque": "Comprension literal, inferencial y valorativa / reflexiva"
+  },
+  "opciones_modelo_juez": [
+    {
+      "id": "gemini-2.5-pro",
+      "proveedor": "Google AI Studio",
+      "tipo": "Juez Externo Avanzado (Recomendado)",
+      "conflicto_interes": "Bajo (modelo de categoria superior de razonamiento, no compite directamente en el benchmark de modelos ligeros)",
+      "temperatura": 0.1,
+      "tarifa_input_usd_millon": 1.25,
+      "tarifa_output_usd_millon": 10.00
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "proveedor": "Google AI Studio",
+      "tipo": "Juez Externo Rapido y Economico",
+      "conflicto_interes": "Bajo (arquitectura superior a 3.5-lite)",
+      "temperatura": 0.1,
+      "tarifa_input_usd_millon": 0.15,
+      "tarifa_output_usd_millon": 0.60
+    },
+    {
+      "id": "llama-3.3-70b-versatile",
+      "proveedor": "Groq Cloud",
+      "tipo": "Juez Externo de Gran Tamano en Groq",
+      "conflicto_interes": "Nulo respecto a los 3 modelos evaluados (Llama 70B es de Meta, no compite con Qwen 27B ni GPT-OSS 20B)",
+      "temperatura": 0.1,
+      "tarifa_input_usd_millon": 0.59,
+      "tarifa_output_usd_millon": 0.79
+    }
+  ],
+  "control_calidad": {
+    "min_caracteres_justificacion": 25,
+    "min_caracteres_cita": 10,
+    "tolerancia_diferencia_ponderada": 0.05,
+    "reintentos_maximos_por_cuento": 2
+  },
+  "rutas": {
+    "cuentos_ciegos_dir": "benchmark/evaluacion_pedagogica/cuentos_ciegos",
+    "resultados_csv": "benchmark/evaluacion_pedagogica/evaluacion_automatizada/resultados/matriz_evaluacion_automatizada.csv",
+    "resultados_json": "benchmark/evaluacion_pedagogica/evaluacion_automatizada/resultados/evaluaciones_detalladas.json",
+    "prompt_sistema": "benchmark/evaluacion_pedagogica/evaluacion_automatizada/prompts/sistema_evaluador_juez.txt",
+    "prompt_plantilla": "benchmark/evaluacion_pedagogica/evaluacion_automatizada/prompts/plantilla_evaluacion_cuento.txt"
+  }
+}

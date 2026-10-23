@@ -1,0 +1,83 @@
+{
+  "caso": "caso_01_misterio_agua",
+  "repeticion": 3,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "La Salva-del-Río: Sofía y Tina",
+  "protagonista": "Sofía",
+  "descripcionProtagonista": "Es una niña de nueve años, curiosa y compasiva, que viste botas de hule y lleva una lupa.",
+  "escenario": "El valle de San Lorenzo, específicamente cerca del molino viejo y en la zona de los sauces y la cascada oculta.",
+  "conflicto": "La corriente del río se volvió lenta y desordenada, perjudicando a los peces y afectando el ecosistema, debido a que una nutria creó un dique para proteger a sus crías.",
+  "resumenAnalisis": "Sofía detecta que el río cristalino ha perdido su flujo habitual y decide investigar la causa. Al encontrar que una nutria había bloqueado el agua para proteger su cría, ayuda a crear una solución que beneficia a todos. El río recupera su cauce natural y la comunidad se beneficia de la paz restaurada.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Sofía caminaba por las orillas del valle de San Lorenzo, con sus botas de hule Mojadas y una lupa brillante en la mano. De repente, notó algo extraño: el río, que normalmente rugía con fuerza, ahora fluía lento y caótico, como si estuviera cansado. Unos peces pequeños saltaban desesperados cerca de la superficie, buscando aire. Sofía frunció el ceño, preocupada. Debía descubrir la causa de esta anomalía antes de que el ecosistema sufriera daños mayores. Al acercarse al molino vie",
+      "opcionesPresentadas": [
+        "Observar a los peces saltando para ver si contienen mensajes escritos en sus escamas",
+        "Seguir el rastro de huellas hacia la cascada oculta",
+        "Entrar al molino viejo para buscar una brújula antigua que muestre la corriente correcta"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1115,
+        "tokensEntrada": 480,
+        "tokensSalida": 196,
+        "costoUsd": 0.001168
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Sofía siguió las huellas húmedas entre los juncos hasta descubrir una cascada oculta tras un denso muro de hiedra. Detrás del telón de agua, no había criaturas mágicas, sino un pequeño dique de ramas y lodo que bloqueaba el flujo natural del río. Una nutria peluda, con ojos curioso, le hacía señas con su patita, indicando que ella misma lo había construido para atrapar peces. Sofía se dio cuenta de que, al enfangar el lecho, la nutria había acumulado polución invisible que estaba",
+      "opcionesPresentadas": [
+        "Retirar con cuidado las ramas amontonadas para liberar el paso del agua",
+        "Hablar amablemente con la nutria traviesa que había construido una represa de ramas",
+        "Usar la lupa para examinar el lodo bajo el reflejo de la luz solar"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1057,
+        "tokensEntrada": 512,
+        "tokensSalida": 205,
+        "costoUsd": 0.0012296
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Sofía se agachó suavemente y habló con voz calma. «Amiga nutria, veo que buscas comida, pero el río está sufriendo. Las ramas están reteniendo suciedad invisible que envenena el agua. ¿Podrías ayudarme a retirar solo algunas ramas para que el flujo recupere su ritmo normal? Prometo ser delicada para no dañar tu hogar.» La nutria parpadeó, oliendo el aire. Con un gesto dubitativo, soltó una rama grande, permitiendo que un hilo de agua fresca comenzara a correr de nuevo hacia los j",
+      "opcionesPresentadas": [
+        "Construir juntos un canal alternativo para que el agua del río fluya sin desarmar el refugio de la nutria",
+        "Pedir a la nutria que se convierta en guardiana del río para evitar futuros bloqueos",
+        "Llevar a la nutria a un punto seguro mientras Sofía limpia el lecho rápidamente"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1222,
+        "tokensEntrada": 671,
+        "tokensSalida": 214,
+        "costoUsd": 0.0013928
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Cambiaron a la nutria por una pequeña abertura segura mientras Sofía reorganizaba las ramas restantes con cuidado. El agua gorgoteó primero dubitativa, luego sonó con fuerza y claridad, dispersando la polución invisible del fondo. Los peces pequeños ya no saltaban asfixiados, sino que giraban felices en remolinos plateados, devolviendo la vida al arión. La nutria, comprendiendo la lección, soltó sus últimas ramas atrapadas en la represa con un gesto de gratitud, permitiendo que, ",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 1034,
+        "tokensEntrada": 745,
+        "tokensSalida": 142,
+        "costoUsd": 0.001164
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4428,
+    "tokensEntradaTotales": 2408,
+    "tokensSalidaTotales": 757,
+    "costoTotalUsd": 0.004954399999999999
+  }
+}

@@ -1,0 +1,3 @@
+proveedor,modelo,caso,repeticion,operaciones_totales,operaciones_exitosas,tokens_entrada_cuento,tokens_salida_cuento,tokens_razonamiento_cuento,tokens_totales_cuento,tiempo_total_ms,costo_teorico_cuento_usd,costo_efectivo_cuento_usd,errores,reintentos,solicitudes_http_totales,cuento_completo_exitoso,es_simulado
+Google,gemini-3.5-flash-lite,caso_01_misterio_agua,3,5,5,2266,1072,0,3338,18171,0.003360,,0,0,5,true,false
+Google,gemini-3.5-flash-lite,caso_02_robot_cielo,3,5,5,2298,1069,0,3367,12693,0.003362,,0,0,5,true,false

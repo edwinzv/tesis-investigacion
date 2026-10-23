@@ -1,0 +1,26 @@
+{
+  "lote": 3,
+  "modelo": "openai/gpt-oss-20b",
+  "fechaCorreccionUtc": "2026-10-15T01:10:07.718Z",
+  "motivo": "Corrección de metadatos de repetición experimental: Lote 3 ejecutó 10 operaciones auténticas en Groq correspondientes a la repetición 2 de casos 1 y 2, pero fueron registradas con repeticion = 1 debido a un desacoplamiento entre el conteo y el índice experimental en runner.ts.",
+  "cambiosAplicados": {
+    "campoRepeticionAnterior": 1,
+    "campoRepeticionNuevo": 2,
+    "patronIdEjecucionAnterior": "_rep1_",
+    "patronIdEjecucionNuevo": "_rep2_"
+  },
+  "hashesOriginalesSha256": {
+    "events.jsonl": "41a6c06fad55b6c5de6169a958be40e0bfae4cc5701fa04ada18cdd4b15910d1",
+    "ejecuciones_raw.csv": "0a9c5a49960155fcd1b78dc0c71562ce507f90310090072ea1daef875226a345",
+    "manifest.json": "4e94dbeca635b6c5b87f92faa4a25521426703326fb8526d56ab51f900b13860",
+    "resumen_cuentos.csv": "473d1d093fae173acca3eee3d8e42e978cdaf0b729419ec2c5dfe482465d967f",
+    "resumen_operaciones.csv": "e5ea7455bd3a6b3d58a6f3a488a65028011893348fa9872aeaf0c8220e7e7be3"
+  },
+  "hashesCorregidosSha256": {
+    "events.jsonl": "080f2df443972f0f3ee1b1059a150c17411f39e34eaf3059b24e0641dd90185f",
+    "ejecuciones_raw.csv": "9d4169422d0582e2f9e008b4e169bdaa2e2f9ac5feb8bae19925c753162a7cd7",
+    "manifest.json": "9da47f46bbaf9da017846ef3810da60a87c0477a0466a3c0550521e3271d15fe",
+    "resumen_cuentos.csv": "744a6de06ed11440b317708fbfd7162408a06093d8c9faf85be04dfecc8a7ea0",
+    "resumen_operaciones.csv": "e5ea7455bd3a6b3d58a6f3a488a65028011893348fa9872aeaf0c8220e7e7be3"
+  }
+}

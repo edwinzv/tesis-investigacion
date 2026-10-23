@@ -1,4 +1,4 @@
-﻿import { AdaptadorModelo } from './base.js';
+import { AdaptadorModelo } from './base.js';
 import { PromptMensajes } from '../prompts.js';
 import { ApiCallError, RawModelResponse } from '../types.js';
 
@@ -99,11 +99,19 @@ export class AdaptadorGroqGptOss extends AdaptadorModelo {
 
       if (!resp.ok) {
         const errorText = await resp.text();
+        const retryAfterVal = resp.headers.get('retry-after');
+        const retryAfterMs = this.parsearRetryAfterHeader(retryAfterVal);
         let errorJson: any = null;
         try {
           errorJson = JSON.parse(errorText);
         } catch {}
-        const errorMsg = errorJson?.error?.message || errorText;
+        let errorMsg = errorJson?.error?.message || errorText;
+        if (errorJson?.error?.failed_generation) {
+          const fg = typeof errorJson.error.failed_generation === 'string'
+            ? errorJson.error.failed_generation
+            : JSON.stringify(errorJson.error.failed_generation);
+          errorMsg += ` [failed_generation: ${fg}]`;
+        }
         const categoria = this.categorizarError({
           status: resp.status,
           message: errorMsg,
@@ -116,6 +124,7 @@ export class AdaptadorGroqGptOss extends AdaptadorModelo {
           latencyMs: latenciaMs,
           isNonRetryable: categoria === 'authentication' || categoria === 'billing',
           categoria,
+          retryAfterMs,
         });
       }
 

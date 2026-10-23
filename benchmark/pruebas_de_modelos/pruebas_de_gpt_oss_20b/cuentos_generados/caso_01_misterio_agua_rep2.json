@@ -1,0 +1,83 @@
+{
+  "caso": "caso_01_misterio_agua",
+  "repeticion": 2,
+  "modelo": "openai/gpt-oss-20b",
+  "titulo": "La Gran Aventura de Sofía y el Río",
+  "protagonista": "Sofía",
+  "descripcionProtagonista": "Niña curiosa y valiente de nueve años, con botas de hule y una lupa inseparable, que muestra empatía y determinación para ayudar a los animales.",
+  "escenario": "Valle de San Lorenzo, junto al río cristalino y el molino viejo.",
+  "conflicto": "El río perdió su corriente, poniendo en riesgo a los peces y a la nutria y sus crías, y afectando la vida en la aldea.",
+  "resumenAnalisis": "Sofía descubre que el río se ha vuelto lento y los peces están desorientados. Encuentra a Tina, la nutria que construyó un dique para proteger a sus crías, y juntas crean un canal que restaura el flujo del río. Al final, el agua vuelve a cantar y la aldea agradece la ayuda de Sofía.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Sofía salió temprano del campamento de su abuela, con las botas de hule que crujían sobre la grava y la lupa colgando del cuello. El río San Lorenzo, que antes chispeaba, ahora era un carril de aguas lentas y sin vida. Al acercarse al molino viejo, vio a una nutria triste en la orilla, y escuchó el susurro de los peces que no podían nadar. Decidió investigar antes de que la aldea sufriera más daños. En su mochila llevaba una linterna y un cuaderno para anotar pistas.",
+      "opcionesPresentadas": [
+        "Seguir el rastro de huellas hacia la cascada oculta",
+        "Buscar al anciano del molino que sabe sobre la corriente del río",
+        "Explorar la cueva detrás de las rocas para encontrar un objeto que pueda ayudar al agua"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 899,
+        "tokensEntrada": 645,
+        "tokensSalida": 222,
+        "costoUsd": 0.00011497499999999999
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Sofía siguió el rastro de huellas que se adentraba entre los arbustos húmedos, guiada por el rumor de agua más clara. Al llegar a un claro, descubrió una cascada oculta, rodeada de rocas cubiertas de musgo. El agua caía con un murmullo alegre que contrastaba con el río seco. A lo lejos, un grupo de pequeñas figuras de barro se movía entre las rocas, como si estuvieran construyendo algo. Sofía sintió curiosidad y recordó la nutria que había visto antes, ahora con una expresión más esperanzada. Decidió acercarse para descubrir el secreto del flujo.\n",
+      "opcionesPresentadas": [
+        "Hablar amablemente con la nutria traviesa que había construido una represa de ramas",
+        "Examinar las rocas de la cascada en busca de pistas ocultas",
+        "Seguir el sonido del agua hasta el fondo de la cueva"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 988,
+        "tokensEntrada": 687,
+        "tokensSalida": 251,
+        "costoUsd": 0.00012682499999999998
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Sofía se acercó con cautela a la nutria, quien la recibió con una sonrisa chispeante. La nutria explicó que había construido una pequeña represa con ramas y troncos para salvar el flujo del río durante la sequía. Pero el plan estaba fallando: la represa estaba bloqueando el flujo natural y provocaba que el agua se quedara estancada. Sofía, con su lupa y linterna, observó el valle y vio una pequeña brecha entre los troncos que, si se abriera, permitiría que el agua se deslizara suavemente hacia la cascada oculta. La nutria, curiosa y agradecida, pidió la ayuda de Sofía para encontrar la solución.\n\n\n\n",
+      "opcionesPresentadas": [
+        "Construir juntos un canal alternativo para que el agua del río fluya sin desarmar el refugio de la nutria",
+        "Redirigir el agua con una serie de piedras grandes que formen una nueva ruta",
+        "Crear un puente de madera para que la nutria cruce el río y la represa quede intacta"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 986,
+        "tokensEntrada": 858,
+        "tokensSalida": 253,
+        "costoUsd": 0.00014025000000000002
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Sofía y la nutria trazaron, con la lupa y la linterna como guías, un pequeño canal que serpenteaba entre las rocas. Al terminar, el agua volvió a fluir libremente, golpeando la cascada y llenando el valle de un canto cristalino. La represa quedó intacta, pero ahora podía refrescar a la nutria sin obstruir su hogar. Los habitantes de la aldea, al escuchar el murmullo del río, se acercaron y celebraron la restauración. Sofía, con su cuaderno lleno de notas, recordó que la armonía entre la naturaleza y la creatividad humana puede salvar incluso el más silencioso de los ríos. La última palabra fue una risa compartida, porque juntos pueden crear puentes que conectan sueños y realidades.",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 984,
+        "tokensEntrada": 946,
+        "tokensSalida": 203,
+        "costoUsd": 0.00013185
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 3857,
+    "tokensEntradaTotales": 3136,
+    "tokensSalidaTotales": 929,
+    "costoTotalUsd": 0.0005139
+  }
+}

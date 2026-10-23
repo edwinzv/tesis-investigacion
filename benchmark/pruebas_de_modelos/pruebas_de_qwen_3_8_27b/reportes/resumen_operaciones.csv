@@ -1,0 +1,6 @@
+proveedor,modelo,operacion,operaciones_totales,operaciones_exitosas,tasa_exito_pct,estructura_valida_pct,tokens_totales_promedio,latencia_media_ms,latencia_mediana_ms,costo_teorico_promedio_usd,reintentos_totales,solicitudes_http_totales,es_simulado
+Groq,qwen/qwen3.8-27b,analisis,20,20,100.00,100.00,1015,1460,1423.5,0.001803,0,20,false
+Groq,qwen/qwen3.8-27b,escena_1,20,20,100.00,95.00,774,1659,1105.5,0.001379,1,21,false
+Groq,qwen/qwen3.8-27b,escena_2,20,20,100.00,95.00,825,1318,1113,0.001470,1,21,false
+Groq,qwen/qwen3.8-27b,escena_3,20,20,100.00,100.00,942,1265,1156,0.001599,0,20,false
+Groq,qwen/qwen3.8-27b,escena_4,20,20,100.00,100.00,956,1199,1075.5,0.001398,0,20,false

@@ -1,0 +1,3 @@
+proveedor,modelo,caso,repeticion,operaciones_totales,operaciones_exitosas,tokens_entrada_cuento,tokens_salida_cuento,tokens_razonamiento_cuento,tokens_totales_cuento,tiempo_total_ms,costo_teorico_cuento_usd,costo_efectivo_cuento_usd,errores,reintentos,solicitudes_http_totales,cuento_completo_exitoso,es_simulado
+Groq,openai/gpt-oss-20b,caso_03_arbol_hueco,3,5,5,4061,1149,89,5210,4598,0.000649,,0,0,5,true,false
+Groq,openai/gpt-oss-20b,caso_04_cometa_viento,3,5,5,4067,1153,37,5220,4821,0.000651,,0,0,5,true,false

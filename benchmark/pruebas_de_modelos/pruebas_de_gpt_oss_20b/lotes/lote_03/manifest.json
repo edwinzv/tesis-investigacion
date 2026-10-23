@@ -1,0 +1,67 @@
+{
+  "loteId": "lote_03",
+  "lote": 3,
+  "fechaInicioUtc": "2026-10-15T00:09:37.589Z",
+  "fechaFinUtc": "2026-10-15T00:12:17.914Z",
+  "estado": "COMPLETADO",
+  "modo": "REAL",
+  "esSimulado": false,
+  "casos": [
+    "caso_01_misterio_agua",
+    "caso_02_robot_cielo"
+  ],
+  "repeticiones": 1,
+  "modelos": [
+    "openai/gpt-oss-20b"
+  ],
+  "operacionesPlanificadas": 10,
+  "operacionesEjecutadas": 10,
+  "operacionesExitosas": 10,
+  "operacionesFallidas": 0,
+  "solicitudesHttpReales": 10,
+  "costoTeoricoTotalUsd": 0.001306425,
+  "costoEfectivoTotalUsd": null,
+  "configuracionEfectiva": {
+    "google": {
+      "modelo": "gemini-3.5-flash-lite",
+      "pacingMs": 5000
+    },
+    "groq_qwen": {
+      "modelo": "qwen/qwen3.8-27b",
+      "pacingMs": 65000
+    },
+    "groq_gpt_oss": {
+      "modelo": "openai/gpt-oss-20b",
+      "pacingMs": 15000
+    }
+  },
+  "gitCommit": "af1fb0439c97ba9e2ad853976a3dd0303a88539d",
+  "hashesCodigo": {
+    "benchmark/config/modelos.config.json": "6e0cb00029c02c33ab8f1307cf3773dfb10d6d44b4faeb54fa1d70212d84dce1",
+    "benchmark/config/benchmark.config.json": "f6625fbf951b59528a82c30a514e0e6e1cacd77482a98865994b3b384ce40009",
+    "benchmark/src/contratos.ts": "05aa7c8fd325d5218055ad8849dc34aa7e6d750eda56489c3b6c6fbba11cc387",
+    "benchmark/src/prompts.ts": "b2691c7e323bfae41fc477b299551ae1a51fab584a574cdf11e615737e4021e0",
+    "benchmark/src/runner.ts": "ea2a129c3345a8ef9a4a25ae27dba263dec2b48c95253a3b66b156c0a8d19f46",
+    "benchmark/src/lotes.ts": "d5467aad8e6c6af5d847b83e9564078df937ef91873a3b87cf6e8255825db207",
+    "benchmark/src/adaptadores/google.ts": "86325506ec3c858a4c8771980a5e6cbe5678b4afd47b646906e16ecb9372e170",
+    "benchmark/src/adaptadores/groq.ts": "971894271c76ca8cacc40974a23ea1f0acf70705d716384bd998184217f95ff6",
+    "benchmark/src/adaptadores/groq_gpt_oss.ts": "dd6abca7bc3adf256c5b98b35ad293094b9c78898f164e2c78e8b333692bf483"
+  },
+  "repeticion": 2,
+  "auditoriaCorreccionMetadata": {
+    "fechaCorreccionUtc": "2026-10-15T01:10:07.714Z",
+    "motivo": "Corrección de metadatos de repetición experimental: El Lote 3 corresponde según el diseño a la repetición 2 de los casos 1 y 2. Las operaciones ejecutadas son auténticas, realizadas entre 00:09:37 y 00:12:17 UTC del 2026-10-15, e independientes de la repetición 1 (Lote 1). Se preservaron intactos los archivos originales con extensión .original y se actualizaron id_ejecucion y repeticion.",
+    "archivosOriginalesSha256": {
+      "events.jsonl": "41a6c06fad55b6c5de6169a958be40e0bfae4cc5701fa04ada18cdd4b15910d1",
+      "ejecuciones_raw.csv": "0a9c5a49960155fcd1b78dc0c71562ce507f90310090072ea1daef875226a345",
+      "manifest.json": "4e94dbeca635b6c5b87f92faa4a25521426703326fb8526d56ab51f900b13860",
+      "resumen_cuentos.csv": "473d1d093fae173acca3eee3d8e42e978cdaf0b729419ec2c5dfe482465d967f",
+      "resumen_operaciones.csv": "e5ea7455bd3a6b3d58a6f3a488a65028011893348fa9872aeaf0c8220e7e7be3"
+    },
+    "archivosRespaldo": {
+      "events": "events.jsonl.original",
+      "ejecucionesCsv": "ejecuciones_raw.csv.original",
+      "manifest": "manifest.json.original"
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "caso": "caso_04_cometa_viento",
+  "repeticion": 3,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "El vuelo escarlata de Valentina",
+  "protagonista": "Valentina",
+  "descripcionProtagonista": "Niña alegre de ocho años.",
+  "escenario": "La caleta de pescadores de Puerto Sol, específicamente en la orilla del mar, las dunas y el cielo sobre las olas.",
+  "conflicto": "El viento costero soplaba en ráfagas desordenadas que hacían girar a la cometa en círculos y amenazaban con estrellarla contra la arena.",
+  "resumenAnalisis": "Valentina, una niña de ocho años, construye una gran cometa con el sueño de elevarla tan alto como para ser vista por los pescadores de Puerto Sol. Debido al viento desordenado en la orilla, debe correr hasta la cima de la duna más alta para encontrar una corriente de aire constante. Allí logra soltarla en el momento preciso, y la cometa se eleva majestuosamente sobre el mar, aplaudiendo a los espectadores.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Valentina se agarró fuerte de la cuerda, sintiendo cómo tiraba con fuerza. Su cometa, un pulpo colorido que ella misma había pintado, bailaba erráticamente sobre la orilla de Puerto Sol. El viento costero soplaba en ráfagas locas, haciendo girar al juguete en círculos peligrosos, cada vez más cerca de la arena caliente. Si no lo controlaba pronto, ¡se estrellaría y sus escamas de papel se romperían! Valentina mordió su labio, pensando rápidamente. Debía tomar una decisión urgente",
+      "opcionesPresentadas": [
+        "Lanzar la cometa hacia el mar abierto para que el oleaje la sostenga",
+        "Correr hacia la cima de la duna más alta donde el viento es más constante",
+        "Sentarse en la arena y esperar a que el viento se calme por completo"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1089,
+        "tokensEntrada": 459,
+        "tokensSalida": 193,
+        "costoUsd": 0.0011392
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Valentina corrió con todas sus fuerzas hacia la duna más alta, sintiendo la arena chorrear bajo sus sandalias. Al llegar a la cumbre de arenas, el viento dejó de ser un caos desordenado y se transformó en un soplo constante y fuerte. ¡El pulpo dejó de dar vueltas erráticas y se estabilizó en el aire! Sus escamas de papel brillaron bajo el sol, bailando con la fuerza del viento. Valentina sonrió, respirando con dificultad, pero viendo que su cometa volaba alto sobre el mar. Sin d☀",
+      "opcionesPresentadas": [
+        "Desenrollar el hilo de algodón y compensar el peso de la cola de cintas",
+        "Señalar a su abuelo con los dedos para que vea la altura increíble que alcanzó el pulpo",
+        "Dejar de tener miedo de las olas y correr junto a la orilla para que no salga volando"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1069,
+        "tokensEntrada": 514,
+        "tokensSalida": 209,
+        "costoUsd": 0.0012472
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Valentina se agachó rápidamente y, con dedos hábiles, empezó a desenrollar la madeja de hilo de algodón que llevaba en la cintura. Mientras tiraba suavemente de la cuerda principal, balanceó la larga cola de cintas azules y rosas para equilibrar el peso extra. ¡Funcionó! El pulpo dejó de inclinarse y ascendió con un impulso majestuoso, planeando suavemente entre las corrientes del viento marino. Valentina sintió una oleada de orgullo al ver que su arte colorido dominaba el cielo,",
+      "opcionesPresentadas": [
+        "Soltar la cometa en el momento preciso para que se eleve sobre las olas del mar",
+        "Gritar con alegría para que los amigos del puerto la vean volar",
+        "Cargar la bobina y correr de vuelta a casa antes de que llueva"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1156,
+        "tokensEntrada": 660,
+        "tokensSalida": 194,
+        "costoUsd": 0.001304
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Valentina sintió el impulso final y, con un gesto suave pero decidido, liberó la cuerda. Su pulpo de papel se elevó con elegancia, surcando el cielo sobre las olas azules. Al crecer en altura, los colores del mar y la espuma blanca se fusionaron bajo su vientre, creando un contraste mágico. Al oir los aplausos de la gente curiosa y sentir el orgullo inundar su corazón, comprendió algo importante. No se trata de controlar cada movimiento, sino de confiar en tu esfuerzo, soltar el惧",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 1269,
+        "tokensEntrada": 728,
+        "tokensSalida": 137,
+        "costoUsd": 0.0011304000000000002
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4583,
+    "tokensEntradaTotales": 2361,
+    "tokensSalidaTotales": 733,
+    "costoTotalUsd": 0.0048208
+  }
+}

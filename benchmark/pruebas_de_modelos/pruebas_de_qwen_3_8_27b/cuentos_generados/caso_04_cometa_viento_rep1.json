@@ -1,0 +1,83 @@
+{
+  "caso": "caso_04_cometa_viento",
+  "repeticion": 1,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "El vuelo escarlata de Valentina",
+  "protagonista": "Valentina",
+  "descripcionProtagonista": "Valentina es una niña de ocho años alegre y persistente, caracterizada por su agilidad y firmeza.",
+  "escenario": "La caleta de pescadores de Puerto Sol, específicamente la orilla del mar y las dunas altas.",
+  "conflicto": "El viento costero sopló en ráfagas desordenadas, haciendo que la cometa girara en círculos y amenazara con estrellarse contra la arena, impidiendo su vuelo inicial en la orilla.",
+  "resumenAnalisis": "Valentina, una niña de ocho años, construye una gran cometa para volarla como señal de buena suerte. Al enfrentar vientos desordenados en la orilla, se dirige a la cima de la duna más alta para controlar el vuelo. Gracias a su estrategia, logra elevar la cometa sobre las olas, entusiasmando a los pescadores y niños presentes.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Valentina apretó con fuerza el carrete de su nueva cometa de papel, observando con frustración cómo las ráfagas erráticas de Puerto Sol hacían que el juguete diera giroslocos en lugar de elevarse majestuosamente el cielo azul. El viento del amanecer soplaba con una fuerza caprichosa, arrastrando granos de arena que picoteaban sus tobillos descalzos. Desde la orilla, la cometa amenazaba con embarrarse en la orilla rocosa. Sus ojos brillaban con determinación; no iba a dejar que un",
+      "opcionesPresentadas": [
+        "Arremangarse las perneras y caminar lentamente hacia la punta del muelle de madera para esperar un hueco en el viento",
+        "Correr hacia la cima de la duna más alta donde el viento es más constante",
+        "Sentarse en la arena a dibujar un diseño más aerodinámico en otro trozo de papel de seda multicolor"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 10035,
+        "tokensEntrada": 478,
+        "tokensSalida": 218,
+        "costoUsd": 0.0012544000000000001
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Valentina corrió agotada hasta la cima de la duna más imponente. Allí, el viento no soplaba con esa furia errática de la playa, sino que fluía constante y poderoso, como un gigante invisible afilando su espada contra el cielo. Se detuvo, respirando con dificultad, mientras la arena se pegaba a sus rodillas. Desde arriba, todo Puerto Sol parecía pequeño y tranquilo, pero la cometa aún se negaba a subir; el hilo se enredaba en sus dedos y la pieza de papel brillaba con esperanza, a",
+      "opcionesPresentadas": [
+        "Desenrollar el hilo de algodón y compensar el peso de la cola de cintas",
+        "Lanzar la cometa con un movimiento circular para enganchar la corriente de aire",
+        "Pedir ayuda a un gaviota que vigilaba la escena desde el acantilado"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1383,
+        "tokensEntrada": 520,
+        "tokensSalida": 198,
+        "costoUsd": 0.0012079999999999999
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Con manos hábiles, Valentina desenrolló el enredo de algodón y ajustó las cintas de la cola. Sintió cómo el equilibrio cambiaba; la cometa dejó de bambolearse wildly y comenzó a temblar con energía contenida, como un pájaro a punto de despegar. El viento constante de la duna hizo su trabajo, tirando suavemente de la estructura. Valentina caminó hacia atrás, sintiendo la tensión perfecta en sus dedos. La cometa ganaba altura centímetro a centímetro, pintando el cielo con manchas n",
+      "opcionesPresentadas": [
+        "Soltar la cometa en el momento preciso para que se eleve sobre las olas del mar",
+        "Gritar '¡Vuela!' con todas sus fuerzas para darle el empujón final",
+        "Observar el reloj para ver si hay tiempo de tomar una foto antes de que se ponga el sol"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1464,
+        "tokensEntrada": 666,
+        "tokensSalida": 205,
+        "costoUsd": 0.0013528
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Valentina soltó el hilo justo cuando el viento alborotado se calmó. La cometa despertó con un grito silencioso, ascenso majestuosamente sobre las olas blanquecinas, convirtiendo el cielo en un lienzo de colores vivos. Abajo, sus amigos aplaudieron y corrieron hacia la duna, reconociendo su esfuerzo y paciencia. Valentina sonrió, mirando cómo el papel flotaba libre entre las nubes, entendiendo que la perseverancia vence a la adversidad. En Puerto Sol, aquella tarde no solo subió a",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 965,
+        "tokensEntrada": 736,
+        "tokensSalida": 140,
+        "costoUsd": 0.0011488
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 13847,
+    "tokensEntradaTotales": 2400,
+    "tokensSalidaTotales": 761,
+    "costoTotalUsd": 0.004964
+  }
+}

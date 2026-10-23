@@ -48,6 +48,7 @@ export class ApiCallError extends Error {
   latencyMs: number;
   isNonRetryable: boolean;
   categoria: CategoriaError;
+  retryAfterMs?: number;
 
   constructor(params: {
     status?: number;
@@ -56,6 +57,7 @@ export class ApiCallError extends Error {
     latencyMs: number;
     isNonRetryable: boolean;
     categoria: CategoriaError;
+    retryAfterMs?: number;
   }) {
     super(params.message);
     this.name = 'ApiCallError';
@@ -64,6 +66,7 @@ export class ApiCallError extends Error {
     this.latencyMs = params.latencyMs;
     this.isNonRetryable = params.isNonRetryable;
     this.categoria = params.categoria;
+    this.retryAfterMs = params.retryAfterMs;
   }
 }
 
@@ -87,6 +90,7 @@ export interface RawModelResponse {
   tarifaOutputUsdPorMillon?: number | null;
   tarifaFuenteRuntime?: string | null;
   structuredOutputMode: 'json_schema' | 'json_object' | 'prompt_only';
+  reasoningConfig?: string;
 }
 
 export interface ResultadoOperacion {
@@ -189,4 +193,58 @@ export interface ResumenOperacion {
   reintentos_totales: number;
   solicitudes_http_totales: number;
   es_simulado: boolean;
+}
+
+export interface DefinicionLote {
+  lote: number;
+  casosIds: [string, string];
+  repeticion: number;
+  operacionesPlanificadas: number;
+}
+
+export type EstadoLoteEnum =
+  | 'PENDIENTE'
+  | 'EN_PROGRESO'
+  | 'COMPLETADO'
+  | 'INCOMPLETO'
+  | 'INTERRUMPIDO'
+  | 'FALLO_CUOTA';
+
+export interface EstadoLoteInfo {
+  lote: number;
+  casos: [string, string];
+  repeticion: number;
+  estado: EstadoLoteEnum;
+  operacionesPlanificadas: number;
+  operacionesEjecutadas: number;
+  operacionesExitosas: number;
+  operacionesFallidas: number;
+  operacionesOmitidasPorDependencia: number;
+  solicitudesHttpReales: number;
+  costoTeoricoTotalUsd: number | null;
+  fechaEjecucionUtc?: string;
+  carpetaLote: string;
+}
+
+export interface EvaluacionPedagogicaItem {
+  id_muestra: string;
+  id_ejecucion_analisis: string;
+  modelo_anonimizado: string;
+  caso: string;
+  repeticion: number;
+  titulo_generado: string;
+  historia_completa: string;
+  preguntas_u_opciones: string[];
+  evaluacion: {
+    coherencia_narrativa: number | null;
+    claridad_lenguaje: number | null;
+    adecuacion_nivel_primaria: number | null;
+    riqueza_vocabulario: number | null;
+    continuidad_escenas: number | null;
+    correspondencia_entrada_estudiante: number | null;
+    utilidad_comprension_lectora: number | null;
+    estado: 'PENDIENTE_EVALUACION_HUMANA';
+    evaluador: string | null;
+    observaciones: string | null;
+  };
 }

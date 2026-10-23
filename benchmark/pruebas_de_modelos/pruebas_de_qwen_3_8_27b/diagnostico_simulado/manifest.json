@@ -1,0 +1,22 @@
+{
+  "nivel": 1,
+  "tipo": "diagnostico_conectividad_cuota_json",
+  "fechaUtc": "2026-10-15T01:12:01.569Z",
+  "modelo": "qwen/qwen3.8-27b",
+  "proveedor": "Groq",
+  "esSimulado": true,
+  "httpStatus": null,
+  "exito": true,
+  "jsonValido": true,
+  "latenciaMs": null,
+  "tokens": {
+    "entrada": null,
+    "salida": null,
+    "razonamiento": null,
+    "totales": null,
+    "margenSobreLimite1000Otpm": null
+  },
+  "costoTeoricoUsd": null,
+  "error": null,
+  "errorCategoria": "none"
+}

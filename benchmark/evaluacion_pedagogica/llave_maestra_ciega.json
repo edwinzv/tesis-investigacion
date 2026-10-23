@@ -1,0 +1,553 @@
+{
+  "generadoEl": "2026-10-15T13:59:15.462Z",
+  "descripcion": "Llave maestra de correspondencia ciega para la evaluacion pedagogica y narrativa de los 60 cuentos",
+  "semillaAleatoria": 20261015,
+  "totalCuentos": 60,
+  "distribucionPorModelo": {
+    "Gemini 3.5 Flash Lite": 20,
+    "Qwen 3.8 27B": 20,
+    "GPT-OSS 20B": 20
+  },
+  "mapeo": [
+    {
+      "id_ciego": "EVAL-01",
+      "id_maestro": "MAE-57",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 2,
+      "titulo": "La Danza del Cometa sobre las Olas"
+    },
+    {
+      "id_ciego": "EVAL-02",
+      "id_maestro": "MAE-52",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 2,
+      "titulo": "El rescate de Plumas y el roble luminoso"
+    },
+    {
+      "id_ciego": "EVAL-03",
+      "id_maestro": "MAE-39",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 4,
+      "titulo": "El vuelo de Valentina sobre Puerto Sol"
+    },
+    {
+      "id_ciego": "EVAL-04",
+      "id_maestro": "MAE-38",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 3,
+      "titulo": "El vuelo escarlata de Valentina"
+    },
+    {
+      "id_ciego": "EVAL-05",
+      "id_maestro": "MAE-13",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 3,
+      "titulo": "Mateo y el Misterio del Roble Milenario"
+    },
+    {
+      "id_ciego": "EVAL-06",
+      "id_maestro": "MAE-34",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 4,
+      "titulo": "El Corazón Valiente de Mateo"
+    },
+    {
+      "id_ciego": "EVAL-07",
+      "id_maestro": "MAE-53",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 3,
+      "titulo": "El valiente rescate del bosque"
+    },
+    {
+      "id_ciego": "EVAL-08",
+      "id_maestro": "MAE-44",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 4,
+      "titulo": "El gran rescate del Río Cristalino"
+    },
+    {
+      "id_ciego": "EVAL-09",
+      "id_maestro": "MAE-11",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 1,
+      "titulo": "Mateo y el Misterio del Roble Milenario"
+    },
+    {
+      "id_ciego": "EVAL-10",
+      "id_maestro": "MAE-27",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 2,
+      "titulo": "Bit y la tormenta de primavera"
+    },
+    {
+      "id_ciego": "EVAL-11",
+      "id_maestro": "MAE-21",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 1,
+      "titulo": "El canto perdido del río cristalino"
+    },
+    {
+      "id_ciego": "EVAL-12",
+      "id_maestro": "MAE-60",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 5,
+      "titulo": "La gran cometa de Valentina"
+    },
+    {
+      "id_ciego": "EVAL-13",
+      "id_maestro": "MAE-05",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 5,
+      "titulo": "Sofía y el Secreto del Río Cristalino"
+    },
+    {
+      "id_ciego": "EVAL-14",
+      "id_maestro": "MAE-09",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 4,
+      "titulo": "Bit y la Gran Tormenta"
+    },
+    {
+      "id_ciego": "EVAL-15",
+      "id_maestro": "MAE-43",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 3,
+      "titulo": "El viaje de Sofía y Tina"
+    },
+    {
+      "id_ciego": "EVAL-16",
+      "id_maestro": "MAE-58",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 3,
+      "titulo": "La Gran Cometa de Valentina"
+    },
+    {
+      "id_ciego": "EVAL-17",
+      "id_maestro": "MAE-24",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 4,
+      "titulo": "El pacto de Sofía y el río"
+    },
+    {
+      "id_ciego": "EVAL-18",
+      "id_maestro": "MAE-04",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 4,
+      "titulo": "Sofía y el Secreto del Río Cristalino"
+    },
+    {
+      "id_ciego": "EVAL-19",
+      "id_maestro": "MAE-12",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 2,
+      "titulo": "Mateo y el Misterio del Roble Milenario"
+    },
+    {
+      "id_ciego": "EVAL-20",
+      "id_maestro": "MAE-36",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 1,
+      "titulo": "El vuelo escarlata de Valentina"
+    },
+    {
+      "id_ciego": "EVAL-21",
+      "id_maestro": "MAE-45",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 5,
+      "titulo": "Aventuras de Sofía y la Nutria Tina"
+    },
+    {
+      "id_ciego": "EVAL-22",
+      "id_maestro": "MAE-10",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 5,
+      "titulo": "Bit y la gran tormenta"
+    },
+    {
+      "id_ciego": "EVAL-23",
+      "id_maestro": "MAE-03",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 3,
+      "titulo": "Sofía y el Secreto del Río Cristalino"
+    },
+    {
+      "id_ciego": "EVAL-24",
+      "id_maestro": "MAE-33",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 3,
+      "titulo": "El rescate bajo el roble encantado"
+    },
+    {
+      "id_ciego": "EVAL-25",
+      "id_maestro": "MAE-55",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 5,
+      "titulo": "El rescate del búho del roble"
+    },
+    {
+      "id_ciego": "EVAL-26",
+      "id_maestro": "MAE-23",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 3,
+      "titulo": "La Salva-del-Río: Sofía y Tina"
+    },
+    {
+      "id_ciego": "EVAL-27",
+      "id_maestro": "MAE-28",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 3,
+      "titulo": "Bit y la tormenta perfecta"
+    },
+    {
+      "id_ciego": "EVAL-28",
+      "id_maestro": "MAE-49",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 4,
+      "titulo": "Bit, el guardián de la tormenta"
+    },
+    {
+      "id_ciego": "EVAL-29",
+      "id_maestro": "MAE-26",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 1,
+      "titulo": "Bit y el Abalación"
+    },
+    {
+      "id_ciego": "EVAL-30",
+      "id_maestro": "MAE-06",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 1,
+      "titulo": "Bit y la gran tormenta"
+    },
+    {
+      "id_ciego": "EVAL-31",
+      "id_maestro": "MAE-41",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 1,
+      "titulo": "¡Sofía y el Rescate del Río! "
+    },
+    {
+      "id_ciego": "EVAL-32",
+      "id_maestro": "MAE-42",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 2,
+      "titulo": "La Gran Aventura de Sofía y el Río"
+    },
+    {
+      "id_ciego": "EVAL-33",
+      "id_maestro": "MAE-19",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 4,
+      "titulo": "Valentina y el Secreto del Viento"
+    },
+    {
+      "id_ciego": "EVAL-34",
+      "id_maestro": "MAE-59",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 4,
+      "titulo": "El vuelo de la cometa soñadora"
+    },
+    {
+      "id_ciego": "EVAL-35",
+      "id_maestro": "MAE-37",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 2,
+      "titulo": "Valentina y la Cometa Mágica"
+    },
+    {
+      "id_ciego": "EVAL-36",
+      "id_maestro": "MAE-08",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 3,
+      "titulo": "Bit y el Gran Riesgo de la Tormenta"
+    },
+    {
+      "id_ciego": "EVAL-37",
+      "id_maestro": "MAE-07",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 2,
+      "titulo": "Bit y el Misterio de la Tormenta en la Colina"
+    },
+    {
+      "id_ciego": "EVAL-38",
+      "id_maestro": "MAE-51",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 1,
+      "titulo": "La aventura del roble y el búho"
+    },
+    {
+      "id_ciego": "EVAL-39",
+      "id_maestro": "MAE-47",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 2,
+      "titulo": "El héroe de la tormenta"
+    },
+    {
+      "id_ciego": "EVAL-40",
+      "id_maestro": "MAE-20",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 5,
+      "titulo": "Valentina y el Gran Viento del Cometa"
+    },
+    {
+      "id_ciego": "EVAL-41",
+      "id_maestro": "MAE-54",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 4,
+      "titulo": "El Rescate de Plumas"
+    },
+    {
+      "id_ciego": "EVAL-42",
+      "id_maestro": "MAE-22",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 2,
+      "titulo": "El Secreto del Río y la Nutria"
+    },
+    {
+      "id_ciego": "EVAL-43",
+      "id_maestro": "MAE-14",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 4,
+      "titulo": "Mateo y el Misterio del Roble Milenario"
+    },
+    {
+      "id_ciego": "EVAL-44",
+      "id_maestro": "MAE-17",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 2,
+      "titulo": "El gran vuelo de Valentina"
+    },
+    {
+      "id_ciego": "EVAL-45",
+      "id_maestro": "MAE-01",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 1,
+      "titulo": "El Secreto de la Cascada Oculta"
+    },
+    {
+      "id_ciego": "EVAL-46",
+      "id_maestro": "MAE-40",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 5,
+      "titulo": "Valentina y el vuelo del cometa escarlata"
+    },
+    {
+      "id_ciego": "EVAL-47",
+      "id_maestro": "MAE-30",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 5,
+      "titulo": "Bit: El héroe del cielo nublado"
+    },
+    {
+      "id_ciego": "EVAL-48",
+      "id_maestro": "MAE-48",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 3,
+      "titulo": "Bit, el Guardián de la Lluvia"
+    },
+    {
+      "id_ciego": "EVAL-49",
+      "id_maestro": "MAE-16",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 1,
+      "titulo": "Valentina y el Viento del Mar: Una Aventura en las Alturas"
+    },
+    {
+      "id_ciego": "EVAL-50",
+      "id_maestro": "MAE-35",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 5,
+      "titulo": "El Rescate de Plumas en el Bosque Mágico"
+    },
+    {
+      "id_ciego": "EVAL-51",
+      "id_maestro": "MAE-46",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 1,
+      "titulo": "El Bit Valiente: El Viento que Salvó la Cosecha"
+    },
+    {
+      "id_ciego": "EVAL-52",
+      "id_maestro": "MAE-56",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 1,
+      "titulo": "El vuelo de Valentina"
+    },
+    {
+      "id_ciego": "EVAL-53",
+      "id_maestro": "MAE-15",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 5,
+      "titulo": "Mateo y el Misterio del Roble Milenario"
+    },
+    {
+      "id_ciego": "EVAL-54",
+      "id_maestro": "MAE-02",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 2,
+      "titulo": "El Secreto de la Cascada Oculta"
+    },
+    {
+      "id_ciego": "EVAL-55",
+      "id_maestro": "MAE-18",
+      "modelo": "Gemini 3.5 Flash Lite",
+      "modelo_id": "gemini-3.5-flash-lite",
+      "caso": "caso_04_cometa_viento",
+      "repeticion": 3,
+      "titulo": "Valentina y el Secreto del Viento Marino"
+    },
+    {
+      "id_ciego": "EVAL-56",
+      "id_maestro": "MAE-50",
+      "modelo": "GPT-OSS 20B",
+      "modelo_id": "openai/gpt-oss-20b",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 5,
+      "titulo": "El Vigilante de la Nube"
+    },
+    {
+      "id_ciego": "EVAL-57",
+      "id_maestro": "MAE-29",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_02_robot_cielo",
+      "repeticion": 4,
+      "titulo": "Bit y la Gran Tormenta"
+    },
+    {
+      "id_ciego": "EVAL-58",
+      "id_maestro": "MAE-32",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 2,
+      "titulo": "El rescate en el roble mágico"
+    },
+    {
+      "id_ciego": "EVAL-59",
+      "id_maestro": "MAE-31",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_03_arbol_hueco",
+      "repeticion": 1,
+      "titulo": "Amistad bajo las Brumas"
+    },
+    {
+      "id_ciego": "EVAL-60",
+      "id_maestro": "MAE-25",
+      "modelo": "Qwen 3.8 27B",
+      "modelo_id": "qwen/qwen3.8-27b",
+      "caso": "caso_01_misterio_agua",
+      "repeticion": 5,
+      "titulo": "El Secreto del Río Cristálido"
+    }
+  ]
+}

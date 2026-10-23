@@ -1,0 +1,43 @@
+# Valentina y el Secreto del Viento Marino
+
+**Código de Evaluación Ciega:** `EVAL-55`
+**Tema Narrativo:** COMETA VIENTO
+**Personaje Principal:** Valentina — Una niña alegre de ocho años, creativa, perseverante y con una gran habilidad para resolver problemas.
+**Entorno / Escenario:** La caleta de pescadores de Puerto Sol
+**Conflicto Inicial:** El viento costero sopla en ráfagas muy desordenadas haciendo que la cometa gire en círculos y amenace con estrellarse contra la arena.
+
+---
+
+## Escena 1: Inicio
+
+Puerto Sol brillaba bajo el sol de la tarde y una brisa marina invitaba a jugar. Valentina, con su gran sonrisa y una mochila llena de ingenio, sostenía el hilo de su cometa favorita, decorada con brillantes colores. De repente, una ráfaga de viento desordenada sacudió el cielo, haciendo que la cometa girara peligrosamente en círculos y amenazara con estrellarse contra la arena. Valentina respiró hondo, lista para usar su creatividad y salvar su juguete antes de que fuera demasiado tarde.
+
+*Opciones de decisión presentadas al lector:*
+  A) Correr hacia la cima de la duna más alta donde el viento es más constante
+  B) Enrollar rápidamente un poco de hilo para recuperar el control desde donde está
+  C) Buscar la ayuda de un viejo pescador para entender cómo calmar la corriente de aire
+
+## Escena 2: Desarrollo
+
+Valentina corrió velozmente con las piernas cansadas pero el corazón lleno de energía, esquivando castillos de arena hasta llegar a la cima de la duna más alta. Desde allí arriba, el viento soplaba con mucha más fuerza y estabilidad, aunque la cometa seguía dando sacudidas violentas. Apretó con fuerza el mango de madera, sintiendo la energía del juguete tirando hacia el cielo nublado. Sabía que tenía que actuar rápido antes de que una nueva ráfaga caprichosa rompiera el frágil papel brillante.
+
+*Opciones de decisión presentadas al lector:*
+  A) Desenrollar el hilo de algodón y compensar el peso de la cola de cintas
+  B) Girar en círculo sobre la arena para crear un remolino que frene la cometa
+  C) Gritar una palabra mágica para pedir ayuda a los delfines de la costa
+
+## Escena 3: Clímax
+
+Con rapidez y mucha concentración, Valentina comenzó a soltar más hilo de algodón con ambas manos. La cometa, que antes parecía descontrolada, empezó a encontrar un nuevo equilibrio en el aire. La cola de cintas brillantes ondeaba con gracia, contrarrestando la fuerza inesperada del viento. Poco a poco, el juguete dejó de dar sacudidas violentas y se estabilizó sobre la gran duna, brillando intensamente bajo los últimos rayos de sol que se filtraban entre las nubes. Valentina sonrió al ver que su ingenio había funcionado, pero el viento seguía soplando con fuerza y nuevas aventuras acechaban en el horizonte marino.
+
+*Opciones de decisión presentadas al lector:*
+  A) Soltar la cometa en el momento preciso para que se eleve sobre las olas del mar
+  B) Tirar con fuerza del hilo para hacerla descender lentamente hacia la arena
+  C) Atar el mango a una estaca y buscar caracoles mientras la cometa vuela sola
+
+## Escena 4: Desenlace
+
+Con el corazón latiendo con emoción, Valentina calculó el segundo exacto y soltó con suavidad el hilo de algodón. La cometa, libre al fin de ataduras rígidas, dio un salto grácil hacia adelante y se elevó majestuosamente sobre las espumosas olas del mar, planeando con los colores del atardecer reflejándose en sus alas de papel. Los gaviotines la saludaron en su vuelo y Valentina comprendió que, a veces, para alcanzar nuestros sueños más grandes, debemos aprender el arte de soltar en el momento justo y confiar en nuestras propias alas. Desde la orilla, aplaudía feliz, sabiendo que cada aventura deja una enseñanza imborrable en el corazón.
+
+---
+*Instrucciones para el evaluador:* Califique este cuento según los 5 criterios de la rúbrica pedagógica (1 a 5) registrando su dictamen en la matriz de evaluación para el código `EVAL-55`.

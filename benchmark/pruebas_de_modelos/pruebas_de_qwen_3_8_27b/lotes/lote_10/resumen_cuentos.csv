@@ -1,0 +1,3 @@
+proveedor,modelo,caso,repeticion,operaciones_totales,operaciones_exitosas,tokens_entrada_cuento,tokens_salida_cuento,tokens_razonamiento_cuento,tokens_totales_cuento,tiempo_total_ms,costo_teorico_cuento_usd,costo_efectivo_cuento_usd,errores,reintentos,solicitudes_http_totales,cuento_completo_exitoso,es_simulado
+Groq,qwen/qwen3.8-27b,caso_03_arbol_hueco,5,5,5,3209,1057,0,4266,5078,0.006795,,0,0,5,true,false
+Groq,qwen/qwen3.8-27b,caso_04_cometa_viento,5,5,5,2950,983,0,3933,4873,0.006292,,0,0,5,true,false

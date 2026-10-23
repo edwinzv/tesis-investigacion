@@ -1,0 +1,83 @@
+{
+  "caso": "caso_01_misterio_agua",
+  "repeticion": 4,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "El pacto de Sofía y el río",
+  "protagonista": "Sofía",
+  "descripcionProtagonista": "Sofía es una niña curiosa de nueve años, equipada con botas de hule y una lupa, quien actúa con dedicación para resolver problemas ambientales",
+  "escenario": "El valle de San Lorenzo, específicamente cerca del molino viejo, entre los sauces, junto al río cristalino y hacia una cascada oculta",
+  "conflicto": "El río dejó de fluir correctamente, las orillas se cubrieron de ramas secas y los animales del bosque, especialmente los peces dorados, estaban desorientados y en peligro",
+  "resumenAnalisis": "Sofía investiga por qué el río cristalino perdió su caudal y melodía. Descubre que una nutria llamada Tina construyó un dique para proteger a sus crías de la corriente. Juntas construyen un canal alternativo que soluciona el problema, restaurando el equilibrio natural del valle",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Sofía se ajustó sus botas de hule y salió a investigar el valle de San Lorenzo cerca del molino viejo. Al llegar al río cristalino, sintió un nudo en la garganta. El agua, que usualmente cantaba entre las piedras, solo goteaba tristemente. Las orillas parecían dormir bajo un manto de ramas secas, y los peces dorados nadaban en círculos desorientados, buscando aire. Sofía sacó su lupa para examinar una pluma blanca atrapada en un sauce. Bajo el cristal, la pluma brillaba con un pr",
+      "opcionesPresentadas": [
+        "Seguir el rastro de huellas hacia la cascada oculta",
+        "Liberar a los peces dorados atrapados entre las raíces",
+        "Subir las escaleras del molino viejo para buscar pistas"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1137,
+        "tokensEntrada": 485,
+        "tokensSalida": 188,
+        "costoUsd": 0.00114
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Sofía siguió las huellas pequeñas que se perdían entre la maleza húmeda. Pasando por detras de un roble gigante, escuchó el suave murmullo de una cascada. Allí, escondida en una cueva de musgo, estaba la fuente. Pero no brotaba libre. Una pequeña nutria de pelaje marrón, llamada Nino, había apilado todo tipo de hojas, ramas y hasta una botella plástica. El agua se acumulaba detrás de esa barrera improvisada, ahogando las raíces de los árboles nearby. La nutria te miró con ojos as",
+      "opcionesPresentadas": [
+        "Hablar amablemente con la nutria traviesa que había construido una represa de ramas",
+        "Buscar una herramienta afilada para cortar con cuidado la botella plástica",
+        "Colocar una señal de advertencia para que otros no encuentren el lugar"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1314,
+        "tokensEntrada": 516,
+        "tokensSalida": 203,
+        "costoUsd": 0.0012248
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Sofía se agachó lentamente, sonriendo con calidez. «Hola, Ninó. Veo que has construido un refugio muy ingenioso, pero el agua apilada está haciendo daño a los árboles. Los peces dorados también están tristes porque no encuentran corriente limpia». La nutria parpadeó, moviendo su cola esponjosa con curiosidad. Sus pequeños ojos brillaron, entendiendo que no era burla, sino una invitación. Sofía extendió una mano hacia una raíz desprendida, proponiendo una solución creativa que no踹",
+      "opcionesPresentadas": [
+        "Construir juntos un canal alternativo para que el agua del río fluya sin desarmar el refugio de la nutria",
+        "Pedirle ayuda para trasladar el nido de la nutria a un lugar más seguro alejado del río",
+        "Usar la brújula para llevar a la nutria a una montaña donde el agua sigue siendo abundante"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1110,
+        "tokensEntrada": 678,
+        "tokensSalida": 217,
+        "costoUsd": 0.0014104
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Con un esfuerzo conjunto, Sofía y Nino excavaron un pequeño canal de tierra húmeda que dirigía el flujo del río hacia la llanura. Al soltar la última rama, el agua retumbó suavemente, restaurando la corriente cristalina. Los peces dorados, llenos de energía, danzaron en espirales plateadas bajo la superficie, mientras los árboles suspiraron aliviados. Nino sonrió y, agradecido, dejó su botella de plástico cerca de la orilla; Sofía la recogió para llevarla a reciclar. Desde aquel ",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 975,
+        "tokensEntrada": 749,
+        "tokensSalida": 144,
+        "costoUsd": 0.0011752
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4536,
+    "tokensEntradaTotales": 2428,
+    "tokensSalidaTotales": 752,
+    "costoTotalUsd": 0.004950400000000001
+  }
+}

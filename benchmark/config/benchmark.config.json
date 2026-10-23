@@ -1,28 +1,59 @@
 {
-  "version": "1.0.0",
-  "descripcion": "Configuración del benchmark textual para Cuentos Mágicos",
-  "planes": {
-    "piloto": {
-      "casos": 1,
-      "repeticiones": 1,
-      "modelos": 3,
-      "operacionesPorCuento": 5,
-      "operacionesTotales": 15,
-      "carpetaResultados": "benchmark/resultados_piloto"
+  "version": "2.0.0",
+  "descripcion": "Configuración del benchmark experimental por lotes para Cuentos Mágicos",
+  "disenoExperimental": {
+    "modelos": 3,
+    "casos": 4,
+    "repeticionesPorCaso": 5,
+    "operacionesPorCaso": 5,
+    "operacionesTotales": 300,
+    "lotesTotales": 10,
+    "operacionesPorLote": 30,
+    "casosPermitidos": [
+      "caso_01_misterio_agua",
+      "caso_02_robot_cielo",
+      "caso_03_arbol_hueco",
+      "caso_04_cometa_viento"
+    ],
+    "distribucionLotes": [
+      { "lote": 1, "casos": ["caso_01_misterio_agua", "caso_02_robot_cielo"], "repeticion": 1 },
+      { "lote": 2, "casos": ["caso_03_arbol_hueco", "caso_04_cometa_viento"], "repeticion": 1 },
+      { "lote": 3, "casos": ["caso_01_misterio_agua", "caso_02_robot_cielo"], "repeticion": 2 },
+      { "lote": 4, "casos": ["caso_03_arbol_hueco", "caso_04_cometa_viento"], "repeticion": 2 },
+      { "lote": 5, "casos": ["caso_01_misterio_agua", "caso_02_robot_cielo"], "repeticion": 3 },
+      { "lote": 6, "casos": ["caso_03_arbol_hueco", "caso_04_cometa_viento"], "repeticion": 3 },
+      { "lote": 7, "casos": ["caso_01_misterio_agua", "caso_02_robot_cielo"], "repeticion": 4 },
+      { "lote": 8, "casos": ["caso_03_arbol_hueco", "caso_04_cometa_viento"], "repeticion": 4 },
+      { "lote": 9, "casos": ["caso_01_misterio_agua", "caso_02_robot_cielo"], "repeticion": 5 },
+      { "lote": 10, "casos": ["caso_03_arbol_hueco", "caso_04_cometa_viento"], "repeticion": 5 }
+    ]
+  },
+  "limitesYEspera": {
+    "google": {
+      "pacingMs": 5000,
+      "maxRpm": 15,
+      "maxRpd": 500,
+      "maxTpm": 250000
     },
-    "definitivo": {
-      "casos": 5,
-      "repeticiones": 2,
-      "modelos": 3,
-      "operacionesPorCuento": 5,
-      "operacionesTotales": 150,
-      "carpetaResultados": "benchmark/resultados"
+    "groq_qwen": {
+      "pacingMs": 65000,
+      "maxRpm": 30,
+      "maxRpd": 1000,
+      "maxTpm": 8000,
+      "observacionOtpm": "Límite efectivo de tokens de salida de ~1000 OTPM observado en pruebas"
+    },
+    "groq_gpt_oss": {
+      "pacingMs": 15000,
+      "maxRpm": 30,
+      "maxRpd": 1000,
+      "maxTpm": 8000
     }
   },
   "politicaRetry": {
     "maxReintentosCorrectivosContenido": 1,
     "reintentarErroresHttp4xx": false,
-    "maxEsperaRetryAfterMs": 10000
+    "respetarRetryAfter": true,
+    "maxEsperaRetryAfterMs": 70000
   },
   "matrizEvaluacion": {
     "pesos": {

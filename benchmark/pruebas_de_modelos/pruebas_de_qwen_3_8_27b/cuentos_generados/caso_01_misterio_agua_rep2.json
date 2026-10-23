@@ -1,0 +1,83 @@
+{
+  "caso": "caso_01_misterio_agua",
+  "repeticion": 2,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "El Secreto del Río y la Nutria",
+  "protagonista": "Sofía",
+  "descripcionProtagonista": "Sofía es una niña de nueve años, curiosa y empática, que suele llevar botas de hule y usa una lupa como herramienta de exploración.",
+  "escenario": "El valle de San Lorenzo, específicamente cerca del molino viejo, a orillas del río cristalino y en su interior entre sauces.",
+  "conflicto": "El río dejó de fluir con normalidad, generando la desorientación de los peces y acumulando ramas, debido a que una nutria construyó un dique por temor a que la corriente arrastrara a sus crías.",
+  "resumenAnalisis": "Sofía detecta la alteración del caudal del río cristalino y, tras seguir las pistas hasta una cascada, descubre que una nutria nombrada Tina ha damificado el cauce para proteger a sus crías. Mediante la empatía y la ingeniería, ambas trabajan juntas para crear un canal secundario que equilibra el flujo. En consecuencia, el ecosistema del río se restablece y el bienestar de la comunidad colindante se restaura.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Sofía se ajustó sus botas de hule y tomó su lupa transparente. El molino viejo de San Lorenzo callaba, roto por un silencio raro. Cerca del río cristalino, el agua no cantaba; se estancaba contra un montón de ramas. Los peces daban vueltas confusos, chocando contra la orilla. Sofía sintió un nudo en el estómago. Algo no estaba bien. Vio huellas pequeñas y peludas hundidas en el lodo, junto a los sauces que daban sombra al agua quieta. Con el corazón latiendo fuerte, se acercó con",
+      "opcionesPresentadas": [
+        "Seguir el rastro de huellas hacia la cascada oculta",
+        "Inspeccionar el dique de ramas con su lupa para ver quién lo hizo",
+        "Llamar a los peces para que abandonen esa zona del río antes de que se ahoguen"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1096,
+        "tokensEntrada": 494,
+        "tokensSalida": 208,
+        "costoUsd": 0.0012272
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Sofía siguió el rastro de huellas pequeñas y peludas entre la maleza húmeda, cuya hierba crujía bajo sus botas de hule. El sonido de una leve caída de agua inundó el aire. Al adentrarse más, una cascada oculta se reveló entre las rocas musgosas. Allí, una nutria peluda y curiosa estaba apilando ramas con sus patas ágiles, creando un pequeño obstáculo. '¡Hola, pequeño ingeniero de agua!', saludó Sofía suavemente, reconociendo la mirada inteligente del animal. La nutria dejó de trb",
+      "opcionesPresentadas": [
+        "Hablar amablemente con la nutria traviesa que había construido una represa de ramas",
+        "Registrar la escena en su libreta con dibujos rápidos",
+        "Mirar hacia la cueva oscura detrás de la roca principal"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1119,
+        "tokensEntrada": 522,
+        "tokensSalida": 199,
+        "costoUsd": 0.0012136
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "'Tranquila, no quiero molestar tu casa', dijo Sofía con voz suave. La nutria, a quien ahora conocía como Pata, dejó de empujar ramas y la miró con ojos brillantes. A Sofía no le gustaba remover el agua sucia, pero sí le encantaban los retos ingenieriles. Observó que la represa de Pata cortaba el curso natural del río, dejando sin agua la zona donde vivían los pequeños peces plateados. Si quitaba las ramas, Pata perdería su refugio seguro. Necesitaban una solución creativa que hic",
+      "opcionesPresentadas": [
+        "Construir juntos un canal alternativo para que el agua del río fluya sin desarmar el refugio de la nutria",
+        "Pedirle a Pata que mueva sus ramas un poco a un lado para dejar un pequeño hueco",
+        "Intentar usar su lupa para guiar la luz del sol hacia la tuerca oxidada que bloqueaba la vía de agua"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1103,
+        "tokensEntrada": 685,
+        "tokensSalida": 222,
+        "costoUsd": 0.001436
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Sofía y Pata trabajaron en equipo. Con paciencia, abrieron un pequeño túnel de piedra junto a la represa, asegurándose de no remover el hogar seguro de la nutria. Cuando la obra terminó, Sofía retiró con cuidado la primera rama del bloqueo principal. El agua, obediente, encontró su nuevo camino y fluyó con alegría hacia aguas abajo. Los peces plateados, ansiosos, formaron un ballet brillante bajo la cascada. Pata observó fascinada, dando saltitos felices, mientras una gota de roc",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 1084,
+        "tokensEntrada": 760,
+        "tokensSalida": 139,
+        "costoUsd": 0.001164
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4402,
+    "tokensEntradaTotales": 2461,
+    "tokensSalidaTotales": 768,
+    "costoTotalUsd": 0.0050408
+  }
+}

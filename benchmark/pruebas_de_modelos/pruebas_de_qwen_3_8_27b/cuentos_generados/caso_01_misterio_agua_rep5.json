@@ -1,0 +1,83 @@
+{
+  "caso": "caso_01_misterio_agua",
+  "repeticion": 5,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "El Secreto del Río Cristálido",
+  "protagonista": "Sofía",
+  "descripcionProtagonista": "Niña curiosa de nueve años, que se destaca por sus botas de hule y el uso constante de su inseparable lupa.",
+  "escenario": "El valle de San Lorenzo, específicamente cerca del molino viejo, entre los sauces y hacia la cascada oculta.",
+  "conflicto": "El agua del río cristalino dejó de cantar y su corriente se volvió lenta, causando la desorientación de los peces dorados y cubriendo las orillas de ramas secas.",
+  "resumenAnalisis": "Sofía, una niña curiosa, investiga por qué el río cristalino ha dejado de fluir con normalidad. Al encontrar a la nutria Tina, descubre que el problema son los troncos colocados por miedo a perder a sus crías. Ellas resuelven el dilema creando un canal alternativo que restaura el caudal del río sin dañar la familia de nutrias, logrando el equilibrio en la comunidad.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Sofía ajustó su lupa y miró con preocupación el río cristalino de San Lorenzo. Por primera vez, las aguas no cantaban con alegría, sino que murmuraban con una lentitud extraña. Los peces dorados nadaban en círculos confundidos, y la orilla estaba cubierta de ramas secas que silbaban con el viento. El viejo molino, entre los sauces quejumbrosos, parecía guardar un secreto. Sofía sintió un cosquilleo en la espalda; la quietud del agua indicaba que algo grande había disturbado la平静.",
+      "opcionesPresentadas": [
+        "Seguir el rastro de huellas hacia la cascada oculta",
+        "Lanzar su soga al molino viejo para subir al alero",
+        "Hablar con los peces dorados usando su lupa mágica"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1053,
+        "tokensEntrada": 474,
+        "tokensSalida": 187,
+        "costoUsd": 0.0011272
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Sofía siguió las huellas frescas en el barro hasta toparse con una pequeña cascada escondida tras una cortina de helechos. Allí, una nutria de pelaje brillante estaba apilando ramas y piedras con experta eficiencia, creando una represa que retenía el flujo del río. Sofía observó cómo el agua, al ser bloqueada, aún más lento y melancólico. La nutria parpadeó, consciente de su presencia, y ajuste una última rama con curiosidad. Sofía sintió que la decisión caería sobre ella: era un",
+      "opcionesPresentadas": [
+        "Tirar la primera rama de la represa para probar aunque la nutria desaprobara con un gruñido",
+        "Hablar amablemente con la nutria traviesa que había construido una represa de ramas",
+        "Buscar el origen del agua turbia que fluía por túneles antiguos bajo el bosque"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1078,
+        "tokensEntrada": 512,
+        "tokensSalida": 207,
+        "costoUsd": 0.0012376
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Sofía se agachó suavemente, extendiendo la mano con dedos abiertos. «Hola, amiguita», susurró con voz cálida. «Sé que estás construyendo tu casa, pero el río está triste sin su canto». La nutria la observó, lamiendo su hocico curioso. Un pequeño pez saltó cerca, recordando que el agua necesita fluir. Sofía sintió una chispa de inspiración: si el agua bypassaba el bloqueo, ambos podrían estar contentos. La nutria se rascó la oreja, confirmando que entendía la advertencia, pero no挪",
+      "opcionesPresentadas": [
+        "Construir juntos un canal alternativo para que el agua del río fluya sin desarmar el refugio de la nutria",
+        "Levoyar una caja de galletas para distraerla mientras despejas ramas",
+        "Consultar al viejo molino si sabe una canción mágica para mover el agua"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1113,
+        "tokensEntrada": 665,
+        "tokensSalida": 216,
+        "costoUsd": 0.001396
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Sofía y la nutria trabajaron en perfecta armonía. Entre arrastrar raíces y suavizar la tierra, abrieron un pequeño canal lateral que permitía al agua deslizarse con gracia hacia la desembocadura. El cauce principal continuó alimentando el refugio seguro de la nutria, que ahora brillaba bajo el sol de la tarde. Poco a poco, el flujo principal recuperó su fuerza. Los peces dorados dejaron de girar en círculos y retomaron sus elegantes rutinas, mientras el río volvió a cantar con su",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 1067,
+        "tokensEntrada": 747,
+        "tokensSalida": 136,
+        "costoUsd": 0.0011416
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4311,
+    "tokensEntradaTotales": 2398,
+    "tokensSalidaTotales": 746,
+    "costoTotalUsd": 0.0049024
+  }
+}

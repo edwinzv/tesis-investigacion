@@ -1,0 +1,83 @@
+{
+  "caso": "caso_04_cometa_viento",
+  "repeticion": 4,
+  "modelo": "gemini-3.5-flash-lite",
+  "titulo": "Valentina y el Secreto del Viento",
+  "protagonista": "Valentina",
+  "descripcionProtagonista": "Una niña alegre de ocho años, ingeniosa, perseverante y con gran destreza manual.",
+  "escenario": "La caleta de pescadores de Puerto Sol y su playa.",
+  "conflicto": "El viento costero sopla en ráfagas desordenadas haciendo que la cometa gire sin control y amenace con estrellarse contra la arena.",
+  "resumenAnalisis": "Valentina construyó con esmero una gran cometa roja para desear buena suerte a los pescadores de su caleta. Al llegar a la playa, las ráfagas desordenadas del viento amenazaron con arruinar su plan. Sin rendirse, subió a una duna alta para atrapar una corriente firme y logró elevar su cometa con éxito sobre las olas.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "El sol brillaba con fuerza sobre la colorida caleta de pescadores de Puerto Sol, iluminando las barcas y las redes apiladas en la arena. Valentina, con una gran sonrisa y sus manos siempre listas para crear, sostenía con orgullo su nueva cometa hecha de papel reciclado y cintas de colores. De repente, una ráfaga de viento juguetona y desordenada sopló desde el mar, haciendo que la cometa girara violentamente en el aire y amenazara con estrellarse contra las rocas. Valentina sujetó el hilo con fuerza, decidida a no dejar que su obra maestra cayera. Necesitaba actuar rápido para salvar el vuelo.",
+      "opcionesPresentadas": [
+        "Correr hacia la cima de la duna más alta donde el viento es más constante",
+        "Tirar con suavidad del hilo para desenredar la cometa mientras corre hacia los botes",
+        "Buscar refugio detrás del muelle de madera para proteger la cometa de las ráfagas"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 2540,
+        "tokensEntrada": 297,
+        "tokensSalida": 238,
+        "costoUsd": 0.0006841
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Valentina corrió con rapidez sobre la arena tibia, esquivando las trampas de los cangrejos y las rocas resbaladizas, mientras sentía que el viento tiraba con fuerza de sus brazos. Al llegar a la cima de la gran duna, el aire soplaba con una energía imparable, mucho más estable que abajo. Su cometa de papel reciclado dejó de dar tumbos violentos y comenzó a estabilizarse en el cielo azul, batiendo sus cintas como si fuera un pájaro alegre de colores. Sin embargo, la tensión en el hilo era enorme y sus manos empezaban a cansarse de sujetarlo tan de cerca.",
+      "opcionesPresentadas": [
+        "Desenrollar el hilo de algodón y compensar el peso de la cola de cintas",
+        "Girar en círculos para crear su propio remolino de viento y calmar la cometa",
+        "Gritarle a su amigo Mateo que suba corriendo para que le ayude a sostener el hilo"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 2947,
+        "tokensEntrada": 384,
+        "tokensSalida": 217,
+        "costoUsd": 0.0006577
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Valentina aflojó con habilidad el carrete de madera, permitiendo que varios metros de hilo de algodón salieran disparados hacia el cielo. Al alargarse la cuerda, la cometa encontró un nuevo equilibrio en las corrientes de aire fresco. Las cintas de colores dejaron de sacudirse bruscamente y la estructura de papel reciclado se estabilizó por completo, danzando majestuosa sobre las gaviotas. El esfuerzo en sus manos disminuyó de inmediato, permitiéndole disfrutar de la hermosa vista. Sin embargo, el viento soplaba cada vez con más intensidad desde el horizonte, y el hilo comenzaba a zumbar con fuerza, indicando que la aventura apenas comenzaba.",
+      "opcionesPresentadas": [
+        "Soltar la cometa en el momento preciso para que se eleve sobre las olas del mar",
+        "Tirar del hilo con fuerza para hacerla descender antes de que el viento aumente",
+        "Atar el carrete a un viejo madero para descansar y observar el vuelo"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 3172,
+        "tokensEntrada": 547,
+        "tokensSalida": 217,
+        "costoUsd": 0.0007065999999999999
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Valentina respiro hondo y, con una mezcla de nervios y alegria, solto el hilo justo en el segundo en que una corriente calida soplo con fuerza. La cometa de papel reciclado se libero, elevandose majestuosa y libre sobre las olas espumosas del mar, brillando como un arcoiris en el cielo azul. Los pescadores desde la caleta aplaudieron al verla volar tan alto, convirtiendose en la reina indiscutible del viento. Valentina sonrio, comprendiendo que a veces, para que las cosas que amamos alcancen su verdadero potencial y brillen con luz propia, debemos aprender a soltarlas en el momento justo y confiar en su vuelo.",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 2408,
+        "tokensEntrada": 646,
+        "tokensSalida": 162,
+        "costoUsd": 0.0005988
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 11067,
+    "tokensEntradaTotales": 1874,
+    "tokensSalidaTotales": 834,
+    "costoTotalUsd": 0.0026471999999999997
+  }
+}

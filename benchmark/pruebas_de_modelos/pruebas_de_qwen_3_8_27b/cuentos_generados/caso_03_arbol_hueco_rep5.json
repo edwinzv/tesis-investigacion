@@ -1,0 +1,83 @@
+{
+  "caso": "caso_03_arbol_hueco",
+  "repeticion": 5,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "El Rescate de Plumas en el Bosque Mágico",
+  "protagonista": "Mateo",
+  "descripcionProtagonista": "Un niño soñador de diez años con un noble corazón que ama dibujar criaturas fantásticas.",
+  "escenario": "El bosque de las brumas, específicamente cerca de un roble milenario con una cueva en su tronco.",
+  "conflicto": "El búho Plumas tiene un ala enredada entre zarzas espinosas y no puede volar a su nido, mientras que Mateo debe vencer su miedo a las leyendas de espíritus para poder ayudarlo.",
+  "resumenAnalisis": "Mateo, un niño soñador, escucha un quejido dentro de un gran roble milenario. Al entrar, encuentra a un búho con el ala atrapada en zarzas. Tras liberarlo cuidadosamente y darle agua, el ave sale volando y el bosque se ilumina mágicamente.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Mateo corrió entre las brumas plateadas del bosque, su corazón latiendo rápido. Ante él se alzaba el roble milenario, un guardián antiguo con ramas que parecían dedos de madera. Desde su cueva, el búho Plumas graznaba con angustia, atrapado por zarzas espinosas en su ala herida. Mateo recordaba las leyendas de espíritus perdidos que susurraban en las raíces, y un escalofrío recorrió su espalda. Sin embargo, el gemido del pajarito fue más fuerte que su miedo. Tomó su lápiz mágico,",
+      "opcionesPresentadas": [
+        "Abrir el cuaderno de dibujos para invocar una flor protectora",
+        "Encender la linterna de explorador y asomarse al hueco del tronco",
+        "Correr hacia los arbustos para buscar una herramienta de rescate"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 827,
+        "tokensEntrada": 482,
+        "tokensSalida": 203,
+        "costoUsd": 0.0011976
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Mateo encendió la linterna y su luz dorada bañó el interior húmedo del roble. El aire olía a tierra húmeda y secretos antiguos. Entre las raíces entrelazadas, una figura translúcida de luz azul parpadeó, asustada por el brillo repentino. El búho Plumas emitió un chillido agudo, apretando más sus zarzas. El espíritu, un pequeño duende de niebla llamado Nublo, extendió unas manos frías hacia la luz. '¡Mira! ¡Mis colores se están apagando!', susurró Nublo con voz temblorosa. Mateo,冻",
+      "opcionesPresentadas": [
+        "Desatar con paciencia las zarzas espinosas del ala del búho plateado",
+        "Apagar la linterna y hablar en voz baja para no asustar al espíritu",
+        "Ofrecer el pan de miel de su mochila a Nublo para ganar su confianza"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1063,
+        "tokensEntrada": 528,
+        "tokensSalida": 220,
+        "costoUsd": 0.0013024
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Mateo acercó sus manos tiemblantes, pero con una paciencia infinita, comenzó a desentrañar las zarzas espinosas. Cada rama retirada parecía moverse con delicadeza, como si el bosque mismo le guiara los dedos. Plumas temblaba, cerrando el ojo sano, pero confiaba en el niño. De pronto, una espina suave se soltó y el ala quedó libre. El búho emitió un gemido de alivio. Nublo, el duende de niebla, acercó su presencia luminosa, y las partículas de luz azul de Nublo parpadeaban con más",
+      "opcionesPresentadas": [
+        "Acomodar al ave en un lecho de musgo fresco y ofrecerle agua de la cantimplora",
+        "Preguntar a Nublo cómo devolverle los colores antes de que desaparezca",
+        "Dejarlos solos para que se recuperen y seguir explorando el bosque"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 897,
+        "tokensEntrada": 699,
+        "tokensSalida": 213,
+        "costoUsd": 0.0014112
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Mateo acomodó cuidadosamente a Plumas sobre un lecho de musgo esponjoso y ofreció el agua fresca de su cantimplora. El búho bebió con sed, y sus ojos dorados brillaron con gratitud. Al recibir el alivio, Plumas agitó sus plumas plateadas, liberando una suave lluvia de luciérnagas que envolvió a Nublo. El duende de niebla, reconfortado por ese brillo cálido, recuperó su vitalidad azulada. ¡Ya no estaba solo ni asustado! Juntos, el niño, el búho y el espíritu se maravillaron ante a",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 1221,
+        "tokensEntrada": 782,
+        "tokensSalida": 154,
+        "costoUsd": 0.0012416
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4008,
+    "tokensEntradaTotales": 2491,
+    "tokensSalidaTotales": 790,
+    "costoTotalUsd": 0.0051528
+  }
+}

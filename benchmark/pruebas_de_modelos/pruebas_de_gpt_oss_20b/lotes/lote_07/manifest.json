@@ -1,0 +1,51 @@
+{
+  "loteId": "lote_07",
+  "lote": 7,
+  "repeticion": 4,
+  "repeticiones": 1,
+  "fechaInicioUtc": "2026-10-15T12:38:35.629Z",
+  "fechaFinUtc": "2026-10-15T12:41:07.503Z",
+  "estado": "COMPLETADO",
+  "modo": "REAL",
+  "esSimulado": false,
+  "casos": [
+    "caso_01_misterio_agua",
+    "caso_02_robot_cielo"
+  ],
+  "modelos": [
+    "openai/gpt-oss-20b"
+  ],
+  "operacionesPlanificadas": 10,
+  "operacionesEjecutadas": 10,
+  "operacionesExitosas": 10,
+  "operacionesFallidas": 0,
+  "solicitudesHttpReales": 10,
+  "costoTeoricoTotalUsd": 0.00137985,
+  "costoEfectivoTotalUsd": null,
+  "configuracionEfectiva": {
+    "google": {
+      "modelo": "gemini-3.5-flash-lite",
+      "pacingMs": 5000
+    },
+    "groq_qwen": {
+      "modelo": "qwen/qwen3.8-27b",
+      "pacingMs": 65000
+    },
+    "groq_gpt_oss": {
+      "modelo": "openai/gpt-oss-20b",
+      "pacingMs": 15000
+    }
+  },
+  "gitCommit": "af1fb0439c97ba9e2ad853976a3dd0303a88539d",
+  "hashesCodigo": {
+    "benchmark/config/modelos.config.json": "62ebea41c524d9ceff6749c5fd13ba9d606b865e144a6a5a7939000bf8167b10",
+    "benchmark/config/benchmark.config.json": "f6625fbf951b59528a82c30a514e0e6e1cacd77482a98865994b3b384ce40009",
+    "benchmark/src/contratos.ts": "05aa7c8fd325d5218055ad8849dc34aa7e6d750eda56489c3b6c6fbba11cc387",
+    "benchmark/src/prompts.ts": "eb87112718ea5caad9bf2a26ca2b7efaea148d43eef912ab7753e4df83bff5d1",
+    "benchmark/src/runner.ts": "9c851f25feeefee4f373dfe76d8331bcdc8e3ba5c293d1169e96312eb15ef007",
+    "benchmark/src/lotes.ts": "d5467aad8e6c6af5d847b83e9564078df937ef91873a3b87cf6e8255825db207",
+    "benchmark/src/adaptadores/google.ts": "90a65c9bf535b09e715d9f5048fd83d8b270b3e814cd0e2d91e6859bb706ee93",
+    "benchmark/src/adaptadores/groq.ts": "2d566347c1b6fa3635f144760f15d74675ff654c94e8db733f79fcc443b6fc7d",
+    "benchmark/src/adaptadores/groq_gpt_oss.ts": "ea2b016dd4d1d1e16017217f5646548557f4c305d207690b23a90b83687464a9"
+  }
+}

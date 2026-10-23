@@ -1,0 +1,75 @@
+{
+  "modelo": "gemini-3.5-flash-lite",
+  "proveedor": "Google",
+  "fechaActualizacionUtc": "2026-10-15T13:11:12.633Z",
+  "estadoGlobal": "COMPLETADO",
+  "operacionesPlanificadas": 100,
+  "operacionesEjecutadas": 100,
+  "operacionesExitosas": 100,
+  "operacionesPendientes": 0,
+  "solicitudesHttpReales": 100,
+  "costoTeoricoTotalUsd": 0.06762639999999999,
+  "carpetas": {
+    "lotes": "lotes/",
+    "cuentosGenerados": "cuentos_generados/",
+    "reportes": "reportes/"
+  },
+  "metricasAcademicas": {
+    "modelo": "gemini-3.5-flash-lite",
+    "nombreCorto": "gemini_3_5_flash_lite",
+    "proveedor": "Google",
+    "fechaConsolidacionUtc": "2026-10-15T13:11:12.592Z",
+    "operaciones": {
+      "planificadas": 100,
+      "ejecutadas": 100,
+      "exitosas": 100,
+      "fallidas": 0,
+      "omitidasPorDependencia": 0,
+      "tasaExitoGlobalPct": 100,
+      "tasaExitoPrimerIntentoPct": 100
+    },
+    "solicitudesHttp": {
+      "totalesReales": 100,
+      "reintentosTotales": 0
+    },
+    "latenciaMs": {
+      "observacionesExitosas": 100,
+      "promedio": 3210.78,
+      "mediana": 2739,
+      "percentil95": 5820
+    },
+    "consumoTokens": {
+      "entradaTotal": 45088,
+      "salidaTotal": 21640,
+      "razonamientoTotal": 0,
+      "tokensTotales": 66728,
+      "promedioTokensEntradaPorOp": 450.88,
+      "promedioTokensSalidaPorOp": 216.4
+    },
+    "costosUsd": {
+      "costoTeoricoTotal": 0.067626,
+      "costoPromedioPorOperacion": 0.000676,
+      "costoPromedioPorCuentoCompleto": 0.003381,
+      "moneda": "USD"
+    },
+    "contratosYValidacion": {
+      "cumplimientoJsonSchemaPct": 100,
+      "cumplimientoEstructuraValidaPct": 100,
+      "cumplimientoRutaControladaPct": 60
+    },
+    "cuentosCompletados": 20,
+    "cuentosPrevistos": 20
+  },
+  "gitCommit": "af1fb0439c97ba9e2ad853976a3dd0303a88539d",
+  "hashesCodigo": {
+    "benchmark/config/modelos.config.json": "62ebea41c524d9ceff6749c5fd13ba9d606b865e144a6a5a7939000bf8167b10",
+    "benchmark/config/benchmark.config.json": "f6625fbf951b59528a82c30a514e0e6e1cacd77482a98865994b3b384ce40009",
+    "benchmark/src/contratos.ts": "05aa7c8fd325d5218055ad8849dc34aa7e6d750eda56489c3b6c6fbba11cc387",
+    "benchmark/src/prompts.ts": "eb87112718ea5caad9bf2a26ca2b7efaea148d43eef912ab7753e4df83bff5d1",
+    "benchmark/src/runner.ts": "9c851f25feeefee4f373dfe76d8331bcdc8e3ba5c293d1169e96312eb15ef007",
+    "benchmark/src/lotes.ts": "d5467aad8e6c6af5d847b83e9564078df937ef91873a3b87cf6e8255825db207",
+    "benchmark/src/adaptadores/google.ts": "90a65c9bf535b09e715d9f5048fd83d8b270b3e814cd0e2d91e6859bb706ee93",
+    "benchmark/src/adaptadores/groq.ts": "2d566347c1b6fa3635f144760f15d74675ff654c94e8db733f79fcc443b6fc7d",
+    "benchmark/src/adaptadores/groq_gpt_oss.ts": "ea2b016dd4d1d1e16017217f5646548557f4c305d207690b23a90b83687464a9"
+  }
+}

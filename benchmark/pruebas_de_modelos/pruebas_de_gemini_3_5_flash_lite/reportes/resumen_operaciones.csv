@@ -1,0 +1,6 @@
+proveedor,modelo,operacion,operaciones_totales,operaciones_exitosas,tasa_exito_pct,estructura_valida_pct,tokens_totales_promedio,latencia_media_ms,latencia_mediana_ms,costo_teorico_promedio_usd,reintentos_totales,solicitudes_http_totales,es_simulado
+Google,gemini-3.5-flash-lite,analisis,20,20,100.00,100.00,748,3060,2718.5,0.000850,0,20,false
+Google,gemini-3.5-flash-lite,escena_1,20,20,100.00,100.00,501,3081,2764.5,0.000577,0,20,false
+Google,gemini-3.5-flash-lite,escena_2,20,20,100.00,100.00,566,3626,3072.5,0.000620,0,20,false
+Google,gemini-3.5-flash-lite,escena_3,20,20,100.00,100.00,733,3172,2872.5,0.000700,0,20,false
+Google,gemini-3.5-flash-lite,escena_4,20,20,100.00,100.00,788,3115,2642,0.000635,0,20,false

@@ -1,0 +1,83 @@
+{
+  "caso": "caso_01_misterio_agua",
+  "repeticion": 1,
+  "modelo": "gemini-3.5-flash-lite",
+  "titulo": "El Secreto de la Cascada Oculta",
+  "protagonista": "Sofía",
+  "descripcionProtagonista": "Una niña curiosa de nueve años, observadora, empática y amante de la naturaleza, que lleva botas de hule y una lupa.",
+  "escenario": "El valle de San Lorenzo, cerca del molino viejo y la cascada oculta.",
+  "conflicto": "El agua del río dejó de cantar y su corriente se volvió lenta debido a un bloqueo hecho por una nutria, lo que desorienta a los peces y amenaza el equilibrio del bosque.",
+  "resumenAnalisis": "El río cristalino del valle de San Lorenzo deja de fluir con normalidad, preocupando a Sofía. Siguiendo unas huellas, descubre que una nutria llamada Tina bloqueó el agua para proteger a sus crías. Ambas colaboran para construir un canal secundario que salva a las crías y restablece el caudal del río.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Sofía caminaba con paso firme por el valle de San Lorenzo, ajustándose las botas de hule que tanto le gustaba usar. Con su inseparable lupa en mano, se detuvo de repente al escuchar un silencio extraño. El río, que siempre saludaba con una alegre canción, estaba extrañamente callado y su corriente se había detenido casi por completo. Los peces nadaban en círculos confundidos cerca de la orilla. Algo andaba muy mal en el corazón del bosque y Sofía sabía que tenía que descubrir qué estaba pasando antes de que el equilibrio de la naturaleza se rompiera.",
+      "opcionesPresentadas": [
+        "Seguir el rastro de huellas hacia la cascada oculta",
+        "Preguntar a los pájaros en la copa de los árboles más altos",
+        "Buscar pistas cerca de las ruedas del viejo molino"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 4273,
+        "tokensEntrada": 316,
+        "tokensSalida": 181,
+        "costoUsd": 0.0005473
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Siguiendo el rastro de huellas húmedas que serpenteaban entre los helechos gigantes, Sofía avanzó con cautela hacia la zona de la cascada oculta. El aire se volvió más fresco y el sonido del agua estancada era cada vez más evidente. Al llegar al claro, descubrió con asombro que el paso del arroyo principal estaba completamente bloqueado por una enorme estructura hecha con troncos, hojas y piedras. Al asomarse con su lupa, notó un movimiento furtivo entre las ramas.",
+      "opcionesPresentadas": [
+        "Hablar amablemente con la nutria traviesa que había construido una represa de ramas",
+        "Tratar de mover los troncos pesados tú misma con mucho cuidado",
+        "Buscar una piedra brillante para distraer al misterioso constructor"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 6087,
+        "tokensEntrada": 359,
+        "tokensSalida": 192,
+        "costoUsd": 0.0005877
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Sofía se acercó despacio a la gran estructura de ramas y, con una sonrisa amistosa, saludó en voz alta. De entre el follaje asomó la cabecita mojada de una nutria muy simpática pero con cara de preocupación. La nutria, llamada Pipo, le explicó que había construido la represa porque temía que una fuerte tormenta inundara su madriguera, sin darse cuenta de que dejaría sin agua al resto del valle. Los peces y las plantas necesitaban ayuda urgente, y Sofía sabía que debían encontrar una solución rápida para que todos estuvieran a salvo.",
+      "opcionesPresentadas": [
+        "Construir juntos un canal alternativo para que el agua del río fluya sin desarmar el refugio de la nutria",
+        "Ayudar a Pipo a mudar su madriguera a un lugar más seguro para poder desarmar la represa por completo",
+        "Buscar piedras mágicas en el bosque para crear un desvío natural del agua alrededor de la represa"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 2788,
+        "tokensEntrada": 503,
+        "tokensSalida": 240,
+        "costoUsd": 0.0007509000000000001
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Con paciencia y entusiasmo, Sofía y la nutria Pipo trabajaron lado a lado cavando un pequeño canal alternativo alrededor de la represa. Usando ramas flexibles y piedras estratégicamente colocadas, lograron desviar parte del caudal para que el agua volviera a correr hacia el valle, mientras la madriguera de Pipo quedaba perfectamente protegida y seca. Al instante, el río recuperó su alegre murmullo y los peces volvieron a nadar felices, saltando en la corriente renovada. Sofía sonrió profundamente al comprender que la verdadera aventura no se trata de imponerse a los demás, sino de escuchar y encontrar soluciones creativas donde todos, humanos y animales, puedan convivir en armonía y cuidado mutuo.",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 2422,
+        "tokensEntrada": 587,
+        "tokensSalida": 176,
+        "costoUsd": 0.0006161
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 15570,
+    "tokensEntradaTotales": 1765,
+    "tokensSalidaTotales": 789,
+    "costoTotalUsd": 0.0025020000000000003
+  }
+}

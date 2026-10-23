@@ -1,0 +1,75 @@
+{
+  "modelo": "qwen/qwen3.8-27b",
+  "proveedor": "Groq",
+  "fechaActualizacionUtc": "2026-10-15T13:11:14.234Z",
+  "estadoGlobal": "COMPLETADO",
+  "operacionesPlanificadas": 100,
+  "operacionesEjecutadas": 100,
+  "operacionesExitosas": 100,
+  "operacionesPendientes": 0,
+  "solicitudesHttpReales": 102,
+  "costoTeoricoTotalUsd": 0.15298319999999999,
+  "carpetas": {
+    "lotes": "lotes/",
+    "cuentosGenerados": "cuentos_generados/",
+    "reportes": "reportes/"
+  },
+  "metricasAcademicas": {
+    "modelo": "qwen/qwen3.8-27b",
+    "nombreCorto": "qwen_3_8_27b",
+    "proveedor": "Groq",
+    "fechaConsolidacionUtc": "2026-10-15T13:11:14.201Z",
+    "operaciones": {
+      "planificadas": 100,
+      "ejecutadas": 100,
+      "exitosas": 100,
+      "fallidas": 0,
+      "omitidasPorDependencia": 0,
+      "tasaExitoGlobalPct": 100,
+      "tasaExitoPrimerIntentoPct": 98
+    },
+    "solicitudesHttp": {
+      "totalesReales": 102,
+      "reintentosTotales": 2
+    },
+    "latenciaMs": {
+      "observacionesExitosas": 100,
+      "promedio": 1380.24,
+      "mediana": 1156,
+      "percentil95": 2252
+    },
+    "consumoTokens": {
+      "entradaTotal": 64974,
+      "salidaTotal": 25251,
+      "razonamientoTotal": 3702,
+      "tokensTotales": 90225,
+      "promedioTokensEntradaPorOp": 649.74,
+      "promedioTokensSalidaPorOp": 252.51
+    },
+    "costosUsd": {
+      "costoTeoricoTotal": 0.152983,
+      "costoPromedioPorOperacion": 0.00153,
+      "costoPromedioPorCuentoCompleto": 0.007649,
+      "moneda": "USD"
+    },
+    "contratosYValidacion": {
+      "cumplimientoJsonSchemaPct": 100,
+      "cumplimientoEstructuraValidaPct": 100,
+      "cumplimientoRutaControladaPct": 60
+    },
+    "cuentosCompletados": 20,
+    "cuentosPrevistos": 20
+  },
+  "gitCommit": "af1fb0439c97ba9e2ad853976a3dd0303a88539d",
+  "hashesCodigo": {
+    "benchmark/config/modelos.config.json": "62ebea41c524d9ceff6749c5fd13ba9d606b865e144a6a5a7939000bf8167b10",
+    "benchmark/config/benchmark.config.json": "f6625fbf951b59528a82c30a514e0e6e1cacd77482a98865994b3b384ce40009",
+    "benchmark/src/contratos.ts": "05aa7c8fd325d5218055ad8849dc34aa7e6d750eda56489c3b6c6fbba11cc387",
+    "benchmark/src/prompts.ts": "eb87112718ea5caad9bf2a26ca2b7efaea148d43eef912ab7753e4df83bff5d1",
+    "benchmark/src/runner.ts": "9c851f25feeefee4f373dfe76d8331bcdc8e3ba5c293d1169e96312eb15ef007",
+    "benchmark/src/lotes.ts": "d5467aad8e6c6af5d847b83e9564078df937ef91873a3b87cf6e8255825db207",
+    "benchmark/src/adaptadores/google.ts": "90a65c9bf535b09e715d9f5048fd83d8b270b3e814cd0e2d91e6859bb706ee93",
+    "benchmark/src/adaptadores/groq.ts": "2d566347c1b6fa3635f144760f15d74675ff654c94e8db733f79fcc443b6fc7d",
+    "benchmark/src/adaptadores/groq_gpt_oss.ts": "ea2b016dd4d1d1e16017217f5646548557f4c305d207690b23a90b83687464a9"
+  }
+}

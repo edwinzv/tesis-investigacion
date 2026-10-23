@@ -1,0 +1,83 @@
+{
+  "caso": "caso_04_cometa_viento",
+  "repeticion": 4,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "El vuelo de Valentina sobre Puerto Sol",
+  "protagonista": "Valentina",
+  "descripcionProtagonista": "Niña alegre de ocho años con espíritu determinado y ágil.",
+  "escenario": "La caleta de pescadores de Puerto Sol, la orilla del mar y la cima de una duna alta.",
+  "conflicto": "El viento costero soplaba en ráfagas desordenadas, haciendo que la cometa girara y amenazara con estrellarse contra la arena.",
+  "resumenAnalisis": "Valentina construye una comete especial durante toda la semana con la esperanza de que los pescadores la vean como señal de buena suerte. Al llegar a la playa, el viento torcido amenaza con hacerla caer. Ella corre a lo alto de una duna para encontrar un flujo de aire estable y consigue volar la comete majestuosamente sobre el mar.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "El sol brillaba sobre Puerto Sol, pero Valentina no podía disfrutarlo. Su cometa, una estrella de papel azul, giraba enloquecida por las ráfagas erráticas del viento costero. El hilo tiraba con fuerza de sus manos mientras la nave de papel se balanceaba peligrosamente sobre la arena, a punto de estrellarse. Valentina apretó los dientes, sintiendo la determinación crecer en su pecho. Sabía que si perdía el control ahora, su cometa favorita se rompería contra las olas. Miró hacia a",
+      "opcionesPresentadas": [
+        "Tirar con todas sus fuerzas hacia atrás para frenar la caída de la cometa",
+        "Soltar el hilo y dejar que la estrella azul cayera suavemente en la arena cercana",
+        "Correr hacia la cima de la duna más alta donde el viento es más constante"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1003,
+        "tokensEntrada": 456,
+        "tokensSalida": 193,
+        "costoUsd": 0.0011368
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Valentina corrió a toda velocidad, sintiendo la arena caliente bajo sus pies descalzos mientras el viento le azotaba la cara. La duna, que en el mapa parecía pequeña, se alzaba ahora como una montaña inmensa. Cada paso hacia arriba era una batalla contra las ráfagas que intentaban arrancarle la estrella azul de las manos. Al llegar a la cima, la brisa se calmó por un instante, transformándose en un soplido suave y constante. El cometa dejó de girar frenéticamente y planeó con maj",
+      "opcionesPresentadas": [
+        "Desenrollar el hilo de algodón y compensar el peso de la cola de cintas",
+        "Lanzar el cometa con un impulso definitivo hacia el cielo despejado",
+        "Darse la vuelta para mostrarle la hazaña al pueblo desde la cima"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1032,
+        "tokensEntrada": 509,
+        "tokensSalida": 191,
+        "costoUsd": 0.0011712
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Valentina parpadeó, sorpendida por la calma repentina. Con manos temblorosas, empezó a desenrollar el fino hilo de algodón, sintiendo cada centímetro liberarse de la bobina. Mientras el hilo largo y flexible caía sobre la arena, la cola de cintas rojas y naranjas dejó de arrastrarse y comenzó a ondear con elegancia. La estrella azul, antes luchando contra el aire, ahora parecía respirar, flotando con una gracia improbable. El peso de las cintas, antes una traba, se convirtió en a",
+      "opcionesPresentadas": [
+        "Soltar la cometa en el momento preciso para que se eleve sobre las olas del mar",
+        "Gritar el nombre de sus amigos para que vengan a ayudarla a cargar la bobina.",
+        "Mirar hacia el horizonte para ver si la tormenta se acerca desde el oeste."
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1045,
+        "tokensEntrada": 652,
+        "tokensSalida": 201,
+        "costoUsd": 0.0013256000000000001
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Valentina apretó el hilo entre los dedos y, con un movimiento fluido, soltó la tensión justo cuando la estrella azul comenzó a ascender con fuerza imparable. El cometa cruzó el cielo despejado, superando las crestas de espuma de las olas. Sus cintas brillantes parecían flotar sobre el agua, pintando arabescos de fuego en el aire frío. El mar, antes tempestuoso, parecía ahora un espejo sereno que reflejaba la alegría de Valentina. Respiró profundamente, sentiendo la paz inundar su",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 1269,
+        "tokensEntrada": 723,
+        "tokensSalida": 136,
+        "costoUsd": 0.0011224
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4349,
+    "tokensEntradaTotales": 2340,
+    "tokensSalidaTotales": 721,
+    "costoTotalUsd": 0.004756
+  }
+}

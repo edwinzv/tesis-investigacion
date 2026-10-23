@@ -10,7 +10,7 @@ import { construirPromptAnalisis, construirPromptEscena1, construirPromptEscenaI
 import { exportarEjecucionesCsv } from './reportes.js';
 
 export const CASOS_TEST20 = ['caso_01_misterio_agua', 'caso_02_robot_cielo', 'caso_03_arbol_hueco', 'caso_04_cometa_viento'];
-export const MODELOS_TEST20 = ['gemini-3.8-flash', 'qwen/qwen3.8-27b', 'openai/gpt-oss-20b'];
+export const MODELOS_TEST20 = ['gemini-3.5-flash-lite', 'qwen/qwen3.8-27b', 'openai/gpt-oss-20b'];
 const OPERACIONES = ['analisis', 'escena_1', 'escena_2', 'escena_3', 'escena_4'];
 const LABEL = 'ENSAYOOPERATIVOREDUCIDO';
 
@@ -75,20 +75,88 @@ export function sanitizarErrorTest20(error: ApiCallError) {
 }
 
 export function validarArgumentos(args: string[]): void {
-  const conocidos = ['--test20', '--execute-test20', '--budget-validated-external', '--dry-run', '--pilot', '--full', '--preflight', '--check-providers'];
-  if (!args.length || args.some(a => !conocidos.includes(a)) || new Set(args).size !== args.length) {
-    throw new Error('Argumentos ausentes, desconocidos o duplicados; ninguna llamada autorizada.');
+  const conocidos = [
+    '--test20',
+    '--execute-test20',
+    '--budget-validated-external',
+    '--dry-run',
+    '--pilot',
+    '--full',
+    '--preflight',
+    '--check-providers',
+    '--batch',
+    '--lote',
+    '--status',
+    '--estado',
+    '--consolidate',
+    '--consolidar',
+    '--resume',
+    '--reanudar',
+    '--authorize-api-calls',
+    '--validate',
+    '--validar',
+    '--include-simulated',
+    '--incluir-simulados',
+    '--model',
+    '--modelo',
+    '--gpt-oss',
+    '--gemini',
+    '--qwen',
+    '--level',
+    '--nivel',
+    '--diagnostico',
+    '--cuento',
+  ];
+  if (!args.length) {
+    throw new Error('Argumentos ausentes; ninguna llamada autorizada.');
+  }
+  const esNumeroLote = (a: string) => /^(?:[1-9]|10)$/.test(a);
+  const esNumeroNivel = (a: string) => /^[1-4]$/.test(a);
+  const esValorModeloValido = (a: string) =>
+    ['openai/gpt-oss-20b', 'gemini-3.5-flash-lite', 'gemini-3.8-flash', 'gemini-3.8', 'gemini3.8', 'qwen/qwen3.8-27b', 'gpt-oss', 'gemini', 'qwen', 'gpt_oss', 'qwen_3_8_27b'].includes(a.toLowerCase());
+  if (
+    args.some(
+      (a, idx) =>
+        !conocidos.includes(a) &&
+        !(idx > 0 && ['--batch', '--lote'].includes(args[idx - 1]) && esNumeroLote(a)) &&
+        !(idx > 0 && ['--level', '--nivel'].includes(args[idx - 1]) && esNumeroNivel(a)) &&
+        !(idx > 0 && ['--model', '--modelo'].includes(args[idx - 1]) && esValorModeloValido(a))
+    )
+  ) {
+    throw new Error('Argumentos desconocidos; ninguna llamada autorizada.');
+  }
+  if (new Set(args).size !== args.length) {
+    throw new Error('Argumentos duplicados; ninguna llamada autorizada.');
   }
   if (args.includes('--test20')) {
-    if (args.some(a => !['--test20', '--dry-run', '--execute-test20', '--budget-validated-external'].includes(a))) throw new Error('TEST20 no se combina con otros modos.');
+    if (
+      args.some(
+        (a) => !['--test20', '--dry-run', '--execute-test20', '--budget-validated-external'].includes(a)
+      )
+    ) {
+      throw new Error('TEST20 no se combina con otros modos.');
+    }
     const real = args.includes('--execute-test20');
     const budget = args.includes('--budget-validated-external');
-    if (real !== budget || (real && args.includes('--dry-run'))) throw new Error('Ejecución TEST20 requiere bandera real y presupuesto/cuota validados externamente; incompatible con dry-run.');
+    if (real !== budget || (real && args.includes('--dry-run'))) {
+      throw new Error(
+        'Ejecución TEST20 requiere bandera real y presupuesto/cuota validados externamente; incompatible con dry-run.'
+      );
+    }
     return;
   }
-  if (args.includes('--execute-test20') || args.includes('--budget-validated-external')) throw new Error('Bandera exclusiva de TEST20.');
-  const modos = args.filter(a => ['--pilot', '--full', '--preflight', '--check-providers'].includes(a));
-  if (modos.length > 1 || (args.includes('--dry-run') && modos.some(a => ['--preflight', '--check-providers'].includes(a)))) throw new Error('Combinación de modos inválida.');
+  if (args.includes('--execute-test20') || args.includes('--budget-validated-external')) {
+    throw new Error('Bandera exclusiva de TEST20.');
+  }
+  const modos = args.filter((a) =>
+    ['--pilot', '--full', '--preflight', '--check-providers', '--status', '--estado', '--consolidate', '--consolidar', '--validate', '--validar', '--batch', '--lote'].includes(a)
+  );
+  if (modos.length > 1 && !(modos.includes('--pilot') && (modos.includes('--batch') || modos.includes('--lote')))) {
+    throw new Error('Combinación de modos inválida.');
+  }
+  if (args.includes('--dry-run') && modos.some((a) => ['--preflight', '--check-providers'].includes(a))) {
+    throw new Error('Combinación de modos inválida.');
+  }
 }
 
 export function planTest20(root: string) {

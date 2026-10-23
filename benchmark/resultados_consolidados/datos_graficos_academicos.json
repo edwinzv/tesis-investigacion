@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "fechaConsolidacionUtc": "2026-10-14T23:11:45.184Z",
+    "lotesTotales": 10,
+    "lotesEncontrados": 0,
+    "lotesCompletos": 0,
+    "totalOperacionesPlanificadas": 300,
+    "totalOperacionesEjecutadas": 0,
+    "totalOperacionesExitosas": 0,
+    "totalSolicitudesHttp": 0,
+    "costoTeoricoTotalUsd": null
+  },
+  "porModelo": [],
+  "porCaso": [],
+  "porRepeticion": [
+    {
+      "repeticion": 1,
+      "operacionesPlanificadas": 60,
+      "operacionesEjecutadas": 0,
+      "operacionesExitosas": 0,
+      "tasaExitoPct": 0
+    },
+    {
+      "repeticion": 2,
+      "operacionesPlanificadas": 60,
+      "operacionesEjecutadas": 0,
+      "operacionesExitosas": 0,
+      "tasaExitoPct": 0
+    },
+    {
+      "repeticion": 3,
+      "operacionesPlanificadas": 60,
+      "operacionesEjecutadas": 0,
+      "operacionesExitosas": 0,
+      "tasaExitoPct": 0
+    },
+    {
+      "repeticion": 4,
+      "operacionesPlanificadas": 60,
+      "operacionesEjecutadas": 0,
+      "operacionesExitosas": 0,
+      "tasaExitoPct": 0
+    },
+    {
+      "repeticion": 5,
+      "operacionesPlanificadas": 60,
+      "operacionesEjecutadas": 0,
+      "operacionesExitosas": 0,
+      "tasaExitoPct": 0
+    }
+  ]
+}

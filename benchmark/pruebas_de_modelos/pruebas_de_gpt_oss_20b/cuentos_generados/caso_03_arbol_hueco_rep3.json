@@ -1,0 +1,83 @@
+{
+  "caso": "caso_03_arbol_hueco",
+  "repeticion": 3,
+  "modelo": "openai/gpt-oss-20b",
+  "titulo": "El valiente rescate del bosque",
+  "protagonista": "Mateo",
+  "descripcionProtagonista": "Niño de diez años, soñador y valiente, amante del dibujo y con corazón noble",
+  "escenario": "Bosque de las brumas, cerca de un roble milenario",
+  "conflicto": "El búho Plumas tiene un ala atrapada en zarzas y no puede volar a su nido",
+  "resumenAnalisis": "Mateo descubre que el roble alberga a un búho atrapado y decide ayudarlo a liberarse. Con paciencia desata las espinas y cuida al ave, recibiendo su agradecimiento con un canto musical.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Mateo, con su mochila llena de lápices y sueños, se adentró en el Bosque de las Brumas. Los rayos del sol filtraban entre los altos robles, creando un mosaico de luces y sombras. De pronto, un susurro metálico y un crujido de ramas lo hicieron detenerse. Allí, entre zarzas espesas, el majestuoso búho Plumas se encontraba atado, su ala atrapada y el vuelo prohibido. Mateo sintió una mezcla de miedo y valentía; su corazón latía fuerte al pensar en ayudar al noble ave.",
+      "opcionesPresentadas": [
+        "Encender la linterna de explorador y asomarse al hueco del tronco",
+        "Buscar una cuerda entre los árboles para intentar liberar al búho",
+        "Hablar con el búho usando una voz suave para calmarlo"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 867,
+        "tokensEntrada": 621,
+        "tokensSalida": 229,
+        "costoUsd": 0.000115275
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Mateo encendió su linterna y se acercó con cuidado al hueco del tronco. La luz giró en el bosque como una pequeña estrella, revelando el ala atrapada del búho Plumas. Las zarzas espesas se enredaban como serpientes verdes, pero la linterna mostraba su brillo plateado. Mateo respiró hondo, sintiendo el viento fresco que jugaba con sus mechones. Cuando la linterna iluminó el punto exacto donde el ala estaba atrapada, una brisa suave empezó a soplar, como si la naturaleza quisiera ayudar.",
+      "opcionesPresentadas": [
+        "Desatar con paciencia las zarzas espinosas del ala del búho plateado",
+        "Intentar cortar las zarzas con un lápiz afilado",
+        "Saltar sobre el tronco y esperar que el búho salga solo"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 913,
+        "tokensEntrada": 689,
+        "tokensSalida": 210,
+        "costoUsd": 0.00011467500000000001
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Mateo, con destreza, comenzó a desatar las zarzas espinosas. Con delicadas manos, cortó y retiró los enredos sin dañar el ala plateada del búho Plumas. El ave, aliviada, extendió sus ojos como luceros de agradecimiento. A medida que liberaba cada rama, la brisa parecía aplaudir, y un susurro de hojas le daba una melodía reconfortante. Cuando la última zarza cayó, el ala estaba libre y brillante como un espejo bajo el sol filtrado. Plumas se quedó mirando a Mateo, como si lo reconociera, y con un suave graznido, empezó a probar la ligera brisa que ahora lo rodeaba, sintiéndose pronto a volar.\n",
+      "opcionesPresentadas": [
+        "Acomodar al ave en un lecho de musgo fresco y ofrecerle agua de la cantimplora",
+        "Dejar que el búho Plumas se recupere solo y regresar al campamento",
+        "Buscar un lugar seguro para que el ave descanse y vigilarlo hasta que se recupere"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1141,
+        "tokensEntrada": 846,
+        "tokensSalida": 283,
+        "costoUsd": 0.00014835
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Con el ala libre y el corazón del bosque en calma, Mateo se sentó sobre un suave lecho de musgo. Allí, el búho Plumas bebió agua de la cantimplora, sus plumas brillando con la luz del sol entre los robles. El ave, ahora libre, extendió sus alas y, con un poderoso aleteo, levantó vuelo, dibujando arcos de luz sobre el bosque. Mateo sintió una ola de alegría, pues había aprendido que la paciencia y la compasión pueden transformar incluso el más pesado de los problemas. Al despedirse, Plumas le susurró: \"La amistad nace del cuidado, y el valor se mide por la bondad del corazón\". Y así, bajo el cielo azul, el niño y el búho compartieron un momento de pura magia, sabiendo que la aventura había unido dos almas para siempre.",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 787,
+        "tokensEntrada": 933,
+        "tokensSalida": 218,
+        "costoUsd": 0.000135375
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 3708,
+    "tokensEntradaTotales": 3089,
+    "tokensSalidaTotales": 940,
+    "costoTotalUsd": 0.000513675
+  }
+}

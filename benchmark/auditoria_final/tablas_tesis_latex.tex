@@ -1,0 +1,91 @@
+% ==============================================================================
+% TABLAS COMPARATIVAS PARA TESIS Y ARTÍCULO CIENTÍFICO
+% Benchmark Experimental: Gemini 3.5 Flash Lite vs Qwen 3.8 27B vs GPT-OSS 20B
+% ==============================================================================
+
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{amsmath}
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% TABLA 1: Resumen General de Desempeño y Cumplimiento
+% ------------------------------------------------------------------------------
+\begin{table*}[t]
+\centering
+\caption{Comparativa global de fiabilidad, esfuerzo de red y rendimiento estructural entre los tres modelos evaluados (100 operaciones planificadas por modelo, 20 cuentos completos).}
+\label{tab:comparativa_modelos_benchmark}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Métrica de Evaluación} & \textbf{Gemini 3.5 Flash Lite} & \textbf{Qwen 3.8 27B} & \textbf{GPT-OSS 20B} \\
+\midrule
+Proveedor / Plataforma & Google AI Studio & Groq Cloud (LPU) & Groq Cloud (LPU) \\
+Identificador API Runtime & \texttt{gemini-3.5-flash-lite} & \texttt{qwen/qwen3.8-27b} & \texttt{openai/gpt-oss-20b} \\
+Operaciones Planificadas & 100 & 100 & 100 \\
+Operaciones Válidas Finales & 100 (100.0\%) & 100 (100.0\%) & 100 (100.0\%) \\
+Cuentos Completos (5 fases c/u) & 20 / 20 (100.0\%) & 20 / 20 (100.0\%) & 20 / 20 (100.0\%) \\
+Éxito al Primer Intento (Forense) & 98 (98.0\%) & 93 (93.0\%) & 93 (93.0\%) \\
+Fallos Iniciales de Red / Formato & 1 & 1 & 3 \\
+Operaciones Omitidas por Dependencia & 1 & 4 & 4 \\
+Operaciones Recuperadas & 2 & 5 & 7 \\
+Solicitudes HTTP Reportadas (Consolidado) & 100 & 102 & 100 \\
+\textbf{Solicitudes HTTP Históricas Reales} & \textbf{102} & \textbf{103} & \textbf{104} \\
+\midrule
+Latencia Media (ms) & 3210.78 & 1380.24 & \textbf{933.86} \\
+Latencia Mediana (ms) & 2739.00 & 1156.00 & \textbf{913.50} \\
+Latencia Percentil 95 (P95) (ms) & 5919.00 & 2793.00 & \textbf{1238.00} \\
+\midrule
+Tokens de Entrada (Prompt) & 45,088 & 64,974 & 82,486 \\
+Tokens de Salida (Completion) & 21,640 & 25,251 & 23,643 \\
+Tokens de Razonamiento (Thinking) & 0 & 3,702 & 1,491 \\
+Tokens Totales Facturables & 66,728 & 90,225 & 106,129 \\
+Tokens Promedio por Cuento Completo & 3,336.4 & 4,511.3 & 5,306.4 \\
+\midrule
+Tarifa Input (USD / Millón) & \$0.30 & \$0.80 & \$0.075 \\
+Tarifa Output (USD / Millón) & \$2.50 & \$4.00 & \$0.30 \\
+Costo Teórico Total (USD) & \$0.067625 & \$0.152978 & \textbf{\$0.013283} \\
+Costo Promedio por Cuento (USD) & \$0.003381 & \$0.007649 & \textbf{\$0.000664} \\
+Tasa de Cumplimiento Estructural & \textbf{100.00\%} & \textbf{100.00\%} & \textbf{100.00\%} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+% ------------------------------------------------------------------------------
+% TABLA 2: Desglose Forense de Solicitudes HTTP e Incidentes de Recuperación
+% ------------------------------------------------------------------------------
+\begin{table*}[t]
+\centering
+\caption{Auditoría forense de solicitudes HTTP históricas, errores iniciales y disyuntores de dependencia lógica por modelo y lote crítico.}
+\label{tab:auditoria_http_incidentes}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Modelo / Lote} & \textbf{Ops. Plan.} & \textbf{HTTP Iniciales} & \textbf{Errores HTTP} & \textbf{Dep. Omitidas} & \textbf{HTTP Recup.} & \textbf{Total HTTP} \\
+\midrule
+\textbf{Gemini 3.5 Flash Lite} & & & & & & \\
+\quad Lote 01 & 10 & 10 & 1 (HTTP 503) & 1 & 2 & 12 \\
+\quad Lotes 02--10 (9 lotes) & 90 & 90 & 0 & 0 & 0 & 90 \\
+\quad \textit{Subtotal Gemini} & \textbf{100} & \textbf{100} & \textbf{1} & \textbf{1} & \textbf{2} & \textbf{102} \\
+\midrule
+\textbf{Qwen 3.8 27B} & & & & & & \\
+\quad Lote 01 & 10 & 6 & 1 (HTTP 429) & 4 & 5 & 11 \\
+\quad Lotes 02--05, 08--10 (7 lotes) & 70 & 70 & 0 & 0 & 0 & 70 \\
+\quad Lote 06 (Reintento interno) & 10 & 11 & 0 & 0 & 0 & 11 \\
+\quad Lote 07 (Reintento interno) & 10 & 11 & 0 & 0 & 0 & 11 \\
+\quad \textit{Subtotal Qwen} & \textbf{100} & \textbf{98} & \textbf{1} & \textbf{4} & \textbf{5} & \textbf{103} \\
+\midrule
+\textbf{GPT-OSS 20B} & & & & & & \\
+\quad Lotes 01--04, 08--10 (7 lotes) & 70 & 70 & 0 & 0 & 0 & 70 \\
+\quad Lote 05 & 10 & 8 & 1 (HTTP 400) & 2 & 3 & 11 \\
+\quad Lote 06 (Ruta no cumplida) & 10 & 10 & 0 (HTTP 200) & 1 & 2 & 12 \\
+\quad Lote 07 & 10 & 9 & 1 (HTTP 400) & 1 & 2 & 11 \\
+\quad \textit{Subtotal GPT-OSS} & \textbf{100} & \textbf{97} & \textbf{2} & \textbf{4} & \textbf{7} & \textbf{104} \\
+\midrule
+\textbf{Total Benchmark (30 Lotes)} & \textbf{300} & \textbf{295} & \textbf{4} & \textbf{9} & \textbf{14} & \textbf{309} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\end{document}

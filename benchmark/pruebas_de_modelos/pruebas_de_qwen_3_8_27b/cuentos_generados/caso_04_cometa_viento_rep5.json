@@ -1,0 +1,83 @@
+{
+  "caso": "caso_04_cometa_viento",
+  "repeticion": 5,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "Valentina y el vuelo del cometa escarlata",
+  "protagonista": "Valentina",
+  "descripcionProtagonista": "Una niña alegre de ocho años, ágil y determinada.",
+  "escenario": "La caleta de pescadores de Puerto Sol, específicamente en las dunas y la orilla del mar.",
+  "conflicto": "El viento costero soplaba en ráfagas desordenadas, haciendo que la cometa girara y amenazara con estrellarse contra la arena.",
+  "resumenAnalisis": "Valentina pasa una semana construyendo una cometa para elevarla como señal de buena suerte. Al llegar a la playa, el viento desordenado pone en riesgo su volar, pero ella corre a la cima de una duna para encontrar un flujo de aire constante. Finalmente, logra soltar la cometa en el momento preciso, observando cómo despega majestuosamente ante la admiración de los presentes.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Valentina corre por las suaves dunas de Puerto Sol con los dedos tensos sobre el hilo de su cometa de colores. El viento del mar respira fuerte, soplándola aquí y allá como si estuviera jugando a esconderse. La cometa giraba descontrolada, amenazando con golpearse contra la arena dorada si no la controlaba pronto, ",
+      "opcionesPresentadas": [
+        "Correr hacia la cima de la duna más alta donde el viento es más constante",
+        "Tirar con fuerza del hilo de seda para intentar estabilizar la cometa en el aire de inmediato",
+        "Jugar a las escondidas detrás de una gran roca hasta que el viento amagine su feroz furia"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 789,
+        "tokensEntrada": 454,
+        "tokensSalida": 164,
+        "costoUsd": 0.0010192
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Valentina corrió con todas sus fuerzas hacia la duna más alta, sintiendo cómo la arena tibia se quedaba pegada a sus botas. Al alcanzar la cima, el aire cambió. Era más fuerte y continuo, pero ahora la cometa no giraba como una loca; planeaba con elegancia sobre las ondas del mar. Un pequeño “¡Sí!” escapó de sus labios mientras el hilo vibraba suavemente en sus manos. La sensación era mágica, como si ella misma pudiera volar. Sin embargo, notó que la cola de cintas multicolores, ",
+      "opcionesPresentadas": [
+        "Desenrollar el hilo de algodón y compensar el peso de la cola de cintas",
+        "Gritar “¡Arriba!” para animar a la cometa a ganar más altura",
+        "Mirar al horizonte para ver si el sol comenzaba a ocultarse"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 818,
+        "tokensEntrada": 471,
+        "tokensSalida": 200,
+        "costoUsd": 0.0011768
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Valentina miró la base de madera de su cometa. Con cuidado, desenrolló el grueso hilo de algodón que quedaba enrollado en su carretel. Al soltarlo poco a poco, el peso extra se contrapesó con las cintas. ¡Funcionó! La cola dejó de colgar pesadamente y comenzó a ondear con gracia, como una lluvia de arcoíris bailando en el cielo azul. La cometa subió con estabilidad, quedando perfecta sobre la línea del horizonte donde el mar besaba las nubes. El viento ahora era su aliado, no su敌",
+      "opcionesPresentadas": [
+        "Soltar la cometa en el momento preciso para que se eleve sobre las olas del mar",
+        "Gritar '¡Ea!' con todas sus fuerzas para cambiar la dirección del viento",
+        "Sentarse en la duna a observar la cometa mientras anota el truco en su cuaderno"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1355,
+        "tokensEntrada": 621,
+        "tokensSalida": 209,
+        "costoUsd": 0.0013328
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": " Valentina agazapó los ojos, sintiendo la vibración exacta del hilo. Con un gesto suave y confiado, soltó un poco más de cuerda. ¡Magia pura! La cometa de colores se elevó tan alto que pareció besar las nubes, volando majestuosa directamente sobre las olas azul turquesa de Puerto Sol. Las cintas multicolores se desataron por completo, pareciendo un arcoíris fugaz que conectaba la arena dorada con el infinito cielo. El viento, antes caprichoso, ahora susurraba una melodía de grati",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 882,
+        "tokensEntrada": 696,
+        "tokensSalida": 145,
+        "costoUsd": 0.0011367999999999999
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 3844,
+    "tokensEntradaTotales": 2242,
+    "tokensSalidaTotales": 718,
+    "costoTotalUsd": 0.004665600000000001
+  }
+}

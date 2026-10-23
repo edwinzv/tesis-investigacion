@@ -1,0 +1,22 @@
+{
+  "nivel": 1,
+  "tipo": "diagnostico_conectividad_cuota_json",
+  "fechaUtc": "2026-10-15T03:34:18.232Z",
+  "modelo": "gemini-3.5-flash-lite",
+  "proveedor": "Google",
+  "esSimulado": true,
+  "httpStatus": null,
+  "exito": true,
+  "jsonValido": true,
+  "latenciaMs": null,
+  "tokens": {
+    "entrada": null,
+    "salida": null,
+    "razonamiento": null,
+    "totales": null,
+    "margenSobreLimite1000Otpm": null
+  },
+  "costoTeoricoUsd": null,
+  "error": null,
+  "errorCategoria": "none"
+}

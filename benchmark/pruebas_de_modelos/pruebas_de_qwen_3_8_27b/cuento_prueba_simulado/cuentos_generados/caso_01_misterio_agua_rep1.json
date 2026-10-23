@@ -1,0 +1,83 @@
+{
+  "caso": "caso_01_misterio_agua",
+  "repeticion": 1,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "El misterio del río cristalino",
+  "protagonista": "Sofía, una niña observadora de nueve años con botas de hule y lupa",
+  "descripcionProtagonista": "Sofía, una niña observadora de nueve años con botas de hule y lupa",
+  "escenario": "Entorno narrativo del caso",
+  "conflicto": "Conflicto principal planteado",
+  "resumenAnalisis": "Resumen sintetico simulado para caso_01_misterio_agua",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Contenido narrativo simulado para la operacion escena_1 del caso caso_01_misterio_agua.",
+      "opcionesPresentadas": [
+        "Seguir el rastro de huellas hacia la cascada oculta",
+        "Opcion libre simulada B",
+        "Opcion libre simulada C"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": null,
+        "tokensEntrada": null,
+        "tokensSalida": null,
+        "costoUsd": null
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Contenido narrativo simulado para la operacion escena_2 del caso caso_01_misterio_agua.",
+      "opcionesPresentadas": [
+        "Hablar amablemente con la nutria traviesa que había construido una represa de ramas",
+        "Opcion libre simulada B",
+        "Opcion libre simulada C"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": null,
+        "tokensEntrada": null,
+        "tokensSalida": null,
+        "costoUsd": null
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Contenido narrativo simulado para la operacion escena_3 del caso caso_01_misterio_agua.",
+      "opcionesPresentadas": [
+        "Construir juntos un canal alternativo para que el agua del río fluya sin desarmar el refugio de la nutria",
+        "Opcion libre simulada B",
+        "Opcion libre simulada C"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": null,
+        "tokensEntrada": null,
+        "tokensSalida": null,
+        "costoUsd": null
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Desenlace y conclusion final simulada para el caso caso_01_misterio_agua. Reflexion constructiva sobre el aprendizaje.",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": null,
+        "tokensEntrada": null,
+        "tokensSalida": null,
+        "costoUsd": null
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 0,
+    "tokensEntradaTotales": 0,
+    "tokensSalidaTotales": 0,
+    "costoTotalUsd": 0
+  }
+}

@@ -1,4 +1,4 @@
-﻿import { AdaptadorModelo } from './base.js';
+import { AdaptadorModelo } from './base.js';
 import { PromptMensajes } from '../prompts.js';
 import { ApiCallError, RawModelResponse } from '../types.js';
 
@@ -62,6 +62,29 @@ export class AdaptadorGroq extends AdaptadorModelo {
 
     const schemaName = (tipoOperacion || 'output_schema').replace(/[^a-zA-Z0-9_]/g, '_');
 
+    // Presupuesto estricto de tokens de salida para respetar límite Free Tier de Groq (1000 OTPM):
+    // - analisis: ~350-450 tokens requeridos -> tope de seguridad: 650 tokens
+    // - escenas: ~200-350 tokens requeridos -> tope de seguridad: 500 tokens
+    // - preflight: 256 tokens
+    let completionTokensLimit = maxTokens;
+    if (!completionTokensLimit) {
+      if (tipoOperacion === 'analisis') {
+        completionTokensLimit = 650;
+      } else if (tipoOperacion === 'escena_intermedia' || tipoOperacion === 'escena_final') {
+        completionTokensLimit = 500;
+      } else if (tipoOperacion === 'preflight') {
+        completionTokensLimit = 256;
+      } else {
+        completionTokensLimit = 650;
+      }
+    }
+
+    // Control de razonamiento para Qwen en Groq:
+    // En Groq Free Tier (1000 OTPM), los tokens de razonamiento consumen cuota de salida (hasta 1024 tokens).
+    // Por defecto se establece 'none' para que Qwen responda directamente el contrato estructurado con 0 tokens de razonamiento.
+    // Puede configurarse via variable de entorno GROQ_QWEN_REASONING_EFFORT ('none' | 'low').
+    const reasoningEffort = process.env.GROQ_QWEN_REASONING_EFFORT || 'none';
+
     const body: any = {
       model: this.modelo,
       messages,
@@ -73,8 +96,8 @@ export class AdaptadorGroq extends AdaptadorModelo {
           schema: schema,
         },
       },
-      max_completion_tokens: maxTokens ?? 2048,
-      reasoning_effort: 'low',
+      max_completion_tokens: completionTokensLimit,
+      reasoning_effort: reasoningEffort,
       reasoning_format: 'hidden',
     };
 
@@ -92,11 +115,19 @@ export class AdaptadorGroq extends AdaptadorModelo {
 
       if (!resp.ok) {
         const errorText = await resp.text();
+        const retryAfterVal = resp.headers.get('retry-after');
+        const retryAfterMs = this.parsearRetryAfterHeader(retryAfterVal);
         let errorJson: any = null;
         try {
           errorJson = JSON.parse(errorText);
         } catch {}
-        const errorMsg = errorJson?.error?.message || errorText;
+        let errorMsg = errorJson?.error?.message || errorText;
+        if (errorJson?.error?.failed_generation) {
+          const fg = typeof errorJson.error.failed_generation === 'string'
+            ? errorJson.error.failed_generation
+            : JSON.stringify(errorJson.error.failed_generation);
+          errorMsg += ` [failed_generation: ${fg}]`;
+        }
         const categoria = this.categorizarError({
           status: resp.status,
           message: errorMsg,
@@ -109,6 +140,7 @@ export class AdaptadorGroq extends AdaptadorModelo {
           latencyMs: latenciaMs,
           isNonRetryable: categoria === 'authentication' || categoria === 'billing',
           categoria,
+          retryAfterMs,
         });
       }
 
@@ -141,6 +173,7 @@ export class AdaptadorGroq extends AdaptadorModelo {
         tarifaOutputUsdPorMillon: this.tarifaOutputUsdPorMillon,
         tarifaFuenteRuntime: this.tarifaFuenteRuntime,
         structuredOutputMode: 'json_schema',
+        reasoningConfig: reasoningEffort,
       };
     } catch (err: any) {
       if (err instanceof ApiCallError) throw err;

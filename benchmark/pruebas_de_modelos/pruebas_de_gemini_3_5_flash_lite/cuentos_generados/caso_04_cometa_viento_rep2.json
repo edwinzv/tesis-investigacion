@@ -1,0 +1,83 @@
+{
+  "caso": "caso_04_cometa_viento",
+  "repeticion": 2,
+  "modelo": "gemini-3.5-flash-lite",
+  "titulo": "El gran vuelo de Valentina",
+  "protagonista": "Valentina",
+  "descripcionProtagonista": "Una niña alegre de ocho años, creativa, perseverante y con mucha habilidad para la manualidad y el manejo del viento.",
+  "escenario": "La caleta de pescadores de Puerto Sol y su playa",
+  "conflicto": "El viento costero soplaba en ráfagas muy desordenadas haciendo que la cometa girara en círculos y amenazara con estrellarse contra la arena.",
+  "resumenAnalisis": "Valentina construyó con esmero una gran cometa roja para desear buena suerte a los pescadores de su pueblo. Al llegar a la playa, el viento desordenado amenazaba con arruinar su plan. Sin rendirse, buscó un lugar más alto y logró elevarla con éxito.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Era una tarde brillante en Puerto Sol. Valentina, con su sonrisa habitual y un ovillo de hilo resistente en las manos, intentaba hacer volar su cometa multicolor favorita. Sin embargo, el viento costero soplaba en ráfagas muy desordenadas, haciendo que la cometa girara en círculos locos y amenazara con estrellarse violentamente contra la arena de la playa. Valentina sabía que necesitaba actuar rápido antes de que su preciado juguete se rompiera contra las rocas.",
+      "opcionesPresentadas": [
+        "Correr hacia la cima de la duna más alta donde el viento es más constante",
+        "Tirar del hilo con fuerza para obligar a la cometa a descender de inmediato",
+        "Construir una pequeña barrera con ramas y algas para protegerme de las ráfagas"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 4211,
+        "tokensEntrada": 307,
+        "tokensSalida": 178,
+        "costoUsd": 0.0005371
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Valentina corrió con todas sus fuerzas, esquivando castillos de arena y conchas marinas, directa hacia la cima de la duna más alta de Puerto Sol. Al llegar arriba, notó que el aire soplaba con mucha más fuerza y orden, estirando la cometa multicolor en el cielo como un pájaro listo para volar libre. Sin embargo, el fuerte viento también estiraba el hilo con violencia, quemándole un poco las manos. Valentina respiró hondo, sujetó firmemente el carrete y miró hacia arriba mientras su amada cometa ondeaba con energía.",
+      "opcionesPresentadas": [
+        "Desenrollar el hilo de algodón y compensar el peso de la cola de cintas",
+        "Girar en círculos para crear su propio viento y calmar la tensión",
+        "Soltar un poco de hilo rápidamente para que la cometa gane altura"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 6805,
+        "tokensEntrada": 343,
+        "tokensSalida": 210,
+        "costoUsd": 0.0006279
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Valentina soltó varios metros de hilo con rapidez, permitiendo que la cometa ganara distancia y altura. Al mismo tiempo, calculó el peso de la larga cola de cintas, moviendo el carrete con suavidad para equilibrar los tirones del fuerte viento. La estrategia funcionó a la perfección. La cometa multicolor dejó de dar bandazos peligrosos y se estabilizó majestuosamente en el cielo azul, luciendo como un arcoíris danzante frente al mar. El público en la playa comenzó a aplaudir. Sin embargo, una ráfaga inesperada y gigante comenzó a empujar la cometa mar adentro, poniendo a prueba nuevamente la habilidad de la valiente niña.",
+      "opcionesPresentadas": [
+        "Soltar la cometa en el momento preciso para que se eleve sobre las olas del mar",
+        "Tirar del hilo con todas sus fuerzas para obligarla a descender a tierra firme",
+        "Atar el carrete a una estaca en la arena y buscar ayuda de otros niños"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 4537,
+        "tokensEntrada": 491,
+        "tokensSalida": 223,
+        "costoUsd": 0.0007048
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Valentina tomó aire y, con una mezcla de valentía y confianza, soltó el hilo en el instante exacto en que la gran ráfaga soplaba con más fuerza. La cometa multicolor no cayó al agua; por el contrario, liberada de la tensión excesiva, dio un giro elegante y despegó hacia el cielo abierto, planeando con gracia sobre las espumosas olas del mar. Desde la orilla, todos los niños y vecinos aplaudieron con entusiasmo al ver el brillante arcoíris flotando libre y majestuoso en el horizonte. Valentina sonrió de oreja a oreja, comprendiendo que a veces, para alcanzar lo que más amamos y verlos brillar en todo su esplendor, debemos aprender a soltar en el momento preciso y confiar en el poder del viento y del propio corazón.",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 2667,
+        "tokensEntrada": 595,
+        "tokensSalida": 196,
+        "costoUsd": 0.0006685
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 18220,
+    "tokensEntradaTotales": 1736,
+    "tokensSalidaTotales": 807,
+    "costoTotalUsd": 0.0025383000000000003
+  }
+}

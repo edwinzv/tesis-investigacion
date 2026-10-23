@@ -1,0 +1,83 @@
+{
+  "caso": "caso_02_robot_cielo",
+  "repeticion": 3,
+  "modelo": "qwen/qwen3.8-27b",
+  "titulo": "Bit y la tormenta perfecta",
+  "protagonista": "Bit",
+  "descripcionProtagonista": "Un pequeño robot explorador con ruedas de goma, ojos luminosos y una antena giratoria, que actúa con valentía y determinación.",
+  "escenario": "La vieja estación meteorológica situada en la cima de una colina verde en un pueblo.",
+  "conflicto": "El sensor exterior de la estación meteorológica marcaba un error debido a que hojas húmedas y ramas impedían el giro del anemómetro justo cuando se avecinaba una tormenta y los agricultores necesitaban las previsiones para proteger sus cosechas.",
+  "resumenAnalisis": "Bit, un pequeño robot de una estación meteorológica, se enfrenta a una falla en el sensor exterior durante el inicio de una tormenta. Valiéndose de su ingenio y valentía, trepa al tejado para desobstruir el anemómetro bloqueado por hojas y ramas. Tras reparar el mecanismo, logra enviar las alertas a tiempo y protege las cosechas del pueblo.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Bit tenía los ojos brillantes de ansiedad. En la cima de la colina, la vieja estación meteorológica suspiraba al viento. Su antena giratoria estaba quieta, atascada por un nido de ramas húmedas y hojas pegadas al anemómetro. ¡El error sonaba fuerte! Una tormenta enorme llegaba pronto y los agricultores de abajo miraban al cielo con miedo. Sin datos precisos, no sabrían qué cultivos salvar. Bit sintió que sus ruedas temblaban, pero su determinación era más fuerte. Sabía que debía匠",
+      "opcionesPresentadas": [
+        "Subir con cuidado por la rampa de servicio hasta el tejado de la estación",
+        "Escritar a la unidad central para avisar de la emergencia",
+        "Girar la antena con la fuerza de sus brazos metálicos"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1026,
+        "tokensEntrada": 489,
+        "tokensSalida": 189,
+        "costoUsd": 0.0011472000000000001
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Bit subió por la窄 rampa de metal con pasos suaves para no despertar a un posible durmiente del viento. El tejado olía a lluvia cercana y madera vieja. Allí, el anemómetro parecía un pequeño dragón dormido, atrapado por una red de hojas de roble y ramas enredadas. La tormenta se acercaba, haciendo que el edificio latiguero de paredes vibrara suavemente. Bit activó sus garras de precisión. El viento sopló con fuerza, pero él se inclinó, calculando cada movimiento. Sabía que tienea,",
+      "opcionesPresentadas": [
+        "Limpiar las hojas húmedas y ramas finas que bloqueaban las aspas del anemómetro",
+        "Usar su soplador de aire comprimido para despejar el dispositivo de golpe",
+        "Girar manualmente las aspas para comprobar si estaban oxidadas o atascadas bajo la suciedad"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1164,
+        "tokensEntrada": 517,
+        "tokensSalida": 208,
+        "costoUsd": 0.0012456
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Bit se inclinó cuidadosamente, usando sus garras para retirar hoja a hoja las ramas húmedas. Cada pieza de roble se desprendía con un chasquido satisfactorio. De pronto, el anemómetro cobró vida. Sus aspas comenzaron a girar lentamente, captando las primeras ráfagas de la tormenta. El pequeño dron sintió un rugido de satisfacción al ver cómo el dispositivo, antes atascado, ahora danzaba con precisión milimétrica. La luz verde de la estación parpadeó, indicando que el sensor volvó",
+      "opcionesPresentadas": [
+        "Ajustar el mecanismo del sensor para transmitir los datos meteorológicos a los agricultores",
+        "Revisar los cables eléctricos que conectan el anemómetro con la base de datos",
+        "Lanzar una señal de emergencia audible para alertar a los granjeros cercanos"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 1162,
+        "tokensEntrada": 664,
+        "tokensSalida": 196,
+        "costoUsd": 0.0013151999999999999
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Con un último giro preciso, Bit ajustó la transmisión. La pantalla de la estación parpadeó en verde brillante: ¡datos exactos enviados! A lo lejos, los agricultores sonrieron al ver las alertas claras, protegiendo sus cultivos con éxito justo antes de que la tormenta ruge. Bit se posó en la antena, mirando las nubes oscuras acercarse. Entendió entonces que la tecnología, por pequeña que sea, es una fuerza mágica cuando se usa con cuidado y propósito. Su misión había terminado, no",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 1548,
+        "tokensEntrada": 735,
+        "tokensSalida": 136,
+        "costoUsd": 0.001132
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 4900,
+    "tokensEntradaTotales": 2405,
+    "tokensSalidaTotales": 729,
+    "costoTotalUsd": 0.00484
+  }
+}

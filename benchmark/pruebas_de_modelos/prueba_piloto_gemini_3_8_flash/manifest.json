@@ -1,0 +1,28 @@
+{
+  "modelo": "gemini-3.8-flash",
+  "proveedor": "Google",
+  "fechaUtc": "2026-10-15T12:30:37.866Z",
+  "modo": "REAL",
+  "esSimulado": false,
+  "caso": "caso_01_misterio_agua",
+  "operacionesPlanificadas": 5,
+  "operacionesExitosas": 0,
+  "operacionesFallidas": 5,
+  "solicitudesHttpReales": 1,
+  "costoTeoricoTotalUsd": null,
+  "tarifas": {
+    "inputUsdPorMillon": 0.75,
+    "outputUsdPorMillon": 3.75,
+    "fuente": "Google AI Gemini 3.8 Flash Pricing"
+  },
+  "metricas": {
+    "latenciasMs": [
+      5042
+    ],
+    "tokensEntradaTotales": 0,
+    "tokensSalidaTotales": 0,
+    "tokensRazonamientoTotales": 0,
+    "cumpleEstructuraTotal": false,
+    "cumpleRutaControladaTotal": true
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "caso": "caso_03_arbol_hueco",
+  "repeticion": 4,
+  "modelo": "gemini-3.5-flash-lite",
+  "titulo": "Mateo y el Misterio del Roble Milenario",
+  "protagonista": "Mateo",
+  "descripcionProtagonista": "Un niño soñador de diez años, amante de dibujar criaturas fantásticas, dotado de un noble corazón y una gran valentía.",
+  "escenario": "El bosque de las brumas",
+  "conflicto": "Mateo escucha un quejido misterioso dentro de un roble milenario y debe decidir si se acerca para descubrir el origen del sonido a pesar de las leyendas de espíritus.",
+  "resumenAnalisis": "En el bosque de las brumas, un niño llamado Mateo escucha un quejido proveniente de la abertura de un roble milenario. Al investigar con su linterna, descubre a un búho plateado atrapado entre zarzas. Mateo lo rescata con paciencia, logrando que el ave recupere su libertad y llenando el bosque de magia.",
+  "escenas": [
+    {
+      "numero": 1,
+      "tipo": "inicio",
+      "contenido": "Mateo caminaba con cuidado por el misterioso Bosque de las Brumas, aferrado a su cuaderno de dibujo. Las leyendas contaban que este lugar estaba lleno de espíritus antiguos, pero la curiosidad de Mateo era más fuerte que su miedo. De repente, un viento frío meció las copas de los árboles y, justo frente a él, un enorme roble milenario emitió un quejido profundo y triste. El sonido parecía provenir directamente del interior del grueso tronco. Mateo contuvo la respiración y miró la oscura abertura. ¿Qué debería hacer el valiente niño ante este enigma?",
+      "opcionesPresentadas": [
+        "Encender la linterna de explorador y asomarse al hueco del tronco",
+        "Dibujar el roble milenario en su cuaderno antes de dar un paso más",
+        "Llamar en voz alta para saber si hay alguien atrapado dentro"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 2591,
+        "tokensEntrada": 305,
+        "tokensSalida": 195,
+        "costoUsd": 0.000579
+      }
+    },
+    {
+      "numero": 2,
+      "tipo": "desarrollo_1",
+      "contenido": "Mateo hizo clic en su linterna y apuntó hacia el interior del oscuro hueco del roble milenario. Para su sorpresa, la luz reveló un pequeño búho de plumas plateadas que brillaban con luz propia. El pobre animal estaba atrapado entre unas ramas retorcidas y temblaba ligeramente. Al ver a Mateo, el búho abrió grandes los ojos dorados y emitió un suave piar que sonó como un pedido de ayuda. El valiente niño supo que no podía ignorarlo y decidió actuar de inmediato para rescatar a la enigmática criatura del bosque.",
+      "opcionesPresentadas": [
+        "Desatar con paciencia las zarzas espinosas del ala del búho plateado",
+        "Usar las tijeras de su cartuchera para cortar las ramas con mucho cuidado",
+        "Llamar al espíritu del bosque para que ayude a liberar al pequeño búho"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 2544,
+        "tokensEntrada": 366,
+        "tokensSalida": 214,
+        "costoUsd": 0.0006448
+      }
+    },
+    {
+      "numero": 3,
+      "tipo": "desarrollo_2",
+      "contenido": "Mateo estiro los dedos con sumo cuidado, evitando lastimarse con las afiladas espinas, y comenzo a desenredar las gruesas zarzas que aprisionaban el ala del pequenio buho plateado. El ave se porto muy bien, confiando plenamente en la gentileza del nino y emitiendo un ronroneo suave que calmo los nervios de Mateo. Despues de unos segundos de tension, la ultima rama cedio y el buho quedo completamente libre. Estiro sus hermosas alas luminosas y dio un pequeno salto fuera del tronco, sacudiendose el polvo con alegria.",
+      "opcionesPresentadas": [
+        "Acomodar al ave en un lecho de musgo fresco y ofrecerle agua de la cantimplora",
+        "Seguir al buho plateado mientras vuela adentrandose en el bosque brillante",
+        "Guardar la libreta de dibujos y regresar corriendo a casa antes de que oscurezca"
+      ],
+      "esFinal": false,
+      "metricas": {
+        "latenciaMs": 2689,
+        "tokensEntrada": 517,
+        "tokensSalida": 210,
+        "costoUsd": 0.0006801000000000001
+      }
+    },
+    {
+      "numero": 4,
+      "tipo": "desenlace",
+      "contenido": "Mateo acolchó con delicadeza un lecho de musgo fresco y esmeralda junto a las raíces del roble, invitando al pequeño búho plateado a descansar. El ave, agradecida, inclinó su cabecita y bebió unas gotas de agua cristalina de la cantimplora del niño. De pronto, el búho comenzó a brillar con más intensidad, elevándose suavemente en el aire y dibujando en el cielo destellos de colores dorados y plateados que disiparon por completo la fría bruma del bosque. En señal de gratitud, una pluma brillante cayó suavemente sobre el cuaderno de dibujo de Mateo, convirtiéndose en el símbolo eterno de su valentía y bondad. Mateo sonrió, comprendiendo que la verdadera magia del bosque no residía en sus misterios, sino en la compasión y la ayuda que ofrecemos a los demás.",
+      "opcionesPresentadas": [],
+      "esFinal": true,
+      "metricas": {
+        "latenciaMs": 2617,
+        "tokensEntrada": 604,
+        "tokensSalida": 203,
+        "costoUsd": 0.0006887
+      }
+    }
+  ],
+  "metricasTotalesCuento": {
+    "tiempoTotalGeneracionMs": 10441,
+    "tokensEntradaTotales": 1792,
+    "tokensSalidaTotales": 822,
+    "costoTotalUsd": 0.0025926
+  }
+}
