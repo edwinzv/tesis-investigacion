@@ -1,0 +1,32 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+node "PC Windows\n«device; plataforma objetivo»" as PC {
+ node "Flutter / Dart\n«executionEnvironment»" as FL {
+  artifact "Aplicación Cuentos Mágicos\nmain.dart + lib/*\ncompilación no acreditada aquí" as APP
+ }
+ node "Síntesis de voz Windows" as VOZ
+}
+node "Supabase\n«entorno configurado; remoto no verificado»" as SB {
+ node "Edge Functions / Deno" as EF {
+  artifact "analizar-historia\ngenerar-escena\ngenerar-imagen\ngenerar-quiz\nenviar-quiz\ncrear-estudiante" as FUN
+ }
+ node "Auth + API de datos\n+ Storage (bucket cuentos intentado)" as SDK
+ database "PostgreSQL\nMigraciones locales" as PG
+}
+node "API Gemini\n«servicio externo configurado»" as GEM
+node "API Pollinations\n«servicio externo configurado»" as POL
+FL -- VOZ : plugin flutter_tts local
+FL -- EF : HTTPS / JSON + Bearer
+FL -- SDK : HTTPS / SDK Supabase
+EF -- SDK : SDK supabase-js\nusuario / servicio según operación
+SDK -- PG : acceso gestionado\nprotocolo interno no acreditado
+EF -- GEM : HTTPS / JSON
+EF -- POL : HTTPS / GET o POST multipart
+legend bottom
+Distribución lógica, NO inventario de hardware desplegado.
+Región, hosts, IP, firewall, router y balanceador: pendientes.
+No certifica RNF ni topología remota completa.
+endlegend
+@enduml

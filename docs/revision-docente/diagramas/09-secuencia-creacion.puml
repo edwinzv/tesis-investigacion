@@ -1,0 +1,31 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+participant "DrawView + router" as V
+participant StoryController as C
+participant NarrativaService as N
+participant CuentoRepository as R
+V -> V : exportar PNG; bloquear doble exportación
+break lienzo/nombre inválido o exportación fallida
+ V -> V : informar; no continuar
+end
+V -> C : crearCuentoInicialDemo\n(id, nombrePersonaje, dibujoReferenciaPng)
+C -> C : validar nombre y PNG; construir Cuento
+C -> N : crearEscenaInicialDemo\n(nombrePersonaje, descripcionPersonaje)
+N --> C : Escena demo
+C -> C : cuento.agregarEscena(escenaInicial)
+C -> R : guardarCuento(cuento)
+alt guardado correcto
+ R --> C : void
+ C --> V : Cuento
+else fallo de guardado
+ R --> C : excepción
+ C --> V : error; no confirmación integral
+end
+note over V,R
+Panel (a), CU-03/CU-06: primera escena dibujada DEMO.
+Sin llamada a LLM textual para interpretar el PNG.
+router = _HomeRouterState. Diagrama derivado de código, no ejecución.
+end note
+@enduml
