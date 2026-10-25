@@ -1,0 +1,51 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 17
+skinparam shadowing false
+left to right direction
+actor Estudiante as E
+actor Docente as D
+rectangle "Cuentos Mágicos — sistema Windows" {
+ usecase "CU-01 Autenticarse" as C1
+ usecase "CU-02 Elegir modalidad" as C2
+ usecase "CU-03 Dibujar" as C3
+ usecase "CU-04 Procesar PDF" as C4
+ usecase "CU-05 Personalizar personaje" as C5
+ usecase "CU-06 Crear cuento" as C6
+ usecase "CU-07 Leer escenas\nEP: lectura" as C7
+ usecase "CU-08 Escuchar narración" as C8
+ usecase "CU-09 Elegir y continuar" as C9
+ usecase "CU-10 Resolver Quiz" as C10
+ usecase "CU-11 Consultar resultado/historial" as C11
+ usecase "CU-12 Exportar PDF final\n«previsto; pendiente»" as C12
+ usecase "CU-13 Volver / nueva experiencia" as C13
+ usecase "CU-14 Consultar aulas, registrar\nestudiante y consultar resultados" as C14
+ usecase "CU-15 Extraer texto PDF" as C15
+}
+E -- C1
+E -- C2
+E -- C3
+E -- C4
+E -- C5
+E -- C6
+E -- C7
+E -- C8
+E -- C9
+E -- C10
+E -- C11
+E .. C12 : previsto
+E -- C13
+D -- C1
+D -- C14
+C4 ..> C15 : <<include>>
+C8 ..> C7 : <<extend>>\n~[solicitud o autoNarrar~]\nen lectura
+C1 -[hidden]right- C2
+C3 -[hidden]right- C5
+C6 -[hidden]right- C9
+C10 -[hidden]right- C11
+C12 -[hidden]right- C13
+note bottom of C12
+La presencia en el alcance objetivo
+no acredita implementación integral.
+end note
+@enduml
