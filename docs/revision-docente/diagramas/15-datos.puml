@@ -1,0 +1,63 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+hide empty methods
+class "auth.users" as U <<tabla externa>> {
+ id : uuid PK
+}
+class profiles <<tabla>> {
+ id : uuid PK, FK
+ nombre : text NOT NULL
+ rol : text CHECK
+ codigo_acceso : text UNIQUE nullable
+}
+class aulas <<tabla>> {
+ id : uuid PK
+ docente_id : uuid FK NOT NULL
+ codigo_aula : text UNIQUE
+}
+class aula_estudiantes <<tabla puente>> {
+ aula_id : uuid PK, FK
+ estudiante_id : uuid PK, FK
+ codigo_local : text
+ UNIQUE(aula_id, codigo_local)
+}
+class cuentos <<tabla>> {
+ id : text PK
+ estudiante_id : uuid FK nullable
+ aula_id : uuid FK nullable
+ texto_fuente : text nullable
+ resumen_original : text nullable
+ es_demo : boolean
+}
+class escenas <<tabla>> {
+ id : text PK
+ cuento_id : text FK NOT NULL
+ numero : int
+ contenido : text
+ image_url : text nullable
+ opciones : jsonb
+ es_final : boolean
+ UNIQUE(cuento_id, numero)
+}
+class decisiones_narrativas <<tabla>> {
+ id : text PK
+ cuento_id : text FK NOT NULL
+ numero_escena : int
+ opcion_seleccionada : text
+ UNIQUE(cuento_id, numero_escena)
+}
+U "1" -- "0..1" profiles
+profiles "1" -- "0..*" aulas : docente_id
+profiles "1" -- "0..*" aula_estudiantes
+aulas "1" -- "0..*" aula_estudiantes
+profiles "0..1" -- "0..*" cuentos
+aulas "0..1" -- "0..*" cuentos
+cuentos "1" -- "0..*" escenas
+cuentos "1" -- "0..*" decisiones_narrativas
+legend bottom
+Panel (a): esquema base local 20261007, no esquema remoto verificado.
+numero_escena NO tiene FK a escenas; nulabilidad y claves derivadas del SQL.
+endlegend
+@enduml
