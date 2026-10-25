@@ -1,0 +1,44 @@
+@startuml
+title Contratos y realizaciones de IA y persistencia (extracto validado en código)
+skinparam classAttributeIconSize 0
+hide empty members
+
+interface AiService {
+  + analizarHistoria(texto): Future<StoryAnalysis>
+  + generarEscenaInicial(...): Future<GeneratedScene>
+  + generarEscena(...): Future<GeneratedScene>
+}
+
+class SupabaseAiService {
+  - client: SupabaseClient
+  + analizarHistoria(texto)
+  + generarEscenaInicial(...)
+  + generarEscena(...)
+}
+
+interface CuentoRepository {
+  + guardarCuento(cuento)
+  + obtenerCuento(id)
+  + listarCuentosPorEstudiante(estudianteId)
+}
+
+class CuentoRepositoryMemoria {
+  - cuentos: Map
+}
+class CuentoRepositorySupabase {
+  - client: SupabaseClient
+}
+
+SupabaseAiService ..|> AiService
+CuentoRepositoryMemoria ..|> CuentoRepository
+CuentoRepositorySupabase ..|> CuentoRepository
+
+note bottom of AiService
+Corroborado en lib/services/ai_service.dart
+y lib/services/supabase_ai_service.dart.
+end note
+note bottom of CuentoRepository
+Corroborado en lib/repositories/.
+Este extracto no reemplaza todo el diagrama de clases.
+end note
+@enduml
